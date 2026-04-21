@@ -18,7 +18,27 @@ body {
 }
 
 .hero h1 {
-    font-size: 36px;
+    font-size: 34px;
+}
+
+.highlight-text {
+    font-size: 20px;
+    color: #ffeb3b;
+    font-weight: bold;
+}
+
+.flash {
+    background: #ff5722;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 5px;
+    animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+    0% {opacity: 1;}
+    50% {opacity: 0.6;}
+    100% {opacity: 1;}
 }
 
 .btn {
@@ -31,11 +51,21 @@ body {
     margin-top: 20px;
 }
 
+.pulse {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.08);}
+    100% {transform: scale(1);}
+}
+
 .section {
     background: white;
     margin: 20px;
     padding: 40px;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 .section.alt {
@@ -45,20 +75,28 @@ body {
 .grid {
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 .card {
     flex: 1;
-    background: #fff;
-    padding: 20px;
-    border-radius: 6px;
+    min-width: 250px;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
     text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
 }
 
 .form-box input,
 .form-box select {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin-top: 10px;
 }
 
@@ -69,40 +107,14 @@ body {
     padding: 40px;
 }
 
-footer {
-    text-align: center;
-    padding: 20px;
-}
-
-.highlight-text {
-    font-size: 20px;
-    margin-top: 10px;
-    color: #ffeb3b;
-    font-weight: bold;
-}
-
-.flash {
-    margin-top: 20px;
-    background: #ff5722;
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
     color: white;
-    padding: 10px;
-    border-radius: 5px;
-    font-weight: bold;
-    animation: blink 1.2s infinite;
-}
-
-@keyframes blink {
-    0% {opacity: 1;}
-    50% {opacity: 0.6;}
-    100% {opacity: 1;}
-}
-
-.pulse {
-    animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-    0% {transform: scale(1);}
-    50% {transform: scale(1.08);}
-    100% {transform: scale(1);}
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 20px;
+    text-decoration: none;
 }
