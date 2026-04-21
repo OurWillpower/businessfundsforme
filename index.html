@@ -4,139 +4,55 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Funding Strategy Experts | BusinessFundsForMe</title>
+<title>Funding Strategy Experts</title>
 
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- HERO -->
 <section class="hero-premium">
     <div class="container">
-        <h1>₹10 Lakhs to ₹2 Crores+</h1>
-        <h2>Multi-Source Funding Strategy for Indian Businesses</h2>
-
-        <p class="sub">
-            Government • Private • Global Funding — Structured & Delivered
-        </p>
+        <h1>Find Funding For YOUR Business</h1>
+        <p class="sub">Government • Private • Global</p>
 
         <div class="flash-bar">
-            🔥 Most businesses never access real funding — We change that
+            🔥 Select your sector below & discover funding instantly
         </div>
-
-        <a href="#form" class="btn-premium pulse">Get Funding Strategy</a>
     </div>
 </section>
 
-<!-- IMAGE STRIP -->
-<section class="image-strip">
-    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d" />
-    <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a" />
-    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf" />
-</section>
-
-<!-- FUNDING SOURCES -->
+<!-- INTERACTIVE SECTION -->
 <section class="section center">
     <div class="container">
-        <h2>3 Powerful Funding Channels</h2>
+        <h2>🔍 Find Schemes By Sector</h2>
+
+        <select id="sector" onchange="showSchemes()">
+            <option value="">Select Your Sector</option>
+            <option value="agri">Agriculture</option>
+            <option value="manufacturing">Manufacturing</option>
+            <option value="startup">Startup / Tech</option>
+            <option value="food">Food Processing</option>
+        </select>
+
+        <div id="results"></div>
     </div>
-</section>
-
-<section class="section">
-    <div class="container grid">
-
-        <div class="card-premium">
-            <h3>🏛 Government</h3>
-            <p>Grants, subsidies, MSME & startup schemes</p>
-        </div>
-
-        <div class="card-premium">
-            <h3>🏢 Private</h3>
-            <p>Angel investors, incubators, corporate funding</p>
-        </div>
-
-        <div class="card-premium">
-            <h3>🌍 Global</h3>
-            <p>International grants, accelerators & programs</p>
-        </div>
-
-    </div>
-</section>
-
-<!-- AUTHORITY IMAGE -->
-<section class="section center">
-    <img class="feature-img" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df">
-</section>
-
-<!-- TRUST -->
-<section class="trust-bar">
-    <p>Structured Documentation • Strategic Positioning • Higher Approval Probability</p>
-</section>
-
-<!-- PROCESS -->
-<section class="section">
-    <div class="container grid">
-
-        <div class="card-premium">
-            <h3>Step 1</h3>
-            <p>Assessment</p>
-        </div>
-
-        <div class="card-premium">
-            <h3>Step 2</h3>
-            <p>Strategy</p>
-        </div>
-
-        <div class="card-premium">
-            <h3>Step 3</h3>
-            <p>Documentation</p>
-        </div>
-
-        <div class="card-premium">
-            <h3>Step 4</h3>
-            <p>Execution</p>
-        </div>
-
-    </div>
-</section>
-
-<!-- URGENCY -->
-<section class="urgency">
-    ⚠ Limited Clients Taken Per Month — Serious Businesses Only
 </section>
 
 <!-- FORM -->
 <section class="section" id="form">
     <div class="container form-premium">
-        <h2>Get Your Funding Strategy</h2>
+        <h2>Get Full Funding Strategy</h2>
 
         <form>
             <input type="text" placeholder="Full Name" required>
-            <input type="text" placeholder="Business Name" required>
-
-            <select required>
-                <option>Business Stage</option>
-                <option>Idea</option>
-                <option>Startup</option>
-                <option>Running</option>
-            </select>
-
             <input type="tel" placeholder="WhatsApp Number" required>
-
-            <button class="btn-premium">Submit</button>
+            <button class="btn-premium">Get Details</button>
         </form>
     </div>
 </section>
 
-<!-- FLOATING WHATSAPP -->
-<a href="https://wa.me/917039196489" class="whatsapp">💬</a>
-
-<!-- CTA -->
-<section class="cta-dark">
-    <h2>Ready to Unlock Funding?</h2>
-    <a href="https://wa.me/917039196489" class="btn-premium">Talk Now</a>
-</section>
+<script src="script.js"></script>
 
 </body>
 </html>
