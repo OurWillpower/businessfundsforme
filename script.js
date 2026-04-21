@@ -1,7 +1,17 @@
-document.getElementById("leadForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+function showSchemes() {
+    let sector = document.getElementById("sector").value;
+    let result = document.getElementById("results");
 
-    alert("Thank you! We will contact you shortly.");
+    let data = {
+        agri: "RKVY, Agri Infra Fund, NABARD schemes",
+        manufacturing: "CLCSS, MSME Scheme, CGTMSE",
+        startup: "Startup India, TIDE 2.0, SAMRIDH",
+        food: "PMFME, Food Processing Subsidy"
+    };
 
-    // NEXT STEP: connect to Google Sheets / backend
-});
+    if (sector in data) {
+        result.innerHTML = "<p><b>Available Schemes:</b><br>" + data[sector] + "</p>";
+    } else {
+        result.innerHTML = "";
+    }
+}
