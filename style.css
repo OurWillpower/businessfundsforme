@@ -1,8 +1,8 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #f8fafc;
-    color: #1e293b;
+    background: #f6f8f7;
+    color: #1b2e2a;
 }
 
 .container {
@@ -19,22 +19,23 @@ body {
 .hero-premium {
     text-align: center;
     padding: 100px 20px;
-    background: linear-gradient(135deg, #e0f2fe, #f8fafc);
+    background: linear-gradient(135deg, #0f3d2e, #1b5e4b);
+    color: white;
 }
 
 .hero-premium h1 {
     font-size: 48px;
-    color: #0b3d91;
+    color: #d4af37;
 }
 
 .hero-premium h2 {
     font-size: 26px;
-    color: #334155;
+    color: #e6d8a3;
 }
 
 .sub {
     margin-top: 20px;
-    color: #475569;
+    color: #c8e6c9;
 }
 
 /* BUTTON */
@@ -42,8 +43,8 @@ body {
     display: inline-block;
     margin-top: 25px;
     padding: 15px 25px;
-    background: #0b3d91;
-    color: white;
+    background: #d4af37;
+    color: #0f3d2e;
     text-decoration: none;
     border-radius: 6px;
     font-weight: bold;
@@ -51,7 +52,7 @@ body {
 }
 
 .btn-premium:hover {
-    background: #1e88e5;
+    background: #b8962e;
 }
 
 /* SECTIONS */
@@ -61,7 +62,7 @@ body {
 }
 
 .section.dark {
-    background: #e0f2fe;
+    background: #e8f5f1;
 }
 
 /* GRID */
@@ -78,7 +79,7 @@ body {
     background: #ffffff;
     padding: 30px;
     border-radius: 10px;
-    border: 1px solid #e2e8f0;
+    border-top: 4px solid #d4af37;
     box-shadow: 0 6px 15px rgba(0,0,0,0.05);
     transition: 0.3s;
 }
@@ -101,6 +102,6 @@ body {
 .cta-dark {
     text-align: center;
     padding: 60px;
-    background: #0b3d91;
+    background: #0f3d2e;
     color: white;
 }
