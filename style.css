@@ -105,3 +105,18 @@ body {
     background: #0f3d2e;
     color: white;
 }
+.trust-bar {
+    background: #d4af37;
+    color: #0f3d2e;
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+}
+
+.urgency {
+    background: #b91c1c;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-weight: bold;
+}
