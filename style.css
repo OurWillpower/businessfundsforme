@@ -24,3 +24,24 @@
 .menu a:hover {
     color: #d4af37;
 }
+.hero-grid {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card-premium img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.feature-img {
+    width: 70%;
+    border-radius: 12px;
+}
