@@ -1,75 +1,58 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #f5f7fa;
+    background: #0f172a;
+    color: white;
 }
 
 .container {
     max-width: 1100px;
     margin: auto;
-    padding: 20px;
+    padding: 40px 20px;
 }
 
-.hero {
-    background: linear-gradient(135deg, #0b3d91, #1e88e5);
-    color: white;
+.center {
     text-align: center;
-    padding: 80px 20px;
 }
 
-.hero h1 {
-    font-size: 34px;
+.hero-premium {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
 }
 
-.highlight-text {
-    font-size: 20px;
-    color: #ffeb3b;
+.hero-premium h1 {
+    font-size: 48px;
+    color: #38bdf8;
+}
+
+.hero-premium h2 {
+    font-size: 28px;
+}
+
+.sub {
+    margin-top: 20px;
+    color: #cbd5f5;
+}
+
+.btn-premium {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 15px 25px;
+    background: #38bdf8;
+    color: black;
+    text-decoration: none;
+    border-radius: 6px;
     font-weight: bold;
 }
 
-.flash {
-    background: #ff5722;
-    padding: 10px;
-    margin-top: 15px;
-    border-radius: 5px;
-    animation: blink 1.2s infinite;
-}
-
-@keyframes blink {
-    0% {opacity: 1;}
-    50% {opacity: 0.6;}
-    100% {opacity: 1;}
-}
-
-.btn {
-    background: #ff9800;
-    color: white;
-    padding: 12px 20px;
-    display: inline-block;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 20px;
-}
-
-.pulse {
-    animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-    0% {transform: scale(1);}
-    50% {transform: scale(1.08);}
-    100% {transform: scale(1);}
-}
-
 .section {
-    background: white;
-    margin: 20px;
-    padding: 40px;
-    border-radius: 10px;
+    padding: 60px 20px;
+    background: #1e293b;
 }
 
-.section.alt {
-    background: #e3f2fd;
+.section.dark {
+    background: #020617;
 }
 
 .grid {
@@ -78,43 +61,24 @@ body {
     flex-wrap: wrap;
 }
 
-.card {
+.card-premium {
     flex: 1;
     min-width: 250px;
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    transition: 0.3s;
+    background: #020617;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #334155;
 }
 
-.card:hover {
-    transform: translateY(-8px);
-}
-
-.form-box input,
-.form-box select {
+.form-premium input,
+.form-premium select {
     width: 100%;
     padding: 12px;
     margin-top: 10px;
 }
 
-.cta {
-    background: #0b3d91;
-    color: white;
+.cta-dark {
     text-align: center;
-    padding: 40px;
-}
-
-.whatsapp {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #25D366;
-    color: white;
-    padding: 15px;
-    border-radius: 50%;
-    font-size: 20px;
-    text-decoration: none;
+    padding: 60px;
+    background: black;
 }
