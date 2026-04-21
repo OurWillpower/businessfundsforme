@@ -1,8 +1,8 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #0f172a;
-    color: white;
+    background: #f8fafc;
+    color: #1e293b;
 }
 
 .container {
@@ -15,70 +15,92 @@ body {
     text-align: center;
 }
 
+/* HERO */
 .hero-premium {
     text-align: center;
     padding: 100px 20px;
-    background: linear-gradient(135deg, #0f172a, #1e293b);
+    background: linear-gradient(135deg, #e0f2fe, #f8fafc);
 }
 
 .hero-premium h1 {
     font-size: 48px;
-    color: #38bdf8;
+    color: #0b3d91;
 }
 
 .hero-premium h2 {
-    font-size: 28px;
+    font-size: 26px;
+    color: #334155;
 }
 
 .sub {
     margin-top: 20px;
-    color: #cbd5f5;
+    color: #475569;
 }
 
+/* BUTTON */
 .btn-premium {
     display: inline-block;
     margin-top: 25px;
     padding: 15px 25px;
-    background: #38bdf8;
-    color: black;
+    background: #0b3d91;
+    color: white;
     text-decoration: none;
     border-radius: 6px;
     font-weight: bold;
+    transition: 0.3s;
 }
 
+.btn-premium:hover {
+    background: #1e88e5;
+}
+
+/* SECTIONS */
 .section {
     padding: 60px 20px;
-    background: #1e293b;
+    background: white;
 }
 
 .section.dark {
-    background: #020617;
+    background: #e0f2fe;
 }
 
+/* GRID */
 .grid {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
 }
 
+/* CARDS */
 .card-premium {
     flex: 1;
     min-width: 250px;
-    background: #020617;
+    background: #ffffff;
     padding: 30px;
     border-radius: 10px;
-    border: 1px solid #334155;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+    transition: 0.3s;
 }
 
+.card-premium:hover {
+    transform: translateY(-6px);
+}
+
+/* FORM */
 .form-premium input,
 .form-premium select {
     width: 100%;
     padding: 12px;
     margin-top: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 5px;
 }
 
+/* CTA */
 .cta-dark {
     text-align: center;
     padding: 60px;
-    background: black;
+    background: #0b3d91;
+    color: white;
 }
