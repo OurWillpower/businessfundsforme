@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON Builder | BusinessFundsForMe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 p-10">
+    <div class="max-w-2xl mx-auto bg-white p-8 rounded-3xl shadow-xl">
+        <h1 class="text-2xl font-black mb-6">Add New Scheme</h1>
+        
+        <div class="space-y-4">
+            <input type="text" id="name" placeholder="Scheme Name" class="w-full p-3 border rounded-xl">
+            <div class="grid grid-cols-2 gap-4">
+                <select id="type" class="p-3 border rounded-xl">
+                    <option value="Grant">Grant</option>
+                    <option value="Loan">Loan</option>
+                    <option value="Subsidy">Subsidy</option>
+                    <option value="Equity">Equity</option>
+                </select>
+                <input type="text" id="amount" placeholder="Max Amount (e.g. ₹50 Lakhs)" class="w-full p-3 border rounded-xl">
+            </div>
+            <input type="text" id="provider" placeholder="Provider (e.g. SIDBI)" class="w-full p-3 border rounded-xl">
+            
+            <div class="p-4 border rounded-xl bg-slate-50">
+                <p class="text-xs font-bold text-slate-400 mb-2 uppercase">Industries (Hold Ctrl to select multiple)</p>
+                <select id="industry" multiple class="w-full p-2 h-32 rounded-lg">
+                    <option value="IT & Tech">IT & Tech</option>
+                    <option value="Manufacturing">Manufacturing</option>
+                    <option value="Agriculture">Agriculture</option>
+                    <option value="Healthcare">Healthcare</option>
+                    <option value="Women-Led">Women-Led</option>
+                    <option value="Retail">Retail</option>
+                </select>
+            </div>
+
+            <input type="text" id="state" placeholder="State (or Pan India)" class="w-full p-3 border rounded-xl">
+            <input type="text" id="link" placeholder="Application Link" class="w-full p-3 border rounded-xl">
+            <input type="text" id="deadline" placeholder="Deadline" class="w-full p-3 border rounded-xl">
+
+            <button onclick="generateJSON()" class="w-full bg-indigo-600 text-white font-bold py-4 rounded-xl">Generate JSON Entry</button>
+        </div>
+
+        <div class="mt-10">
+            <h3 class="font-bold mb-2">Copy this Result:</h3>
+            <textarea id="result" class="w-full h-40 p-4 bg-slate-900 text-green-400 font-mono text-sm rounded-xl" readonly></textarea>
+        </div>
+    </div>
+
+    <script>
+        function generateJSON() {
+            const industries = Array.from(document.getElementById('industry').selectedOptions).map(o => o.value);
+            const entry = {
+                name: document.getElementById('name').value,
+                type: document.getElementById('type').value,
+                amount: document.getElementById('amount').value,
+                provider: document.getElementById('provider').value,
+                industry: industries.length > 0 ? industries : ["General"],
+                state: document.getElementById('state').value || "Pan India",
+                link: document.getElementById('link').value,
+                deadline: document.getElementById('deadline').value
+            };
+            
+            // Add a comma for easy appending
+            document.getElementById('result').value = JSON.stringify(entry, null, 2) + ",";
+        }
+    </script>
+</body>
+</html>
