@@ -9,26 +9,29 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
-        /* Ticker Styling - Deep Indigo Background */
+        /* Ticker Styling - Deep Indigo Background Restored */
         .news-ticker-container { background: #1e1b4b; overflow: hidden; position: relative; z-index: 40; border-bottom: 2px solid #312e81; }
         .news-ticker {
             display: inline-block;
             white-space: nowrap;
             padding-left: 100%;
-            animation: ticker 80s linear infinite; 
+            animation: ticker 80s linear infinite; /* Very slow and readable */
         }
         @keyframes ticker {
             0% { transform: translate(0, 0); }
             100% { transform: translate(-100%, 0); }
         }
-        /* Card Visibility Boost */
+        /* Card Visibility Boost - Forced White Background */
         .grant-card {
             background: #ffffff !important;
             border: 1px solid #e2e8f0;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            height: 100%;
         }
-        .grant-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
     </style>
 </head>
 <body class="text-slate-900">
@@ -53,46 +56,50 @@
     </div>
 
     <div class="bg-indigo-900 py-16 px-6 text-center">
-        <h1 class="text-white text-5xl font-black mb-4">200+ Funding Opportunities</h1>
-        <p class="text-indigo-200 font-medium">Find the right Government & Private funding for your vision.</p>
+        <h1 class="text-white text-5xl font-black mb-4 tracking-tight">200+ Funding Opportunities</h1>
+        <p class="text-indigo-200 font-medium">Verified Government & Private funding for Indian Founders.</p>
     </div>
 
     <div class="container mx-auto px-6 py-12">
         <div id="grants-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            </div>
-        
-        <div id="loading-trigger" class="py-10 text-center text-slate-400 font-bold uppercase text-xs tracking-widest">
-            Scroll for more schemes...
+            <p id="fallback-text" class="col-span-full text-center text-slate-400 font-bold py-20">Initializing Secure Data Stream...</p>
         </div>
     </div>
 
     <script>
-        // Integrated Data to ensure visibility even if JSON fails
-        const allGrants = [
-            { "name": "Startup India Seed Fund", "type": "Grant", "provider": "DPIIT", "amount": "₹50 Lakhs", "link": "https://seedfund.startupindia.gov.in/" },
+        // EMERGENCY DATA: This ensures the site is NEVER empty
+        const backupData = [
+            { "name": "Startup India Seed Fund (SISFS)", "type": "Grant", "provider": "DPIIT", "amount": "₹50 Lakhs", "link": "https://seedfund.startupindia.gov.in/" },
             { "name": "BIRAC BIG Grant", "type": "Grant", "provider": "DBT", "amount": "₹50 Lakhs", "link": "https://birac.nic.in/" },
-            { "name": "Stand-Up India", "type": "Loan", "provider": "SIDBI", "amount": "₹1 Crore", "link": "https://www.standupmitra.in/" },
-            { "name": "CGTMSE Scheme", "type": "Loan", "provider": "MSME Ministry", "amount": "₹5 Crores", "link": "https://www.cgtmse.in/" },
+            { "name": "MUDRA Tarun Plus", "type": "Loan", "provider": "PMMY", "amount": "₹20 Lakhs", "link": "https://www.mudra.org.in/" },
+            { "name": "Stand-Up India Scheme", "type": "Loan", "provider": "SIDBI", "amount": "₹2 Crores", "link": "https://www.standupmitra.in/" },
             { "name": "NIDHI PRAYAS", "type": "Grant", "provider": "DST", "amount": "₹10 Lakhs", "link": "https://www.nidhi-prayas.org/" },
-            { "name": "PMEGP Scheme", "type": "Subsidy", "provider": "KVIC", "amount": "₹50 Lakhs", "link": "https://www.kviconline.gov.in/" },
-            // ... (I will keep the list here short for the example code, but use the 200 list in your actual JSON)
+            { "name": "CGTMSE Collateral Free", "type": "Loan", "provider": "MSME Ministry", "amount": "₹5 Crores", "link": "https://www.cgtmse.in/" }
         ];
 
-        let displayed = 12;
-
-        function render() {
+        async function initPortal() {
             const grid = document.getElementById('grants-grid');
-            const data = allGrants.slice(0, displayed);
-            
-            grid.innerHTML = data.map(item => `
-                <div class="grant-card rounded-3xl p-8 flex flex-col h-full">
+            let finalData = backupData;
+
+            try {
+                const response = await fetch('grants.json');
+                if(response.ok) {
+                    const externalData = await response.json();
+                    if(externalData.length > 0) finalData = externalData;
+                }
+            } catch (e) {
+                console.warn("Using local backup data - grants.json not found or invalid.");
+            }
+
+            grid.innerHTML = finalData.map(item => `
+                <div class="grant-card">
                     <span class="bg-indigo-50 text-indigo-700 text-[10px] font-black px-4 py-1.5 rounded-full w-fit mb-4 uppercase tracking-widest">${item.type}</span>
-                    <h3 class="text-xl font-black mb-2">${item.name}</h3>
-                    <p class="text-slate-500 text-sm mb-6 flex-grow font-medium">${item.provider}</p>
-                    <div class="flex justify-between items-center pt-6 border-t border-slate-100">
+                    <h3 class="text-xl font-black mb-2 text-slate-900">${item.name}</h3>
+                    <p class="text-slate-500 text-sm mb-8 font-medium">${item.provider}</p>
+                    <div class="mt-auto pt-6 border-t border-slate-100 flex justify-between items-center">
                         <div>
                             <p class="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1">Max Benefit</p>
-                            <p class="text-2xl font-black text-green-600">${item.amount}</p>
+                            <p class="text-2xl font-black text-green-600 tracking-tighter">${item.amount}</p>
                         </div>
                         <a href="${item.link}" target="_blank" class="bg-slate-900 text-white px-6 py-3 rounded-2xl font-bold text-xs hover:bg-indigo-600 transition">APPLY</a>
                     </div>
@@ -100,16 +107,7 @@
             `).join('');
         }
 
-        window.onscroll = () => {
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 500) {
-                if (displayed < allGrants.length) {
-                    displayed += 12;
-                    render();
-                }
-            }
-        };
-
-        render();
+        initPortal();
     </script>
 </body>
 </html>
