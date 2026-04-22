@@ -98,7 +98,7 @@
   { "name": "MPEDA Seafood Export Grant", "type": "Subsidy", "provider": "MPEDA", "amount": "₹50 Lakhs", "deadline": "Always Open", "link": "https://mpeda.gov.in/" },
   { "name": "Spice Board Export Support", "type": "Subsidy", "provider": "Spices Board", "amount": "₹10 Lakhs", "deadline": "Always Open", "link": "http://www.indianspices.com/" },
   { "name": "Khadi Village Export Grant", "type": "Subsidy", "provider": "KVIC", "amount": "₹5 Lakhs", "deadline": "Always Open", "link": "http://www.kvic.org.in/" },
-  { "name": "Handloom Export Promotion", "type": "Subsidy", "provider": "HEPC", "amount": "₹10 Lakhs", "deadline": "Always Open", "link": "https://www.hepcindia.com/" }
+  { "name": "Handloom Export Promotion", "type": "Subsidy", "provider": "HEPC", "amount": "₹10 Lakhs", "deadline": "Always Open", "link": "https://www.hepcindia.com/" },
   { "name": "Space Startup Grant", "type": "Grant", "provider": "IN-SPACe", "amount": "₹1 Crore", "deadline": "Rolling", "link": "https://www.inspace.gov.in/" },
   { "name": "AI Startup Challenge", "type": "Grant", "provider": "NITI Aayog", "amount": "₹25 Lakhs", "deadline": "Periodic", "link": "https://niti.gov.in/" },
   { "name": "Tourism Startup Grant", "type": "Grant", "provider": "Min. of Tourism", "amount": "₹10 Lakhs", "deadline": "Always Open", "link": "https://tourism.gov.in/" },
@@ -189,14 +189,7 @@
   { "name": "Tribal Startup Fund", "type": "Grant", "provider": "TRIFED", "amount": "₹5 Lakhs", "deadline": "Always Open", "link": "https://trifed.tribal.gov.in/" },
   { "name": "Minority Business Grant", "type": "Loan", "provider": "NMDFC", "amount": "₹20 Lakhs", "deadline": "Always Open", "link": "http://nmdfc.org/" },
   { "name": "Handicapped Finance Fund", "type": "Loan", "provider": "NHFDC", "amount": "₹25 Lakhs", "deadline": "Always Open", "link": "http://nhfdc.nic.in/" },
-  { "name": "Safai Karamchari Finance", "type": "Loan", "provider": "NSKFDC", "amount": "₹15 Lakhs", "deadline": "Always Open", "link": "http://nskfdc.nic.in/" },
-  { "name": "Backward Classes Fund", "type": "Loan", "provider": "NBCFDC", "amount": "₹15 Lakhs", "deadline": "Always Open", "link": "http://nbcfdc.gov.in/" },
-  { "name": "KVIC Margin Money", "type": "Subsidy", "provider": "KVIC", "amount": "25% Project", "deadline": "Always Open", "link": "http://kvic.org.in/" },
-  { "name": "PMEGP Rural Grant", "type": "Subsidy", "provider": "DIC", "amount": "35% Project", "deadline": "Always Open", "link": "https://pmegp.gov.in/" },
-  { "name": "SFURTI Khadi Grant", "type": "Grant", "provider": "MSME Ministry", "amount": "₹2 Crores", "deadline": "Always Open", "link": "https://sfurti.msme.gov.in/" },
-  { "name": "Honey Mission Fund", "type": "Subsidy", "provider": "KVIC", "amount": "Kit Support", "deadline": "Always Open", "link": "http://kvic.org.in/" },
-  { "name": "Solar Charkha Mission", "type": "Grant", "provider": "MSME Ministry", "amount": "₹5 Lakhs", "deadline": "Always Open", "link": "https://msme.gov.in/" },
-  { "name": "Gramodyog Vikas Yojana", "type": "Grant", "provider": "KVIC", "amount": "Training Fund", "deadline": "Always Open", "link": "http://kvic.org.in/" },
-  { "name": "ASPIRE Technology Fund", "type": "Grant", "provider": "MSME Ministry", "amount": "₹1 Crore", "deadline": "Always Open", "link": "https://aspire.msme.gov.in/" },
-  { "name": "National MSME Awards", "type": "Grant", "provider": "MSME Ministry", "amount": "₹3 Lakhs", "deadline": "Annual", "link": "https://msme.gov.in/" }
+  { "name": "OBC Development Loan", "type": "Loan", "provider": "NBCFDC", "amount": "₹15 Lakhs", "deadline": "Always Open", "link": "http://nbcfdc.gov.in/" },
+  { "name": "Safai Karamcharis Finance", "type": "Loan", "provider": "NSKFDC", "amount": "₹10 Lakhs", "deadline": "Always Open", "link": "http://nskfdc.nic.in/" },
+  { "name": "National Backward Classes Fund", "type": "Loan", "provider": "NBCFDC", "amount": "₹15 Lakhs", "deadline": "Always Open", "link": "http://nbcfdc.gov.in/" }
 ]
