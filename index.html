@@ -12,10 +12,10 @@
     <nav class="bg-white border-b border-slate-200 py-4 sticky top-0 z-50 shadow-sm">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center gap-2">
-                <div class="bg-indigo-600 p-2 rounded-lg text-white">
+                <div class="bg-indigo-600 px-3 py-1 rounded-full text-white text-xs font-bold flex items-center gap-1.5">
                     <i class="fas fa-seedling"></i>
+                    Powered by Willpower
                 </div>
-                <h1 class="text-xl font-bold tracking-tight text-slate-800">BusinessFundsForMe</h1>
             </div>
             <div class="flex gap-4">
                 <a href="#newsletter" class="hidden md:block text-indigo-600 font-semibold py-2 px-4">Get Alerts</a>
@@ -24,11 +24,16 @@
         </div>
     </nav>
 
-    <header class="bg-indigo-900 pt-16 pb-24 px-6 text-center">
+    <header class="bg-indigo-900 pt-16 pb-24 px-6 text-center relative overflow-hidden">
+        
+        <div class="mb-10 flex justify-center">
+            <img src="logo.png" alt="Willpower Logo" class="w-16 h-16 rounded-full border-4 border-white shadow-2xl">
+        </div>
+
         <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Find Funding for Your Startup</h2>
         <p class="text-indigo-100 text-lg max-w-2xl mx-auto mb-10">Searching through 50+ Government and Private schemes for Indian Entrepreneurs.</p>
         
-        <div class="container mx-auto max-w-4xl">
+        <div class="container mx-auto max-w-4xl relative z-10">
             <div class="bg-white p-2 rounded-2xl shadow-2xl flex flex-col md:flex-row gap-2">
                 <div class="flex-grow flex items-center px-4 bg-slate-50 rounded-xl">
                     <i class="fas fa-search text-slate-400 mr-3"></i>
