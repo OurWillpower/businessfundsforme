@@ -1,94 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business Funds For Me | 200+ Startup Schemes</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
-        .news-ticker { display: inline-block; padding-left: 100%; animation: ticker 60s linear infinite; white-space: nowrap; }
-        @keyframes ticker { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
-        .grant-card { background: white; border-radius: 1.5rem; padding: 1.5rem; border: 1px solid #e2e8f0; transition: 0.3s; height: 100%; }
-        .grant-card:hover { transform: translateY(-5px); border-color: #6366f1; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
-    </style>
-</head>
-<body class="text-slate-900">
-
-    <nav class="bg-white border-b py-4 sticky top-0 z-50">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <img src="logo.png" class="h-10">
-                <span class="font-black text-xl tracking-tighter">BusinessFundsForMe</span>
-            </div>
-            <a href="https://wa.me/917039196489" class="bg-indigo-600 text-white px-5 py-2 rounded-xl font-bold text-xs">WHATSAPP SUPPORT</a>
-        </div>
-    </nav>
-
-    <div class="bg-indigo-950 py-2 overflow-hidden">
-        <div class="news-ticker text-white text-[10px] font-bold uppercase tracking-widest">
-            🚀 200+ SCHEMES VERIFIED FOR 2026 • ⚡ SIDBI VENTURE CAPITAL FUND OPEN • 📢 WORLD OF WILLPOWER INITIATIVE
-        </div>
-    </div>
-
-    <header class="bg-indigo-900 pt-16 pb-24 px-6 text-center text-white">
-        <h1 class="text-4xl md:text-6xl font-black mb-4">Find Your <span class="text-indigo-400">Startup Capital.</span></h1>
-        <p class="text-indigo-200 mb-10 text-lg">The most comprehensive database for Indian Founders.</p>
-        <div class="max-w-2xl mx-auto relative">
-            <i class="fa fa-search absolute left-5 top-5 text-slate-400"></i>
-            <input type="text" id="searchInput" onkeyup="filterData()" placeholder="Search by name or industry..." 
-                   class="w-full p-5 pl-14 rounded-2xl text-slate-900 outline-none shadow-2xl">
-        </div>
-    </header>
-
-    <main class="container mx-auto px-6 py-12 flex flex-col md:flex-row gap-10">
+<main class="container mx-auto px-6 py-12 flex flex-col md:flex-row gap-10">
         <aside class="w-full md:w-72 space-y-8">
-            <div>
-                <h3 class="font-black text-xs uppercase text-slate-400 mb-4">Funding Type</h3>
-                <div id="typeFilters" class="space-y-2">
-                    </div>
+            <div class="flex justify-between items-center">
+                <h3 class="font-black text-xs uppercase text-slate-400">Premium Filters</h3>
+                <button onclick="resetFilters()" class="text-[10px] font-bold text-indigo-600 underline">CLEAR ALL</button>
             </div>
 
             <div>
-                <h3 class="font-black text-xs uppercase text-slate-400 mb-4">Target Industry</h3>
-                <select id="industryFilter" onchange="filterData()" class="w-full p-4 bg-white border rounded-2xl font-bold text-sm">
+                <p class="text-[10px] font-bold text-slate-400 mb-3 uppercase tracking-widest">Funding Type</p>
+                <div id="typeFilters" class="space-y-2"></div>
+            </div>
+
+            <div>
+                <p class="text-[10px] font-bold text-slate-400 mb-3 uppercase tracking-widest">Industry</p>
+                <select id="industryFilter" onchange="filterData()" class="w-full p-4 bg-white border border-slate-200 rounded-2xl font-bold text-sm outline-none focus:ring-2 focus:ring-indigo-500">
                     <option value="All">All Industries</option>
-                    <option value="IT & Tech">IT & Tech</option>
+                    <option value="IT & Tech">IT & Software</option>
                     <option value="Manufacturing">Manufacturing</option>
                     <option value="Agriculture">Agriculture</option>
                     <option value="Healthcare">Healthcare</option>
+                    <option value="Retail">Retail & Ecommerce</option>
                 </select>
             </div>
 
-            <div class="bg-indigo-600 p-6 rounded-[2rem] text-white">
-                <h4 class="font-black mb-2">Need Expert Help?</h4>
-                <p class="text-xs mb-4 opacity-80">We handle documentation for you.</p>
-                <a href="https://wa.me/917039196489" class="block text-center bg-white text-indigo-600 py-3 rounded-xl font-black text-xs">CHAT NOW</a>
+            <div>
+                <p class="text-[10px] font-bold text-slate-400 mb-3 uppercase tracking-widest">Sector</p>
+                <select id="sectorFilter" onchange="filterData()" class="w-full p-4 bg-white border border-slate-200 rounded-2xl font-bold text-sm outline-none focus:ring-2 focus:ring-indigo-500">
+                    <option value="All">All Sectors</option>
+                    <option value="Public">Government (Central/State)</option>
+                    <option value="Private">Private / Venture Capital</option>
+                    <option value="Institutional">Institutional / Bank</option>
+                </select>
+            </div>
+
+            <div>
+                <p class="text-[10px] font-bold text-slate-400 mb-3 uppercase tracking-widest">Region</p>
+                <select id="stateFilter" onchange="filterData()" class="w-full p-4 bg-white border border-slate-200 rounded-2xl font-bold text-sm outline-none focus:ring-2 focus:ring-indigo-500">
+                    <option value="All">Pan India</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Delhi">Delhi</option>
+                </select>
             </div>
         </aside>
 
         <div class="flex-1">
             <div class="flex justify-between items-center mb-8">
-                <h2 id="count-label" class="text-xl font-black">Loading...</h2>
-                <select id="sortOrder" onchange="filterData()" class="bg-transparent font-bold text-xs text-indigo-600 outline-none">
+                <h2 id="count-label" class="text-xl font-black">Available Schemes</h2>
+                <select id="sortOrder" onchange="filterData()" class="bg-transparent font-bold text-xs text-indigo-600 outline-none border-none">
                     <option value="new">Latest First</option>
-                    <option value="alpha">A-Z</option>
+                    <option value="alpha">A - Z</option>
                 </select>
             </div>
             <div id="grants-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-6"></div>
+            <div id="no-results" class="hidden text-center py-20 text-slate-400 font-bold">No matching results.</div>
         </div>
     </main>
 
     <script>
-        // EMERGENCY DATA: If your JSON fails, these will still show up!
-        const backupData = [
-            { name: "Startup India Seed Fund", type: "Grant", amount: "₹50 Lakhs", provider: "DPIIT", industry: ["IT & Tech"], state: "All India", link: "#", deadline: "Always Open" },
-            { name: "BIRAC BIG Grant", type: "Grant", amount: "₹50 Lakhs", provider: "DBT", industry: ["Healthcare"], state: "All India", link: "#", deadline: "Bi-Annual" },
-            { name: "Stand-Up India Scheme", type: "Loan", amount: "₹1 Crore", provider: "SIDBI", industry: ["Manufacturing", "Retail"], state: "All India", link: "#", deadline: "Always Open" }
-        ];
-
         let rawData = [];
         const categories = ["Grant", "Loan", "Subsidy", "Equity"];
 
@@ -96,9 +65,12 @@
             try {
                 const response = await fetch('grants.json');
                 rawData = await response.json();
-                if (!rawData || rawData.length === 0) rawData = backupData;
             } catch (e) {
-                rawData = backupData;
+                console.warn("Using sample data - check grants.json for errors.");
+                rawData = [
+                    { name: "Startup India Seed Fund", type: "Grant", amount: "₹50 Lakhs", provider: "DPIIT", industry: ["IT & Tech"], sector: "Public", state: "All India", link: "#", deadline: "Open" },
+                    { name: "SIDBI Venture Fund", type: "Equity", amount: "Variable", provider: "SIDBI", industry: ["Manufacturing"], sector: "Institutional", state: "All India", link: "#", deadline: "Open" }
+                ];
             }
             filterData();
         }
@@ -106,52 +78,85 @@
         function filterData() {
             const search = document.getElementById('searchInput').value.toLowerCase();
             const ind = document.getElementById('industryFilter').value;
+            const sec = document.getElementById('sectorFilter').value;
+            const state = document.getElementById('stateFilter').value;
+            const sort = document.getElementById('sortOrder').value;
             const checked = Array.from(document.querySelectorAll('#typeFilters input:checked')).map(c => c.value);
 
             let filtered = rawData.filter(item => {
                 const matchesSearch = (item.name + item.provider).toLowerCase().includes(search);
                 const matchesType = checked.length === 0 || checked.includes(item.type);
                 const matchesInd = ind === "All" || (Array.isArray(item.industry) ? item.industry.includes(ind) : item.industry === ind);
-                return matchesSearch && matchesType && matchesInd;
+                const matchesSec = sec === "All" || item.sector === sec;
+                const matchesState = state === "All" || item.state === state;
+
+                return matchesSearch && matchesType && matchesInd && matchesSec && matchesState;
             });
 
-            updateFilters(checked);
+            if (sort === 'alpha') filtered.sort((a, b) => a.name.localeCompare(b.name));
+
+            updateTypeSidebar(checked, search, ind, sec, state);
             renderGrid(filtered);
         }
 
-        function updateFilters(checked) {
+        function updateTypeSidebar(checked, search, ind, sec, state) {
             document.getElementById('typeFilters').innerHTML = categories.map(cat => {
-                const count = rawData.filter(i => i.type === cat).length;
+                // Count items in this category that match OTHER current filters
+                const count = rawData.filter(i => {
+                    const matchesInd = ind === "All" || (Array.isArray(i.industry) ? i.industry.includes(ind) : i.industry === ind);
+                    return i.type === cat && matchesInd && (sec === "All" || i.sector === sec) && (state === "All" || i.state === state);
+                }).length;
+
                 return `
-                <label class="flex items-center justify-between p-3 bg-white border rounded-xl cursor-pointer">
+                <label class="flex items-center justify-between p-3 bg-white border border-slate-100 rounded-xl cursor-pointer hover:border-indigo-300 transition">
                     <div class="flex items-center gap-2">
-                        <input type="checkbox" value="${cat}" ${checked.includes(cat) ? 'checked' : ''} onchange="filterData()" class="w-4 h-4 text-indigo-600">
-                        <span class="text-sm font-bold">${cat}s</span>
+                        <input type="checkbox" value="${cat}" ${checked.includes(cat) ? 'checked' : ''} onchange="filterData()" class="w-4 h-4 rounded text-indigo-600">
+                        <span class="text-sm font-bold text-slate-700">${cat}s</span>
                     </div>
-                    <span class="text-[10px] font-black text-slate-400">(${count})</span>
+                    <span class="text-[10px] font-black text-slate-300">(${count})</span>
                 </label>`;
             }).join('');
         }
 
         function renderGrid(data) {
-            document.getElementById('count-label').innerText = `${data.length} Schemes Available`;
-            document.getElementById('grants-grid').innerHTML = data.map(item => `
-                <div class="grant-card flex flex-col">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="bg-indigo-50 text-indigo-600 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">${item.type}</span>
-                        <p class="text-green-600 font-black text-lg">${item.amount}</p>
-                    </div>
-                    <h3 class="text-lg font-black text-slate-900 leading-tight mb-1">${item.name}</h3>
-                    <p class="text-slate-400 text-xs font-bold uppercase mb-4">${item.provider}</p>
-                    <div class="mt-auto pt-4 border-t flex items-center justify-between">
-                        <span class="text-[10px] text-slate-400 font-bold uppercase"><i class="fa fa-map-marker-alt mr-1"></i> ${item.state || 'All India'}</span>
-                        <a href="${item.link}" target="_blank" class="bg-slate-900 text-white px-5 py-2 rounded-xl font-black text-[10px] uppercase transition hover:bg-indigo-600">Apply</a>
-                    </div>
-                </div>
-            `).join('');
+            const grid = document.getElementById('grants-grid');
+            document.getElementById('count-label').innerText = `${data.length} Schemes Found`;
+            
+            if (data.length === 0) {
+                grid.innerHTML = "";
+                document.getElementById('no-results').classList.remove('hidden');
+            } else {
+                document.getElementById('no-results').classList.add('hidden');
+                grid.innerHTML = data.map(item => {
+                    const tags = Array.isArray(item.industry) ? item.industry : [item.industry];
+                    return `
+                    <div class="grant-card flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-indigo-50 text-indigo-600 text-[9px] font-black px-2 py-1 rounded uppercase tracking-tighter">${item.sector || 'General'}</span>
+                            <p class="text-green-600 font-black text-lg tracking-tight">${item.amount}</p>
+                        </div>
+                        <h3 class="text-lg font-black text-slate-900 leading-tight mb-1">${item.name}</h3>
+                        <p class="text-slate-400 text-xs font-bold uppercase mb-4">${item.provider}</p>
+                        <div class="flex flex-wrap gap-1 mb-6">
+                            ${tags.map(t => `<span class="bg-slate-100 text-slate-500 text-[9px] px-2 py-0.5 rounded font-bold">${t}</span>`).join('')}
+                        </div>
+                        <div class="mt-auto pt-4 border-t flex items-center justify-between">
+                            <span class="text-[10px] text-slate-400 font-bold uppercase"><i class="fa fa-map-marker-alt mr-1"></i> ${item.state || 'All India'}</span>
+                            <a href="${item.link}" target="_blank" class="bg-slate-900 text-white px-5 py-2.5 rounded-xl font-black text-[10px] uppercase hover:bg-indigo-600 transition">Apply Now</a>
+                        </div>
+                    </div>`;
+                }).join('');
+            }
+        }
+
+        function resetFilters() {
+            document.getElementById('industryFilter').value = "All";
+            document.getElementById('sectorFilter').value = "All";
+            document.getElementById('stateFilter').value = "All";
+            document.getElementById('searchInput').value = "";
+            document.querySelectorAll('#typeFilters input').forEach(c => c.checked = false);
+            filterData();
         }
 
         loadData();
     </script>
-</body>
-</html>
