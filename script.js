@@ -1,17 +1,19 @@
-function showSchemes() {
+function findFunding() {
+
     let sector = document.getElementById("sector").value;
-    let result = document.getElementById("results");
+    let stage = document.getElementById("stage").value;
+    let output = document.getElementById("results");
 
     let data = {
-        agri: "RKVY, Agri Infra Fund, NABARD schemes",
-        manufacturing: "CLCSS, MSME Scheme, CGTMSE",
-        startup: "Startup India, TIDE 2.0, SAMRIDH",
+        startup: "Startup India Seed Fund, TIDE 2.0, SAMRIDH",
+        msme: "MSME Scheme, CGTMSE Loan, CLCSS Subsidy",
+        agri: "RKVY, NABARD, Agri Infra Fund",
         food: "PMFME, Food Processing Subsidy"
     };
 
     if (sector in data) {
-        result.innerHTML = "<p><b>Available Schemes:</b><br>" + data[sector] + "</p>";
+        output.innerHTML = "<h3>Relevant Funding:</h3><p>" + data[sector] + "</p><br><b>Need help applying? Contact us.</b>";
     } else {
-        result.innerHTML = "";
+        output.innerHTML = "Select a sector to view funding options.";
     }
 }
