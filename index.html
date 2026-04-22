@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business Funds For Me | Startup Grant Directory</title>
-    <meta name="description" content="Discover 50+ government and private funding schemes for Indian startups.">
+    <title>Business Funds For Me | 200+ Startup Schemes</title>
+    <meta name="description" content="Access 200+ government and private funding schemes for Indian startups.">
     <meta property="og:title" content="Business Funds For Me | Startup Grant Directory">
-    <meta property="og:description" content="Discover 50+ government and private funding schemes for Indian startups.">
     <meta property="og:image" content="logo.png">
-    <meta property="og:url" content="https://www.businessfundsforme.com">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -28,12 +26,12 @@
             font-size: 24px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.15);
             z-index: 100;
-            transition: transform 0.3s ease;
         }
-        .whatsapp-float:hover { transform: scale(1.1); }
+        .sidebar { height: calc(100vh - 64px); }
+        @media (max-width: 768px) { .sidebar { height: auto; position: relative; } }
     </style>
 </head>
-<body class="bg-slate-50 font-sans text-slate-900">
+<body class="bg-slate-50 font-sans text-slate-900 overflow-x-hidden">
 
     <a href="https://wa.me/917039196489" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
@@ -41,114 +39,132 @@
 
     <nav class="bg-white border-b border-slate-200 py-2 sticky top-0 z-50 shadow-sm">
         <div class="container mx-auto px-4 flex justify-between items-center">
-            <div class="flex items-center gap-4">
-                <img src="logo.png" alt="Willpower" class="h-12 w-auto object-contain" onerror="this.style.display='none'">
-                <div class="flex flex-col border-l border-slate-200 pl-4">
-                    <span class="font-black text-slate-800 tracking-tighter text-lg leading-tight">BusinessFundsForMe</span>
-                    <span class="text-[9px] text-indigo-600 font-bold uppercase tracking-wider">World of Willpower Initiative</span>
+            <div class="flex items-center gap-3">
+                <img src="logo.png" alt="Willpower" class="h-10 w-auto">
+                <div class="flex flex-col border-l border-slate-200 pl-3">
+                    <span class="font-black text-slate-800 tracking-tighter text-base leading-tight">BusinessFundsForMe</span>
+                    <span class="text-[8px] text-indigo-600 font-bold uppercase tracking-wider">World of Willpower Initiative</span>
                 </div>
             </div>
-            <a href="mailto:care@worldofwillpower.com" class="text-slate-400 hover:text-indigo-600 transition">
-                <i class="far fa-envelope text-lg"></i>
-            </a>
+            <div class="flex items-center gap-4">
+                <span id="scheme-count" class="hidden md:inline bg-indigo-50 text-indigo-700 text-[10px] px-3 py-1 rounded-full font-black uppercase tracking-widest">200+ Schemes Live</span>
+                <a href="mailto:care@worldofwillpower.com" class="text-slate-400 hover:text-indigo-600 transition"><i class="far fa-envelope text-lg"></i></a>
+            </div>
         </div>
     </nav>
 
-    <header class="bg-indigo-900 pt-10 pb-14 px-4 text-center relative overflow-hidden">
-        <div class="relative z-10">
-            <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-3 tracking-tighter">Find Startup Funding</h2>
-            <p class="text-indigo-100 text-sm md:text-base max-w-xl mx-auto mb-8 opacity-90 font-medium">Curating 50+ high-impact schemes for Indian Entrepreneurs.</p>
-            
-            <div class="container mx-auto max-w-3xl">
-                <div class="bg-white p-1.5 rounded-2xl shadow-xl flex flex-col md:flex-row gap-1 border border-white/10">
-                    <div class="flex-grow flex items-center px-4 bg-slate-50 rounded-xl">
-                        <i class="fas fa-search text-slate-400 mr-2"></i>
-                        <input type="text" id="searchInput" placeholder="Search by name, provider, or industry..." class="w-full py-3 bg-transparent outline-none text-slate-700 font-bold text-sm">
-                    </div>
-                    <select id="filterType" class="bg-slate-100 py-3 px-6 rounded-xl outline-none font-bold text-slate-700 border-none cursor-pointer text-sm">
-                        <option value="All">All Categories</option>
-                        <option value="Grant">Grants</option>
-                        <option value="Loan">Loans</option>
-                        <option value="Subsidy">Subsidies</option>
-                    </select>
+    <div class="flex flex-col md:flex-row">
+        <aside class="w-full md:w-80 bg-white border-r border-slate-200 p-6 sticky top-16 sidebar overflow-y-auto">
+            <div class="mb-8">
+                <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-3">Search Database</label>
+                <div class="relative">
+                    <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 text-sm"></i>
+                    <input type="text" id="searchInput" placeholder="Search keywords..." class="w-full bg-slate-50 border border-slate-100 rounded-xl py-3 pl-11 pr-4 text-sm font-bold outline-none focus:border-indigo-500 transition">
                 </div>
             </div>
-        </div>
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-indigo-500/20 via-transparent to-transparent"></div>
-    </header>
 
-    <main class="container mx-auto px-4 py-10">
-        <div id="grants-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="mb-8">
+                <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-3">Funding Type</label>
+                <div class="space-y-2">
+                    <button onclick="setFilter('type', 'All')" class="filter-btn-type w-full text-left px-4 py-2.5 rounded-xl text-sm font-bold transition bg-indigo-600 text-white" data-val="All">All Types</button>
+                    <button onclick="setFilter('type', 'Grant')" class="filter-btn-type w-full text-left px-4 py-2.5 rounded-xl text-sm font-bold text-slate-500 hover:bg-slate-50" data-val="Grant">Grants</button>
+                    <button onclick="setFilter('type', 'Loan')" class="filter-btn-type w-full text-left px-4 py-2.5 rounded-xl text-sm font-bold text-slate-500 hover:bg-slate-50" data-val="Loan">Loans</button>
+                    <button onclick="setFilter('type', 'Subsidy')" class="filter-btn-type w-full text-left px-4 py-2.5 rounded-xl text-sm font-bold text-slate-500 hover:bg-slate-50" data-val="Subsidy">Subsidies</button>
+                </div>
             </div>
-    </main>
 
-    <footer class="bg-white border-t border-slate-200 py-8">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-                <div class="text-center md:text-left">
-                    <h4 class="font-black text-slate-900 text-sm">World of Willpower Private Limited</h4>
-                    <p class="text-slate-500 text-[11px] italic">Empowering Indian Entrepreneurs since 2012.</p>
-                </div>
-                <div class="flex gap-6 text-[11px] font-bold">
-                    <a href="mailto:care@worldofwillpower.com" class="text-slate-600 hover:text-indigo-600 uppercase tracking-widest flex items-center gap-2">
-                        <i class="fas fa-envelope"></i> Email
-                    </a>
-                    <a href="https://wa.me/917039196489" class="text-slate-600 hover:text-green-600 uppercase tracking-widest flex items-center gap-2">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
-                    </a>
-                </div>
+            <div class="mb-8">
+                <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-3">Amount Range</label>
+                <select id="filterAmount" onchange="applyFilters()" class="w-full bg-slate-50 border border-slate-100 rounded-xl py-3 px-4 text-sm font-bold outline-none cursor-pointer">
+                    <option value="All">Any Amount</option>
+                    <option value="Small">Up to ₹10 Lakhs</option>
+                    <option value="Medium">₹10 Lakhs - ₹1 Crore</option>
+                    <option value="Large">Above ₹1 Crore</option>
+                </select>
             </div>
-            <div class="w-full h-px bg-slate-100 my-6"></div>
-            <p class="text-center text-slate-400 text-[9px] font-bold uppercase tracking-[0.2em]">© 2026 BusinessFundsForMe.</p>
-        </div>
-    </footer>
+
+            <div class="pt-6 border-t border-slate-100">
+                <h4 class="font-black text-slate-900 text-xs mb-1">World of Willpower</h4>
+                <p class="text-[10px] text-slate-400 font-medium">Need professional assistance applying? Contact us via WhatsApp.</p>
+            </div>
+        </aside>
+
+        <main class="flex-1 p-6 md:p-10">
+            <div id="grants-grid" class="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-6">
+                </div>
+        </main>
+    </div>
 
     <script>
         let allGrants = [];
+        let activeFilters = { type: 'All', search: '', amount: 'All' };
+
         async function fetchGrants() {
             try {
                 const response = await fetch('grants.json');
                 allGrants = await response.json();
-                renderGrants(allGrants);
+                applyFilters();
             } catch (e) {
-                document.getElementById('grants-grid').innerHTML = '<div class="col-span-full text-center py-10 text-slate-400 text-xs font-bold uppercase tracking-widest">Updating Schemes...</div>';
+                document.getElementById('grants-grid').innerHTML = '<div class="col-span-full text-center py-20 text-slate-400 font-bold uppercase text-xs tracking-widest">Database Syncing...</div>';
             }
+        }
+
+        function setFilter(key, val) {
+            activeFilters[key] = val;
+            if(key === 'type') {
+                document.querySelectorAll('.filter-btn-type').forEach(btn => {
+                    btn.classList.remove('bg-indigo-600', 'text-white');
+                    btn.classList.add('text-slate-500', 'hover:bg-slate-50');
+                    if(btn.getAttribute('data-val') === val) {
+                        btn.classList.add('bg-indigo-600', 'text-white');
+                        btn.classList.remove('text-slate-500', 'hover:bg-slate-50');
+                    }
+                });
+            }
+            applyFilters();
+        }
+
+        function applyFilters() {
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const amount = document.getElementById('filterAmount').value;
+
+            const filtered = allGrants.filter(g => {
+                const matchType = activeFilters.type === 'All' || g.type.includes(activeFilters.type);
+                const matchSearch = g.name.toLowerCase().includes(search) || g.provider.toLowerCase().includes(search);
+                // Simple amount logic (expand based on your specific JSON strings)
+                let matchAmount = true;
+                if(amount === 'Small') matchAmount = g.amount.includes('Lakhs') && !g.amount.includes('Cr');
+                return matchType && matchSearch && matchAmount;
+            });
+
+            renderGrants(filtered);
         }
 
         function renderGrants(data) {
             const grid = document.getElementById('grants-grid');
-            grid.innerHTML = data.length ? '' : '<div class="col-span-full text-center py-10 text-slate-400 text-xs font-bold">NO MATCHES FOUND</div>';
+            grid.innerHTML = data.length ? '' : '<div class="col-span-full text-center py-20 text-slate-400 font-bold uppercase text-xs">No matching schemes found.</div>';
             data.forEach(item => {
                 grid.innerHTML += `
-                    <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition-all flex flex-col group">
+                    <div class="bg-white rounded-2xl p-6 border border-slate-100 hover:shadow-xl transition-all flex flex-col group h-full">
                         <div class="flex justify-between items-start mb-4">
-                            <span class="bg-indigo-50 text-indigo-700 text-[9px] px-3 py-1 rounded-full font-black uppercase tracking-widest group-hover:bg-indigo-600 group-hover:text-white transition-colors">${item.type}</span>
-                            <span class="text-[9px] font-black text-slate-300 uppercase">${item.deadline}</span>
+                            <span class="bg-indigo-50 text-indigo-700 text-[8px] px-3 py-1 rounded-full font-black uppercase tracking-widest">${item.type}</span>
+                            <span class="text-[8px] font-black text-slate-300 uppercase">${item.deadline}</span>
                         </div>
-                        <h3 class="text-xl font-black text-slate-900 mb-2 leading-tight group-hover:text-indigo-600 transition-colors">${item.name}</h3>
-                        <p class="text-slate-500 text-xs mb-6 flex-grow font-medium">${item.provider}</p>
+                        <h3 class="text-lg font-black text-slate-900 mb-2 leading-tight group-hover:text-indigo-600 transition-colors">${item.name}</h3>
+                        <p class="text-slate-500 text-[11px] mb-6 flex-grow font-medium leading-relaxed">${item.provider}</p>
                         <div class="pt-4 border-t border-slate-50 flex justify-between items-center">
                             <div>
-                                <span class="text-[8px] text-slate-400 font-black uppercase block mb-1">Max Benefit</span>
-                                <span class="text-xl font-black text-green-600 tracking-tighter">${item.amount}</span>
+                                <span class="text-[8px] text-slate-400 font-black uppercase block mb-0.5">Benefit</span>
+                                <span class="text-lg font-black text-green-600 tracking-tighter">${item.amount}</span>
                             </div>
-                            <a href="${item.link}" target="_blank" class="bg-slate-900 text-white px-5 py-2.5 rounded-xl font-bold hover:bg-indigo-600 transition text-xs">Apply</a>
+                            <a href="${item.link}" target="_blank" class="bg-slate-900 text-white px-5 py-2.5 rounded-xl font-bold hover:bg-indigo-600 transition text-[11px]">Details</a>
                         </div>
                     </div>
                 `;
             });
         }
 
-        document.getElementById('searchInput').addEventListener('input', (e) => {
-            const term = e.target.value.toLowerCase();
-            renderGrants(allGrants.filter(g => g.name.toLowerCase().includes(term) || g.provider.toLowerCase().includes(term)));
-        });
-
-        document.getElementById('filterType').addEventListener('change', (e) => {
-            const type = e.target.value;
-            renderGrants(type === 'All' ? allGrants : allGrants.filter(g => g.type.includes(type)));
-        });
-
+        document.getElementById('searchInput').addEventListener('input', applyFilters);
         fetchGrants();
     </script>
 </body>
