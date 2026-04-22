@@ -1,7 +1,8 @@
 [
   { "name": "Startup India Seed Fund Scheme (SISFS)", "type": "Grant", "provider": "DPIIT", "amount": "₹50 Lakhs", "deadline": "Always Open", "link": "https://seedfund.startupindia.gov.in/" },
   { "name": "BIRAC BIG Grant", "type": "Grant", "provider": "DBT", "amount": "₹50 Lakhs", "deadline": "Bi-Annual", "link": "https://birac.nic.in/" },
-  { "name": "Stand-Up India Scheme", "type": "Loan", "provider": "SIDBI", "amount": "₹1 Crore", "deadline": "Always Open", "link": "https://www.standupmitra.in/" },
+  { "name": "Stand-Up India Scheme", "type": "Loan", "amount": "₹1 Crore", "provider": "SIDBI","industry": ["Manufacturing", "Retail", "Agriculture"], "sector": "Bank", 
+    "state": "All India", "link": "https://www.standupmitra.in/", "deadline": "Always Open"  },
   { "name": "NIDHI PRAYAS", "type": "Grant", "provider": "DST", "amount": "₹10 Lakhs", "deadline": "Rolling", "link": "https://www.nidhi-prayas.org/" },
   { "name": "PMEGP Subsidy Scheme", "type": "Subsidy", "provider": "KVIC", "amount": "₹50 Lakhs", "deadline": "Always Open", "link": "https://www.kviconline.gov.in/" },
   { "name": "CGTMSE Collateral Free Loan", "type": "Loan", "provider": "MSME Ministry", "amount": "₹5 Crores", "deadline": "Always Open", "link": "https://www.cgtmse.in/" },
