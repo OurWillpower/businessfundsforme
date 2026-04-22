@@ -9,36 +9,38 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
-        /* Ticker Styling - Deep Indigo Background Restored */
+        /* Restored Indigo Background for Ticker */
         .news-ticker-container { background: #1e1b4b; overflow: hidden; position: relative; z-index: 40; border-bottom: 2px solid #312e81; }
         .news-ticker {
             display: inline-block;
             white-space: nowrap;
             padding-left: 100%;
-            animation: ticker 80s linear infinite; /* Very slow and readable */
+            animation: ticker 80s linear infinite; 
         }
         @keyframes ticker {
             0% { transform: translate(0, 0); }
             100% { transform: translate(-100%, 0); }
         }
-        /* Card Visibility Boost - Forced White Background */
+        /* Card High-Visibility Styling */
         .grant-card {
             background: #ffffff !important;
             border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-radius: 2rem;
+            padding: 2rem;
             display: flex;
             flex-direction: column;
-            border-radius: 1.5rem;
-            padding: 2rem;
             height: 100%;
         }
+        .grant-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
     </style>
 </head>
 <body class="text-slate-900">
 
     <nav class="bg-white border-b border-slate-200 py-4 sticky top-0 z-50 shadow-sm">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <div class="flex items-center gap-4">
+            <div class="flex items-center gap-6">
                 <img src="logo.png" alt="Willpower" class="h-16 md:h-20 w-auto">
                 <div class="hidden md:block">
                     <h1 class="font-black text-2xl tracking-tighter">BusinessFundsForMe</h1>
@@ -51,7 +53,7 @@
 
     <div class="news-ticker-container py-3">
         <div class="news-ticker text-white text-[11px] font-bold uppercase tracking-widest">
-            🔥 200+ VERIFIED SCHEMES NOW LIVE • ⚡ SIDBI VENTURE CAPITAL FUND OPEN FOR 2026 • 🚀 WORLD OF WILLPOWER REACHES 500+ STARTUPS ASSISTED • 📢 NEW GOVT GRANTS FOR DEEP-TECH ANNOUNCED
+            🔥 NEW: 200+ VERIFIED SCHEMES NOW LIVE • ⚡ SIDBI VENTURE CAPITAL FUND OPEN FOR 2026 • 📈 WORLD OF WILLPOWER ASSISTING 500+ STARTUPS • 🚀 APPLY FOR CENTRAL GOVT DEEP-TECH GRANTS
         </div>
     </div>
 
@@ -62,36 +64,41 @@
 
     <div class="container mx-auto px-6 py-12">
         <div id="grants-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <p id="fallback-text" class="col-span-full text-center text-slate-400 font-bold py-20">Initializing Secure Data Stream...</p>
+            <div class="col-span-full text-center py-20 text-slate-300 font-black uppercase text-xs tracking-widest">
+                Syncing Verified Database...
+            </div>
+        </div>
+        
+        <div id="load-more" class="mt-12 text-center hidden">
+            <button onclick="loadMore()" class="bg-indigo-600 text-white px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-indigo-700 transition">View More Schemes</button>
         </div>
     </div>
 
     <script>
-        // EMERGENCY DATA: This ensures the site is NEVER empty
-        const backupData = [
-            { "name": "Startup India Seed Fund (SISFS)", "type": "Grant", "provider": "DPIIT", "amount": "₹50 Lakhs", "link": "https://seedfund.startupindia.gov.in/" },
-            { "name": "BIRAC BIG Grant", "type": "Grant", "provider": "DBT", "amount": "₹50 Lakhs", "link": "https://birac.nic.in/" },
-            { "name": "MUDRA Tarun Plus", "type": "Loan", "provider": "PMMY", "amount": "₹20 Lakhs", "link": "https://www.mudra.org.in/" },
-            { "name": "Stand-Up India Scheme", "type": "Loan", "provider": "SIDBI", "amount": "₹2 Crores", "link": "https://www.standupmitra.in/" },
-            { "name": "NIDHI PRAYAS", "type": "Grant", "provider": "DST", "amount": "₹10 Lakhs", "link": "https://www.nidhi-prayas.org/" },
-            { "name": "CGTMSE Collateral Free", "type": "Loan", "provider": "MSME Ministry", "amount": "₹5 Crores", "link": "https://www.cgtmse.in/" }
-        ];
+        let allGrants = [];
+        let displayedCount = 12;
 
-        async function initPortal() {
-            const grid = document.getElementById('grants-grid');
-            let finalData = backupData;
-
+        async function init() {
             try {
                 const response = await fetch('grants.json');
-                if(response.ok) {
-                    const externalData = await response.json();
-                    if(externalData.length > 0) finalData = externalData;
-                }
+                if (!response.ok) throw new Error("JSON load failed");
+                allGrants = await response.json();
+                render();
             } catch (e) {
-                console.warn("Using local backup data - grants.json not found or invalid.");
+                console.error(e);
+                document.getElementById('grants-grid').innerHTML = `
+                    <div class="col-span-full text-center py-20">
+                        <p class="text-red-500 font-bold mb-4">Error loading data. Check grants.json syntax.</p>
+                        <a href="https://wa.me/917039196489" class="text-indigo-600 font-black">Contact Support</a>
+                    </div>`;
             }
+        }
 
-            grid.innerHTML = finalData.map(item => `
+        function render() {
+            const grid = document.getElementById('grants-grid');
+            const toShow = allGrants.slice(0, displayedCount);
+            
+            grid.innerHTML = toShow.map(item => `
                 <div class="grant-card">
                     <span class="bg-indigo-50 text-indigo-700 text-[10px] font-black px-4 py-1.5 rounded-full w-fit mb-4 uppercase tracking-widest">${item.type}</span>
                     <h3 class="text-xl font-black mb-2 text-slate-900">${item.name}</h3>
@@ -105,9 +112,20 @@
                     </div>
                 </div>
             `).join('');
+
+            if (displayedCount < allGrants.length) {
+                document.getElementById('load-more').classList.remove('hidden');
+            } else {
+                document.getElementById('load-more').classList.add('hidden');
+            }
         }
 
-        initPortal();
+        function loadMore() {
+            displayedCount += 12;
+            render();
+        }
+
+        init();
     </script>
 </body>
 </html>
