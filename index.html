@@ -6,24 +6,53 @@
     <title>Business Funds For Me | Startup Grant Directory</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.1);
+            z-index: 100;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128c7e;
+        }
+    </style>
 </head>
 <body class="bg-slate-50 font-sans text-slate-900">
+
+    <a href="https://wa.me/917039196489" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <nav class="bg-white border-b border-slate-200 py-4 sticky top-0 z-50 shadow-sm">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center">
                 <div class="flex items-center gap-6">
-                    <img src="logo.png" alt="Willpower Official" class="h-24 w-auto object-contain transition-transform hover:scale-105 duration-300" onerror="this.style.display='none'">
-                    
+                    <img src="logo.png" alt="Willpower Official" class="h-20 w-auto object-contain" onerror="this.style.display='none'">
                     <div class="hidden md:flex flex-col border-l-2 border-slate-200 pl-6">
                         <span class="font-black text-slate-800 tracking-tighter text-2xl leading-none">BusinessFundsForMe</span>
-                        <span class="text-[11px] text-indigo-600 font-bold uppercase tracking-[0.2em] mt-2">The Willpower Initiative</span>
+                        <span class="text-[11px] text-indigo-600 font-bold uppercase tracking-[0.2em] mt-2">World of Willpower Initiative</span>
                     </div>
                 </div>
             </div>
             
-            <div class="flex gap-4 items-center">
-                <a href="https://github.com/OurWillpower" target="_blank" class="bg-slate-900 text-white px-8 py-3.5 rounded-2xl text-sm font-black hover:bg-indigo-600 transition shadow-xl shadow-slate-200">Submit Grant</a>
+            <div class="flex items-center gap-6">
+                <a href="mailto:care@worldofwillpower.com" class="text-slate-500 hover:text-indigo-600 transition">
+                    <i class="far fa-envelope text-xl"></i>
+                </a>
             </div>
         </div>
     </nav>
@@ -34,7 +63,7 @@
             <p class="text-indigo-100 text-xl max-w-2xl mx-auto mb-14 opacity-90 leading-relaxed font-medium">Curating 50+ high-impact Government and Private schemes for Indian Entrepreneurs.</p>
             
             <div class="container mx-auto max-w-4xl">
-                <div class="bg-white p-2.5 rounded-[2.2rem] shadow-2xl flex flex-col md:flex-row gap-2 border-4 border-white/10">
+                <div class="bg-white p-2.5 rounded-[2.2rem] shadow-2xl flex flex-col md:row gap-2 border-4 border-white/10">
                     <div class="flex-grow flex items-center px-6 bg-slate-50 rounded-[1.6rem]">
                         <i class="fas fa-search text-slate-400 mr-4"></i>
                         <input type="text" id="searchInput" placeholder="Search by name, provider, or industry..." class="w-full py-5 bg-transparent outline-none text-slate-700 font-bold text-lg">
@@ -49,7 +78,6 @@
                 </div>
             </div>
         </div>
-
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-indigo-500/20 via-transparent to-transparent"></div>
     </header>
 
@@ -58,11 +86,35 @@
             </div>
     </main>
 
-    <footer class="bg-white border-t border-slate-100 py-12">
-        <div class="container mx-auto px-6 text-center">
-            <p class="text-slate-400 text-[10px] font-bold uppercase tracking-[0.3em]">
-                © 2026 BusinessFundsForMe. All Rights Reserved.
-            </p>
+    <footer class="bg-white border-t border-slate-200 pt-16 pb-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-left">
+                <div class="max-w-xs">
+                    <h4 class="font-black text-slate-900 text-lg mb-2">World of Willpower Private Limited</h4>
+                    <p class="text-slate-500 text-sm italic">"Atma-shakti Muladhanam" - Empowering the Indian spirit through business and capital.</p>
+                </div>
+                
+                <div class="flex flex-col gap-3">
+                    <div class="flex items-center gap-3 justify-center md:justify-start">
+                        <div class="w-10 h-10 bg-indigo-50 rounded-full flex items-center justify-center text-indigo-600">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <a href="mailto:care@worldofwillpower.com" class="font-bold text-slate-700 hover:text-indigo-600 transition">care@worldofwillpower.com</a>
+                    </div>
+                    <div class="flex items-center gap-3 justify-center md:justify-start">
+                        <div class="w-10 h-10 bg-green-50 rounded-full flex items-center justify-center text-green-600">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <a href="https://wa.me/917039196489" class="font-bold text-slate-700 hover:text-green-600 transition">+91 7039196489</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="w-full h-px bg-slate-100 my-12"></div>
+            
+            <div class="text-center text-slate-400 text-[10px] font-bold uppercase tracking-[0.3em]">
+                © 2026 BusinessFundsForMe. A dedicated venture by World of Willpower Private Limited.
+            </div>
         </div>
     </footer>
 
@@ -74,7 +126,7 @@
                 allGrants = await response.json();
                 renderGrants(allGrants);
             } catch (e) {
-                document.getElementById('grants-grid').innerHTML = '<div class="col-span-full text-center p-20 text-red-500 font-black text-xs tracking-widest">DATABASE OFFLINE</div>';
+                document.getElementById('grants-grid').innerHTML = '<div class="col-span-full text-center p-20 text-slate-400 font-bold text-xs tracking-widest uppercase">Fetching Latest Schemes...</div>';
             }
         }
 
@@ -95,7 +147,7 @@
                                 <span class="text-[9px] text-slate-400 font-black uppercase tracking-widest mb-1">Max Benefit</span>
                                 <span class="text-3xl font-black text-green-600 tracking-tighter">${item.amount}</span>
                             </div>
-                            <a href="${item.link}" target="_blank" class="bg-slate-900 text-white px-7 py-3.5 rounded-2xl font-bold hover:bg-indigo-600 transition text-sm">Apply Now</a>
+                            <a href="${item.link}" target="_blank" class="bg-slate-900 text-white px-7 py-3.5 rounded-2xl font-bold hover:bg-indigo-600 transition text-sm">Apply</a>
                         </div>
                     </div>
                 `;
