@@ -5,53 +5,53 @@
                 
                 <div>
                     <h3 class="font-black text-[11px] uppercase tracking-widest text-slate-400 mb-4">Funding Type</h3>
-                    <div class="space-y-2" id="typeFilters">
-                        </div>
+                    <div class="space-y-2" id="typeFilters"></div>
                 </div>
 
                 <div>
-                    <h3 class="font-black text-[11px] uppercase tracking-widest text-slate-400 mb-4">Industry</h3>
-                    <select id="industryFilter" onchange="filterData()" class="w-full p-4 bg-white border border-slate-200 rounded-2xl font-bold text-sm text-slate-700 outline-none focus:border-indigo-500 transition">
+                    <h3 class="font-black text-[11px] uppercase tracking-widest text-slate-400 mb-4">Target Industry</h3>
+                    <select id="industryFilter" onchange="filterData()" class="w-full p-4 bg-white border border-slate-200 rounded-2xl font-bold text-sm text-slate-700 outline-none focus:ring-2 focus:ring-indigo-500 transition">
                         <option value="All">All Industries</option>
                         <option value="IT & Tech">IT & Software</option>
                         <option value="Manufacturing">Manufacturing</option>
                         <option value="Agriculture">Agriculture</option>
                         <option value="Healthcare">Healthcare</option>
-                        <option value="Education">Education</option>
+                        <option value="Clean Energy">Clean Energy / EV</option>
+                        <option value="Retail">Retail & E-commerce</option>
+                        <option value="Women-Led">Women-Led Business</option>
                     </select>
                 </div>
 
                 <div>
-                    <h3 class="font-black text-[11px] uppercase tracking-widest text-slate-400 mb-4">Target Region</h3>
-                    <select id="stateFilter" onchange="filterData()" class="w-full p-4 bg-white border border-slate-200 rounded-2xl font-bold text-sm text-slate-700 outline-none focus:border-indigo-500 transition">
-                        <option value="All">All India</option>
+                    <h3 class="font-black text-[11px] uppercase tracking-widest text-slate-400 mb-4">Region</h3>
+                    <select id="stateFilter" onchange="filterData()" class="w-full p-4 bg-white border border-slate-200 rounded-2xl font-bold text-sm text-slate-700 outline-none focus:ring-2 focus:ring-indigo-500 transition">
+                        <option value="All">Pan India</option>
                         <option value="Maharashtra">Maharashtra</option>
                         <option value="Karnataka">Karnataka</option>
                         <option value="Gujarat">Gujarat</option>
                         <option value="Delhi">Delhi</option>
-                        <option value="Tamil Nadu">Tamil Nadu</option>
                     </select>
                 </div>
 
-                <div class="bg-indigo-600 p-8 rounded-[2rem] text-white shadow-xl">
-                    <h4 class="font-black text-lg mb-2">Need Help?</h4>
-                    <p class="text-indigo-100 text-sm mb-6">Our experts help you document and apply.</p>
-                    <a href="https://wa.me/917039196489" class="block text-center bg-white text-indigo-600 py-3 rounded-xl font-black text-xs uppercase tracking-widest">WhatsApp</a>
+                <div class="bg-slate-900 p-8 rounded-[2rem] text-white">
+                    <h4 class="font-black text-lg mb-2">Expert Filing</h4>
+                    <p class="text-slate-400 text-sm mb-6">We handle the documentation for you.</p>
+                    <a href="https://wa.me/917039196489" class="block text-center bg-indigo-500 text-white py-3 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-indigo-400 transition">WhatsApp Now</a>
                 </div>
             </div>
         </aside>
 
         <div class="flex-1">
             <div class="flex justify-between items-center mb-8">
-                <h2 id="count-label" class="text-xl font-black">All Schemes</h2>
-                <select id="sortOrder" onchange="filterData()" class="bg-transparent font-bold text-xs text-indigo-600 border-none outline-none cursor-pointer">
+                <h2 id="count-label" class="text-xl font-black">Schemes</h2>
+                <select id="sortOrder" onchange="filterData()" class="bg-transparent font-bold text-xs text-indigo-600 outline-none border-none">
                     <option value="new">Latest First</option>
                     <option value="alpha">A - Z</option>
                 </select>
             </div>
 
-            <div id="grants-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-6"></div>
-            <div id="no-results" class="hidden text-center py-20 text-slate-400 font-bold">No matching schemes found.</div>
+            <div id="grants-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-8"></div>
+            <div id="no-results" class="hidden text-center py-20 text-slate-400 font-bold">No matching results.</div>
         </div>
     </main>
 
@@ -64,7 +64,7 @@
                 const response = await fetch('grants.json');
                 rawData = await response.json();
                 filterData(); 
-            } catch (e) { console.error("Load Error", e); }
+            } catch (e) { console.error(e); }
         }
 
         function filterData() {
@@ -74,46 +74,48 @@
             const state = document.getElementById('stateFilter').value;
             const checkedTypes = Array.from(document.querySelectorAll('#typeFilters input:checked')).map(c => c.value);
 
-            // 1. Filter Logic
             let filtered = rawData.filter(item => {
                 const matchesSearch = (item.name + item.provider).toLowerCase().includes(search);
                 const matchesType = checkedTypes.length === 0 || checkedTypes.includes(item.type);
-                
-                // Add Industry & State logic (assumes your JSON has these keys, otherwise it skips)
-                const matchesIndustry = industry === "All" || (item.industry && item.industry === industry);
-                const matchesState = state === "All" || (item.state && item.state === state);
+                const matchesState = state === "All" || item.state === state;
+
+                // MULTI-INDUSTRY LOGIC: Checks if the selection is in the item's industry list
+                // Supports both: "industry": "Agriculture" OR "industry": ["Agriculture", "Manufacturing"]
+                let matchesIndustry = true;
+                if (industry !== "All") {
+                    if (Array.isArray(item.industry)) {
+                        matchesIndustry = item.industry.includes(industry);
+                    } else {
+                        matchesIndustry = item.industry === industry;
+                    }
+                }
 
                 return matchesSearch && matchesType && matchesIndustry && matchesState;
             });
 
-            // 2. Sorting
             if (sort === 'alpha') filtered.sort((a, b) => a.name.localeCompare(b.name));
 
-            // 3. Update Counts Dynamically based on current Search/Industry/State
-            updateSidebarCounts(filtered, checkedTypes);
-
-            // 4. Render
+            updateSidebarCounts(checkedTypes);
             renderGrid(filtered);
         }
 
-        function updateSidebarCounts(currentFiltered, checkedTypes) {
-            const filterContainer = document.getElementById('typeFilters');
-            filterContainer.innerHTML = categories.map(cat => {
-                // Count how many of THIS category exist in the current filtered set (ignoring the "Type" filter itself)
-                // This lets users see "There are 10 Grants in Agriculture"
+        function updateSidebarCounts(checkedTypes) {
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const industry = document.getElementById('industryFilter').value;
+            const state = document.getElementById('stateFilter').value;
+
+            document.getElementById('typeFilters').innerHTML = categories.map(cat => {
                 const count = rawData.filter(item => {
-                    const search = document.getElementById('searchInput').value.toLowerCase();
-                    const industry = document.getElementById('industryFilter').value;
-                    const state = document.getElementById('stateFilter').value;
+                    const matchesIndustry = industry === "All" || 
+                        (Array.isArray(item.industry) ? item.industry.includes(industry) : item.industry === industry);
                     
                     return item.type === cat && 
                            (item.name + item.provider).toLowerCase().includes(search) &&
-                           (industry === "All" || item.industry === industry) &&
-                           (state === "All" || item.state === state);
+                           (state === "All" || item.state === state) &&
+                           matchesIndustry;
                 }).length;
 
                 const isChecked = checkedTypes.includes(cat) ? 'checked' : '';
-
                 return `
                     <label class="flex items-center justify-between p-3 hover:bg-slate-50 rounded-xl cursor-pointer transition">
                         <div class="flex items-center gap-3">
@@ -121,34 +123,43 @@
                             <span class="text-sm font-semibold text-slate-700">${cat}s</span>
                         </div>
                         <span class="text-[10px] font-black text-slate-400">(${count})</span>
-                    </label>
-                `;
+                    </label>`;
             }).join('');
         }
 
         function renderGrid(data) {
             const grid = document.getElementById('grants-grid');
-            document.getElementById('count-label').innerText = `${data.length} Schemes Found`;
+            document.getElementById('count-label').innerText = `${data.length} Available Schemes`;
             
             if (data.length === 0) {
                 grid.innerHTML = "";
                 document.getElementById('no-results').classList.remove('hidden');
             } else {
                 document.getElementById('no-results').classList.add('hidden');
-                grid.innerHTML = data.map(item => `
+                grid.innerHTML = data.map(item => {
+                    // Prepare industry tags for display
+                    const indTags = Array.isArray(item.industry) ? item.industry : [item.industry || 'General'];
+                    const tagHtml = indTags.map(tag => `<span class="bg-slate-100 text-slate-500 px-2 py-1 rounded text-[9px] font-bold mr-1">${tag}</span>`).join('');
+
+                    return `
                     <div class="grant-card flex flex-col">
                         <div class="flex justify-between items-start mb-4">
                             <span class="bg-indigo-50 text-indigo-600 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">${item.type}</span>
                             <p class="text-green-600 font-black text-lg tracking-tight">${item.amount}</p>
                         </div>
                         <h3 class="text-lg font-black text-slate-900 leading-tight mb-1">${item.name}</h3>
-                        <p class="text-slate-400 text-xs font-bold uppercase tracking-wide mb-6">${item.provider}</p>
+                        <p class="text-slate-400 text-xs font-bold uppercase tracking-wide mb-4">${item.provider}</p>
+                        
+                        <div class="mb-6 flex flex-wrap gap-y-1">
+                            ${tagHtml}
+                        </div>
+
                         <div class="mt-auto flex items-center justify-between pt-4 border-t border-slate-50">
-                            <span class="text-[10px] text-slate-400 font-bold"><i class="fa fa-map-marker-alt mr-1"></i> ${item.state || 'Pan India'}</span>
+                            <span class="text-[10px] text-slate-400 font-bold uppercase"><i class="fa fa-map-marker-alt mr-1"></i> ${item.state || 'Pan India'}</span>
                             <a href="${item.link}" target="_blank" class="bg-slate-900 text-white px-5 py-2.5 rounded-xl font-black text-[10px] uppercase tracking-widest hover:bg-indigo-600 transition">Apply</a>
                         </div>
-                    </div>
-                `).join('');
+                    </div>`;
+                }).join('');
             }
         }
 
