@@ -10,16 +10,15 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
         .sidebar { height: calc(100vh - 120px); }
-       .news-ticker {
-        display: inline-block;
-        white-space: nowrap;
-        padding-left: 100%;
-        /* Increased to 80s for a professional, calm pace */
-        animation: ticker 80s linear infinite; 
-    }
-    .news-ticker:hover {
-        animation-play-state: paused; /* Allows users to pause and read on hover */
-    }
+        /* Restored Indigo Background for Ticker */
+        .news-ticker-container { background: #1e1b4b; overflow: hidden; position: relative; z-index: 40; }
+        .news-ticker {
+            display: inline-block;
+            white-space: nowrap;
+            padding-left: 100%;
+            animation: ticker 80s linear infinite; /* Slower, professional pace */
+        }
+        .news-ticker:hover { animation-play-state: paused; }
         @keyframes ticker {
             0% { transform: translate(0, 0); }
             100% { transform: translate(-100%, 0); }
@@ -53,19 +52,19 @@
         </div>
     </nav>
 
-    <div class="news-ticker-container py-2 border-b border-indigo-900">
+    <div class="news-ticker-container py-3 border-b border-indigo-900">
         <div class="news-ticker text-white text-[11px] font-bold uppercase tracking-widest">
-            <span>🔥 NEW: SIDBI Venture Capital Fund applications open for 2026 • ⚡ ALERT: Central Govt. announces ₹2000 Cr fund for Deep-tech startups • 📈 UPDATED: 45 New Women-Entrepreneur schemes added • 📢 World of Willpower reaches milestone of assisting 500+ startups</span>
+            <span>🔥 NEW: SIDBI Venture Capital Fund applications open for 2026 • ⚡ ALERT: Central Govt. announces ₹2000 Cr fund for Deep-tech startups • 📈 UPDATED: 200+ verified schemes now live • 📢 World of Willpower reaches milestone of assisting 500+ startups • 🚀 Apply for BIRAC BIG 2026 Batch starting soon</span>
         </div>
     </div>
 
-    <div class="bg-indigo-900 py-10 px-6 text-center shadow-inner">
+    <div class="bg-indigo-900 py-12 px-6 text-center shadow-inner">
         <h1 class="text-4xl md:text-5xl font-black text-white mb-2 tracking-tight">200+ Funding Opportunities</h1>
         <p class="text-indigo-200 text-sm md:text-base font-medium opacity-80">Verified Government & Private schemes for Indian Founders.</p>
     </div>
 
     <div class="flex flex-col md:flex-row max-w-[1600px] mx-auto">
-        <aside class="w-full md:w-80 bg-white border-r border-slate-200 p-8 sticky top-[110px] sidebar overflow-y-auto hidden md:block">
+        <aside class="w-full md:w-80 bg-white border-r border-slate-200 p-8 sticky top-[130px] sidebar overflow-y-auto hidden md:block">
             <div class="mb-10">
                 <label class="text-[11px] font-black text-slate-400 uppercase tracking-widest block mb-4">Live Search</label>
                 <div class="relative">
@@ -81,6 +80,7 @@
                     <button onclick="setFilter('Grant')" class="filter-btn text-left px-5 py-3 rounded-xl text-xs font-black text-slate-500 hover:bg-slate-50" data-val="Grant">GOVT. GRANTS</button>
                     <button onclick="setFilter('Loan')" class="filter-btn text-left px-5 py-3 rounded-xl text-xs font-black text-slate-500 hover:bg-slate-50" data-val="Loan">LOANS / DEBT</button>
                     <button onclick="setFilter('Equity')" class="filter-btn text-left px-5 py-3 rounded-xl text-xs font-black text-slate-500 hover:bg-slate-50" data-val="Equity">EQUITY / VC</button>
+                    <button onclick="setFilter('Subsidy')" class="filter-btn text-left px-5 py-3 rounded-xl text-xs font-black text-slate-500 hover:bg-slate-50" data-val="Subsidy">SUBSIDIES</button>
                 </div>
             </div>
 
@@ -94,8 +94,9 @@
         <main class="flex-1 p-6 md:p-10">
             <div id="grants-grid" class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
                 </div>
-            <div id="loading-trigger" class="h-20 flex items-center justify-center text-slate-300 font-bold text-xs uppercase tracking-widest mt-10">
-                Scrolling through more schemes...
+            <div id="loading-trigger" class="h-24 flex flex-col items-center justify-center text-slate-300 gap-2 mt-10">
+                <div class="w-6 h-6 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
+                <span class="font-black text-[10px] uppercase tracking-[0.2em]">Syncing more schemes...</span>
             </div>
         </main>
     </div>
@@ -108,13 +109,10 @@
 
         async function fetchGrants() {
             try {
-                // To reach 200, ensure your grants.json is fully populated
                 const response = await fetch('grants.json');
                 allGrants = await response.json();
                 applyFilters();
-            } catch (e) {
-                console.error("Data sync error");
-            }
+            } catch (e) { console.error("Data load error", e); }
         }
 
         function renderGrants() {
@@ -138,6 +136,10 @@
                     </div>
                 </div>
             `).join('');
+            
+            // Hide loader if all shown
+            document.getElementById('loading-trigger').style.display = 
+                displayedCount >= filteredGrants.length ? 'none' : 'flex';
         }
 
         function applyFilters() {
@@ -147,7 +149,7 @@
                 const matchSearch = g.name.toLowerCase().includes(search) || g.provider.toLowerCase().includes(search);
                 return matchType && matchSearch;
             });
-            displayedCount = 15; // Reset count on new filter
+            displayedCount = 15;
             renderGrants();
         }
 
@@ -161,9 +163,8 @@
             applyFilters();
         }
 
-        // Infinite Scroll Logic
         window.onscroll = () => {
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 500) {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 600) {
                 if (displayedCount < filteredGrants.length) {
                     displayedCount += 12;
                     renderGrants();
