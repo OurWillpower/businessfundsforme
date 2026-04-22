@@ -10,13 +10,16 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
         .sidebar { height: calc(100vh - 120px); }
-        .news-ticker-container { background: #1e1b4b; overflow: hidden; }
-        .news-ticker {
-            display: inline-block;
-            white-space: nowrap;
-            padding-left: 100%;
-            animation: ticker 40s linear infinite;
-        }
+       .news-ticker {
+        display: inline-block;
+        white-space: nowrap;
+        padding-left: 100%;
+        /* Increased to 80s for a professional, calm pace */
+        animation: ticker 80s linear infinite; 
+    }
+    .news-ticker:hover {
+        animation-play-state: paused; /* Allows users to pause and read on hover */
+    }
         @keyframes ticker {
             0% { transform: translate(0, 0); }
             100% { transform: translate(-100%, 0); }
