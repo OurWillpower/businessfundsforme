@@ -1,126 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>BusinessFundsForMe | Funding Strategy Experts</title>
-
+<title>BusinessFundsForMe</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- NAV -->
 <nav class="navbar">
     <div class="container nav-flex">
         <div class="logo">BusinessFundsForMe</div>
-        <div class="menu">
-            <a href="index.html">Home</a>
-            <a href="schemes.html">Schemes</a>
-            <a href="#form">Get Funding</a>
-        </div>
     </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
     <div class="container center">
-        <h1>₹10 Lakhs to ₹2 Crores+</h1>
-        <h2>Structured Funding Across Government, Private & Global Sources</h2>
 
-        <p class="sub">
-            Stop searching randomly. Start applying strategically.
-        </p>
+        <h1>Find Funding For Your Business</h1>
+        <p class="sub">Government • Private • Global</p>
 
-        <a href="#form" class="btn">Get Funding Strategy</a>
-    </div>
-</section>
+        <div class="finder-box">
 
-<!-- FUNDING SOURCES -->
-<section class="section">
-    <div class="container">
+            <select id="sector">
+                <option value="">Select Sector</option>
+                <option value="startup">Startup / Tech</option>
+                <option value="msme">MSME / Manufacturing</option>
+                <option value="agri">Agriculture</option>
+                <option value="food">Food Processing</option>
+            </select>
 
-        <h2>Funding Sources We Work With</h2>
+            <select id="stage">
+                <option value="">Select Stage</option>
+                <option value="idea">Idea</option>
+                <option value="growth">Growth</option>
+            </select>
 
-        <h3>🏛 Government Schemes</h3>
-        <p>
-        Startup India Seed Fund, NIDHI PRAYAS, MSME Innovative Scheme, CGTMSE, PMEGP, 
-        RKVY-RAFTAAR, TIDE 2.0, SAMRIDH.
-        </p>
+            <button onclick="findFunding()">Find Funding</button>
 
-        <h3>🏢 Private & Corporate Funding</h3>
-        <p>
-        Angel networks, incubators, CSR-backed innovation programs, corporate startup initiatives.
-        </p>
+        </div>
 
-        <h3>🌍 Global Opportunities</h3>
-        <p>
-        Google for Startups, Microsoft for Startups, global accelerators, international grant programs.
-        </p>
+        <div id="results"></div>
 
     </div>
 </section>
 
-<!-- POSITIONING -->
-<section class="section light center">
-    <div class="container">
-
-        <h2>We Don’t Just Show Opportunities</h2>
-        <p>
-        We help you identify, prepare, and apply correctly — improving your chances of approval.
-        </p>
-
-    </div>
-</section>
-
-<!-- FAILURE REASONS -->
-<section class="section center">
-    <div class="container">
-
-        <h2>Why Most Funding Applications Fail</h2>
-
-        <p>
-        Wrong scheme selection • Weak projections • Poor documentation • No alignment with scheme requirements
-        </p>
-
-    </div>
-</section>
-
-<!-- PROCESS -->
-<section class="section light center">
-    <div class="container">
-
-        <h2>Our Approach</h2>
-        <p>
-        Assessment → Scheme Mapping → Documentation → Filing & Follow-up
-        </p>
-
-    </div>
-</section>
-
-<!-- FORM -->
-<section class="section center" id="form">
-    <div class="container form-box">
-
-        <h2>Get Your Funding Strategy</h2>
-
-        <form>
-            <input type="text" placeholder="Full Name" required>
-            <input type="text" placeholder="Business Name" required>
-            <input type="tel" placeholder="WhatsApp Number" required>
-
-            <button class="btn">Submit</button>
-        </form>
-
-    </div>
-</section>
-
-<!-- CTA -->
 <section class="cta">
-    <h2>Serious About Funding?</h2>
-    <a href="https://wa.me/917039196489" class="btn">Talk on WhatsApp</a>
+    <h2>Need Help Applying?</h2>
+    <a href="https://wa.me/917039196489">Talk on WhatsApp</a>
 </section>
+
+<script src="script.js"></script>
 
 </body>
 </html>
