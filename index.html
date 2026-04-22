@@ -58,19 +58,11 @@
             </div>
     </main>
 
-    <footer class="bg-white border-t border-slate-200 pt-20 pb-12">
+    <footer class="bg-white border-t border-slate-100 py-12">
         <div class="container mx-auto px-6 text-center">
-            <div class="flex flex-col items-center">
-                <div class="mb-8">
-                    <img src="logo.png" alt="Willpower" class="h-20 w-auto opacity-80 hover:opacity-100 transition-opacity">
-                </div>
-                <h3 class="text-xl font-bold text-slate-900 mb-2 italic">"Atma-shakti Muladhanam"</h3>
-                <p class="text-slate-400 text-xs font-black tracking-widest uppercase mb-10">Trusted since 2012</p>
-                
-                <div class="w-full max-w-md h-px bg-slate-100 mb-10"></div>
-                
-                <p class="text-slate-400 text-[10px] font-bold uppercase tracking-widest">© 2026 BusinessFundsForMe. All Rights Reserved.</p>
-            </div>
+            <p class="text-slate-400 text-[10px] font-bold uppercase tracking-[0.3em]">
+                © 2026 BusinessFundsForMe. All Rights Reserved.
+            </p>
         </div>
     </footer>
 
@@ -82,13 +74,13 @@
                 allGrants = await response.json();
                 renderGrants(allGrants);
             } catch (e) {
-                document.getElementById('grants-grid').innerHTML = '<div class="col-span-full text-center p-20 text-red-500 font-black">DATABASE CONNECTION ERROR</div>';
+                document.getElementById('grants-grid').innerHTML = '<div class="col-span-full text-center p-20 text-red-500 font-black text-xs tracking-widest">DATABASE OFFLINE</div>';
             }
         }
 
         function renderGrants(data) {
             const grid = document.getElementById('grants-grid');
-            grid.innerHTML = data.length ? '' : '<div class="col-span-full text-center py-20 text-slate-400 font-bold">No matches found in our directory.</div>';
+            grid.innerHTML = data.length ? '' : '<div class="col-span-full text-center py-20 text-slate-400 font-bold uppercase text-xs tracking-widest">No matching funding sources found</div>';
             data.forEach(item => {
                 grid.innerHTML += `
                     <div class="bg-white rounded-[2.5rem] p-10 shadow-sm border border-slate-100 hover:shadow-2xl transition-all duration-500 flex flex-col group">
@@ -96,14 +88,14 @@
                             <span class="bg-indigo-50 text-indigo-700 text-[10px] px-4 py-1.5 rounded-full font-black uppercase tracking-widest group-hover:bg-indigo-600 group-hover:text-white transition-colors">${item.type}</span>
                             <span class="text-[10px] font-black text-slate-300 uppercase">${item.deadline}</span>
                         </div>
-                        <h3 class="text-2xl font-black text-slate-900 mb-4 leading-tight">${item.name}</h3>
+                        <h3 class="text-2xl font-black text-slate-900 mb-4 leading-tight group-hover:text-indigo-600 transition-colors">${item.name}</h3>
                         <p class="text-slate-500 text-sm mb-10 flex-grow leading-relaxed font-medium">${item.provider}</p>
                         <div class="pt-8 border-t border-slate-50 flex justify-between items-center">
                             <div class="flex flex-col">
                                 <span class="text-[9px] text-slate-400 font-black uppercase tracking-widest mb-1">Max Benefit</span>
                                 <span class="text-3xl font-black text-green-600 tracking-tighter">${item.amount}</span>
                             </div>
-                            <a href="${item.link}" target="_blank" class="bg-slate-900 text-white px-7 py-3.5 rounded-2xl font-bold hover:bg-indigo-600 transition text-sm">Apply</a>
+                            <a href="${item.link}" target="_blank" class="bg-slate-900 text-white px-7 py-3.5 rounded-2xl font-bold hover:bg-indigo-600 transition text-sm">Apply Now</a>
                         </div>
                     </div>
                 `;
