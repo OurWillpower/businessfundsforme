@@ -120,21 +120,41 @@
             filterData();
         }
 
-        function filterData() {
-            const search = document.getElementById('searchInput').value.toLowerCase();
-            const ind = document.getElementById('industryFilter').value;
-            const sec = document.getElementById('sectorFilter').value;
-            const state = document.getElementById('stateFilter').value;
-            const sort = document.getElementById('sortOrder').value;
-            const checkedTypes = Array.from(document.querySelectorAll('#typeFilters input:checked')).map(c => c.value);
+        // REPLACE your existing filterData() function with this "Smart" version:
 
-            let filtered = rawData.filter(item => {
-                const matchesSearch = (item.name + item.provider).toLowerCase().includes(search);
-                const matchesType = checkedTypes.length === 0 || checkedTypes.includes(item.type);
-                const matchesInd = ind === "All" || (Array.isArray(item.industry) ? item.industry.includes(ind) : item.industry === ind);
-                const matchesSec = sec === "All" || item.sector === sec;
-                const matchesState = state === "All" || item.state === state;
-                return matchesSearch && matchesType && matchesInd && matchesSec && matchesState;
+function filterData() {
+    const search = document.getElementById('searchInput').value.toLowerCase();
+    const ind = document.getElementById('industryFilter').value;
+    const sec = document.getElementById('sectorFilter').value;
+    const state = document.getElementById('stateFilter').value;
+    const checkedTypes = Array.from(document.querySelectorAll('#typeFilters input:checked')).map(c => c.value);
+
+    let filtered = rawData.filter(item => {
+        // 1. Search Logic
+        const matchesSearch = (item.name + item.provider).toLowerCase().includes(search);
+        
+        // 2. Type Logic
+        const matchesType = checkedTypes.length === 0 || checkedTypes.includes(item.type);
+        
+        // 3. Smart Industry Logic (Handles strings or arrays)
+        const itemInd = item.industry || "All";
+        const matchesInd = ind === "All" || 
+            (Array.isArray(itemInd) ? itemInd.includes(ind) : itemInd === ind);
+            
+        // 4. Smart Sector Logic (Defaults to 'Public' if missing)
+        const itemSec = item.sector || "Public"; 
+        const matchesSec = sec === "All" || itemSec === sec;
+
+        // 5. State Logic
+        const itemState = item.state || "All India";
+        const matchesState = state === "All" || itemState === state || itemState === "Pan India";
+
+        return matchesSearch && matchesType && matchesInd && matchesSec && matchesState;
+    });
+
+    renderGrid(filtered);
+    updateSidebar(checkedTypes, ind, sec, state);
+}
             });
 
             if (sort === 'alpha') filtered.sort((a, b) => a.name.localeCompare(b.name));
