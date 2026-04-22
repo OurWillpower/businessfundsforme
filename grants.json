@@ -1,0 +1,26 @@
+[
+  {
+    "name": "NIDHI Prayas 2.0",
+    "provider": "Department of Science and Technology",
+    "amount": "₹10L",
+    "deadline": "May 30, 2026",
+    "link": "https://www.nidhi-prayas.org",
+    "type": "Govt Grant"
+  },
+  {
+    "name": "Startup India Seed Fund",
+    "provider": "DPIIT, Govt of India",
+    "amount": "₹20L",
+    "deadline": "Rolling Basis",
+    "link": "https://www.startupindia.gov.in",
+    "type": "Seed Fund"
+  },
+  {
+    "name": "IIMB Launchpad",
+    "provider": "NSRCEL - IIM Bangalore",
+    "amount": "Equity Free",
+    "deadline": "June 15, 2026",
+    "link": "https://nsrcel.org",
+    "type": "Incubator"
+  }
+]
