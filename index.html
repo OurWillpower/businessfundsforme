@@ -3,20 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business Funds For Me | Startup Portal</title>
+    <title>Business Funds For Me | Portal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
-        .ticker-wrap { background: #1e1b4b; color: white; padding: 12px 0; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .ticker-wrap { background: #1e1b4b; color: white; padding: 12px 0; overflow: hidden; }
         .ticker { display: inline-block; white-space: nowrap; animation: ticker 60s linear infinite; font-weight: 800; font-size: 11px; letter-spacing: 1.5px; }
         @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
         
-        /* Logo & Brand Refinement */
-        .brand-logo { height: 80px; width: auto; object-fit: contain; transition: transform 0.3s ease; }
-        .brand-name { font-size: 2.25rem; font-weight: 900; letter-spacing: -0.06em; color: #1e1b4b; line-height: 1; }
-        
+        /* Premium Card Styling */
         .grant-card { background: white; border-radius: 28px; padding: 28px; border: 1px solid #e2e8f0; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); height: 100%; display: flex; flex-direction: column; }
         .grant-card:hover { transform: translateY(-10px); border-color: #4f46e5; box-shadow: 0 30px 60px -12px rgba(79, 70, 229, 0.15); }
     </style>
@@ -29,11 +26,11 @@
         </div>
     </div>
 
-    <nav class="bg-white border-b py-6 sticky top-0 z-50 shadow-sm">
+    <nav class="bg-white border-b py-4 sticky top-0 z-50 shadow-sm">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <a href="/" class="flex items-center gap-6 group">
-                <img src="logo.png" class="brand-logo group-hover:scale-105" alt="Willpower Logo">
-                <span class="brand-name">BusinessFundsForMe</span>
+                <img src="logo.png" class="h-16 w-auto transition-transform group-hover:scale-105" alt="Willpower Logo">
+                <span class="text-3xl font-[900] tracking-tighter text-[#1e1b4b] leading-none">BusinessFundsForMe</span>
             </a>
             <div class="flex items-center gap-8">
                 <a href="/" class="text-xs font-black uppercase tracking-widest text-slate-400 hover:text-indigo-600 transition">Home</a>
@@ -88,12 +85,8 @@
         </aside>
 
         <div class="flex-1">
-            <div class="flex justify-between items-center mb-8">
-                <h2 id="count-label" class="text-3xl font-[900] text-slate-900 tracking-tight">Schemes Available</h2>
-            </div>
-
+            <h2 id="count-label" class="text-3xl font-[900] text-slate-900 tracking-tight mb-8">Schemes Available</h2>
             <div id="grants-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-8"></div>
-            
             <div id="no-results" class="hidden text-center py-32 bg-white rounded-[3.5rem] border-4 border-dashed border-slate-100">
                 <div class="text-7xl mb-8 opacity-20">🔎</div>
                 <p class="text-slate-400 font-bold text-2xl mb-10">No matching schemes found.</p>
@@ -110,7 +103,8 @@
             try {
                 const res = await fetch('grants.json');
                 rawData = await res.json();
-            } catch (e) { console.error("Error: Could not load grants.json"); }
+                console.log("Data Loaded Successfully");
+            } catch (e) { console.error("Could not load grants.json"); }
             filterData();
         }
 
@@ -121,7 +115,6 @@
             return s.includes(t) || t.includes(s);
         }
 
-        // UPDATED FUZZY MAPPING ENGINE
         function filterData() {
             const search = document.getElementById('searchInput').value.toLowerCase();
             const indFilter = document.getElementById('industryFilter').value.toLowerCase();
@@ -129,18 +122,18 @@
             const checkedTypes = Array.from(document.querySelectorAll('#typeFilters input:checked')).map(c => c.value.toLowerCase());
 
             let filtered = rawData.filter(item => {
-                // 1. Search Logic
+                // Search Logic
                 const matchesSearch = !search || isPhoneticMatch(item.name, search) || isPhoneticMatch(item.provider, search);
                 
-                // 2. Type Logic (Handles Plurals)
+                // Type Logic
                 const itemType = (item.type || "").toLowerCase();
                 const matchesType = checkedTypes.length === 0 || checkedTypes.some(t => itemType.includes(t));
 
-                // 3. Industry Logic (Fuzzy)
+                // Fuzzy Industry Mapping (Crucial Fix)
                 const itemInds = Array.isArray(item.industry) ? item.industry.map(i => i.toLowerCase()) : [(item.industry || "all").toLowerCase()];
                 const matchesInd = indFilter === "all" || itemInds.some(i => i.includes(indFilter) || indFilter.includes(i));
 
-                // 4. Sector Logic (Fuzzy)
+                // Fuzzy Sector Mapping
                 const itemSec = (item.sector || "public").toLowerCase();
                 const matchesSec = secFilter === "all" || itemSec.includes(secFilter.split(' ')[0]);
 
@@ -166,7 +159,7 @@
                 return `
                 <label class="flex items-center justify-between p-4 bg-slate-50 border-2 border-transparent rounded-2xl cursor-pointer hover:bg-white hover:border-indigo-100 transition mb-2">
                     <div class="flex items-center gap-4">
-                        <input type="checkbox" value="${type}" ${checked.includes(type.toLowerCase()) ? 'checked' : ''} onchange="filterData()" class="w-6 h-6 rounded-lg text-indigo-600 border-slate-300 focus:ring-0">
+                        <input type="checkbox" value="${type}" ${checked.includes(type.toLowerCase()) ? 'checked' : ''} onchange="filterData()" class="w-6 h-6 rounded-lg text-indigo-600">
                         <span class="text-sm font-extrabold text-slate-700">${type}s</span>
                     </div>
                     <span class="text-[11px] font-black ${count > 0 ? 'text-indigo-500' : 'text-slate-300'} bg-white px-2 py-1 rounded-lg">${count}</span>
@@ -193,7 +186,7 @@
                         <p class="text-slate-400 text-[11px] font-bold uppercase tracking-[0.2em] mb-10">${item.provider}</p>
                         <div class="mt-auto pt-8 border-t border-slate-50 flex items-center justify-between">
                             <span class="text-[10px] text-slate-400 font-black uppercase tracking-widest">${item.type}</span>
-                            <a href="${item.link}" target="_blank" class="bg-slate-900 text-white px-8 py-4 rounded-2xl font-black text-[11px] uppercase tracking-widest hover:bg-indigo-600 shadow-lg shadow-indigo-100 transition active:scale-95">Apply Now</a>
+                            <a href="${item.link}" target="_blank" class="bg-slate-900 text-white px-8 py-4 rounded-2xl font-black text-[11px] uppercase tracking-widest hover:bg-indigo-600 shadow-lg shadow-indigo-100 transition">Apply Now</a>
                         </div>
                     </div>
                 `).join('');
