@@ -3,38 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Founder's Blueprint | BusinessFundsForMe</title>
+    <title>Funding Engine | BusinessFundsForMe</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcfcfc; color: #1e293b; }
         
-        nav { background: #111827; padding: 1rem 3rem; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
-        nav a.back-btn { font-size: 10px; font-weight: 800; text-transform: uppercase; color: #94a3b8; }
-        nav h1 { font-weight: 800; text-transform: uppercase; font-size: 11px; letter-spacing: 0.1em; color: #e2e8f0; }
-
-        .step-label { font-size: 10px; font-weight: 800; text-transform: uppercase; color: #94a3b8; letter-spacing: 0.2em; display: block; margin-bottom: 0.5rem; }
-        .big-title { font-size: 2.5rem; font-weight: 800; tracking: -0.02em; margin-bottom: 2rem; }
-
-        /* THE UNIFORM MINT BOX */
+        /* THE UNIFORM MINT BOX (Embossed + Gold Edge) */
         .mint-box {
             position: relative;
             background: #ffffff;
             border-radius: 20px;
             padding: 2.5rem;
             border: 1px solid transparent; 
+            /* Subtle Golden Edge */
             border-image: linear-gradient(135deg, #FDE68A 0%, #F59E0B 50%, #FDE68A 100%) 1;
+            /* 3D Embossing Inner Shadow */
             box-shadow: inset 1px 1px 0px rgba(255,255,255,0.7), 0 4px 6px rgba(0, 0, 0, 0.03); 
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             height: 100%;
         }
+
+        /* Hovering Effect */
         .mint-box:hover {
-            transform: translateY(-8px);
+            transform: translateY(-10px);
             border-image: linear-gradient(135deg, #FBBF24 0%, #D97706 50%, #FBBF24 100%) 1;
             box-shadow: 0 20px 40px rgba(217, 119, 6, 0.1);
         }
 
+        .step-label { font-size: 10px; font-weight: 800; text-transform: uppercase; color: #94a3b8; letter-spacing: 0.2em; display: block; margin-bottom: 0.5rem; }
+        .section-title { font-size: 2.5rem; font-weight: 800; tracking: -0.02em; margin-bottom: 3rem; }
+        
         .whatsapp-float {
             position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white;
             width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center;
@@ -46,87 +46,86 @@
 
     <a href="https://wa.me/917039196489" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
 
-    <nav>
-        <a href="index.html" class="back-btn">← Search</a>
-        <h1>Founder's Legal Blueprint</h1>
-        <div class="h-8 w-8 bg-indigo-600 rounded flex items-center justify-center font-black text-xs text-white">W</div>
-    </nav>
-
     <main class="container mx-auto max-w-7xl px-8 py-20">
 
-        <section id="funding-gamut" class="mb-32">
-            <span class="step-label">Strategy Module</span>
-            <h2 class="big-title">The Funding <span class="text-indigo-600">Gamut.</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="mint-box">
-                    <span class="text-[9px] font-black text-emerald-600 uppercase mb-2 block">Non-Dilutive</span>
-                    <h3 class="text-2xl font-bold mb-4">Grants & Subsidies</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed mb-6">Reimbursement-based funds from Central/State govts. High documentation intensity, but you retain 100% ownership.</p>
-                    <div class="flex gap-4">
-                        <div class="bg-slate-50 p-3 rounded-lg flex-1">
-                            <span class="text-[9px] font-black text-slate-400 block uppercase">Benefit</span>
-                            <span class="text-xs font-bold">Zero Repayment</span>
-                        </div>
-                        <div class="bg-slate-50 p-3 rounded-lg flex-1">
-                            <span class="text-[9px] font-black text-slate-400 block uppercase">Requirement</span>
-                            <span class="text-xs font-bold">DPR Audit</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="mint-box">
-                    <span class="text-[9px] font-black text-indigo-600 uppercase mb-2 block">Dilutive</span>
-                    <h3 class="text-2xl font-bold mb-4">VC & Angel Equity</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed mb-6">Capital in exchange for ownership shares. Provides mentorship and rapid scale, but adds board-level pressure.</p>
-                    <div class="flex gap-4">
-                        <div class="bg-slate-50 p-3 rounded-lg flex-1">
-                            <span class="text-[9px] font-black text-slate-400 block uppercase">Benefit</span>
-                            <span class="text-xs font-bold">Expert Network</span>
-                        </div>
-                        <div class="bg-slate-50 p-3 rounded-lg flex-1">
-                            <span class="text-[9px] font-black text-slate-400 block uppercase">Requirement</span>
-                            <span class="text-xs font-bold">Shareholders Agmt</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section class="mb-32">
-            <span class="step-label">Execution Module</span>
-            <h2 class="big-title">Application <span class="text-indigo-600">Pipeline.</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <span class="step-label">Stage Four: Capital Acquisition</span>
+            <h2 class="section-title">The Funding <span class="text-indigo-600">Engine.</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
                 <div class="mint-box">
                     <div class="flex justify-between items-center mb-6">
-                        <span class="bg-amber-50 text-amber-600 text-[9px] font-black px-2 py-1 rounded">IDENTIFY</span>
+                        <span class="bg-amber-50 text-amber-600 text-[9px] font-black px-2 py-1 rounded">PRE-REQ: DPIIT</span>
                         <span class="text-slate-400 text-[9px] font-bold"><i class="fa fa-clock mr-1"></i> 7 DAYS</span>
                     </div>
-                    <h3 class="font-bold text-lg mb-2">Scheme Matching</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed">Cross-referencing your entity credentials with the 193 available schemes.</p>
+                    <div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center text-amber-600 mb-6">
+                        <i class="fa fa-magnifying-glass-chart text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-4">01. Identification</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-6">Matching your entity type (MSME/Startup) with Sector-Specific Grants, State Seed Funds, or Central Schemes like SISFS.</p>
+                    <ul class="text-[10px] font-bold text-slate-400 space-y-2 uppercase">
+                        <li><i class="fa fa-circle-check text-indigo-500 mr-2"></i> Eligibility Audit</li>
+                        <li><i class="fa fa-circle-check text-indigo-500 mr-2"></i> Grant-to-Equity Ratio</li>
+                    </ul>
                 </div>
+
                 <div class="mint-box">
                     <div class="flex justify-between items-center mb-6">
-                        <span class="bg-indigo-50 text-indigo-600 text-[9px] font-black px-2 py-1 rounded">DOSSIER</span>
-                        <span class="text-slate-400 text-[9px] font-bold"><i class="fa fa-clock mr-1"></i> 14 DAYS</span>
+                        <span class="bg-indigo-50 text-indigo-600 text-[9px] font-black px-2 py-1 rounded">CRITICAL ASSETS</span>
+                        <span class="text-slate-400 text-[9px] font-bold"><i class="fa fa-clock mr-1"></i> 14-21 DAYS</span>
                     </div>
-                    <h3 class="font-bold text-lg mb-2">Technical Drafting</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed">Drafting the DPR and Financial Projections—the core of your application success.</p>
+                    <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-6">
+                        <i class="fa fa-folder-open text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-4">02. Application Dossier</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-6">The technical core of your application. These documents decide your success rate.</p>
+                    <div class="bg-slate-50 p-4 rounded-xl space-y-3">
+                        <div class="flex items-center gap-3">
+                            <i class="fa fa-file-invoice text-indigo-600"></i>
+                            <span class="text-[10px] font-extrabold uppercase">Detailed Project Report (DPR)</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa fa-chart-line text-indigo-600"></i>
+                            <span class="text-[10px] font-extrabold uppercase">3-Yr Financial Projections</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa fa-lightbulb text-indigo-600"></i>
+                            <span class="text-[10px] font-extrabold uppercase">Technical Pitch Deck</span>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="mint-box">
                     <div class="flex justify-between items-center mb-6">
-                        <span class="bg-emerald-50 text-emerald-600 text-[9px] font-black px-2 py-1 rounded">SUBMIT</span>
-                        <span class="text-slate-400 text-[9px] font-bold"><i class="fa fa-clock mr-1"></i> 60 DAYS</span>
+                        <span class="bg-emerald-50 text-emerald-600 text-[9px] font-black px-2 py-1 rounded">FINAL MILE</span>
+                        <span class="text-slate-400 text-[9px] font-bold"><i class="fa fa-clock mr-1"></i> 60-90 DAYS</span>
                     </div>
-                    <h3 class="font-bold text-lg mb-2">Liaison & Sanction</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed">Navigating government technical committees for final fund disbursement.</p>
+                    <div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600 mb-6">
+                        <i class="fa fa-diagram-predecessor text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-4">03. Post-Submission</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-6">What happens after the "Submit" button. Navigating the government verification loop.</p>
+                    <div class="space-y-4">
+                        <div class="flex gap-4">
+                            <span class="text-[10px] font-black text-indigo-600">STEP A</span>
+                            <p class="text-[10px] font-bold text-slate-500 uppercase">Screening & Technical Review</p>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-[10px] font-black text-indigo-600">STEP B</span>
+                            <p class="text-[10px] font-bold text-slate-500 uppercase">Expert Committee Presentation</p>
+                        </div>
+                        <div class="flex gap-4 border-t pt-4">
+                            <span class="text-[10px] font-black text-emerald-600">FINAL</span>
+                            <p class="text-[10px] font-bold text-emerald-700 uppercase">Sanction & Fund Disbursement</p>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </section>
 
-        <footer class="py-20 border-t border-slate-100 text-center">
-            <h3 class="text-3xl font-black mb-8 italic">Ready to Bridge the <span class="text-indigo-600">Funding Gap?</span></h3>
-            <a href="https://wa.me/917039196489" class="inline-block bg-black text-white px-12 py-5 rounded-full font-black text-[10px] uppercase tracking-[0.2em] hover:scale-105 transition-all">Connect with Experts</a>
-        </footer>
-
     </main>
+
 </body>
 </html>
