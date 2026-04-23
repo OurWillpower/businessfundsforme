@@ -3,24 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business Funds For Me | Portal</title>
+    <title>Business Funds For Me | Premium Portal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
-        /* Ticker Styling */
         .ticker-wrap { background: #1e1b4b; color: white; padding: 12px 0; overflow: hidden; }
         .ticker { display: inline-block; white-space: nowrap; animation: ticker 50s linear infinite; font-weight: 800; font-size: 12px; letter-spacing: 1px; }
         @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
         
-        /* Premium Card */
-        .grant-card { background: white; border-radius: 24px; padding: 24px; border: 1px solid #e2e8f0; transition: 0.3s ease; height: 100%; display: flex; flex-direction: column; }
-        .grant-card:hover { transform: translateY(-8px); border-color: #6366f1; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.08); }
-        
         /* Logo & Brand Refinement */
-        .brand-logo { height: 60px; width: auto; object-fit: contain; } /* Increased Logo Size */
-        .brand-name { font-size: 1.75rem; font-weight: 800; letter-spacing: -0.04em; color: #1e1b4b; }
+        .brand-logo { height: 75px; width: auto; object-fit: contain; } /* Significantly larger logo */
+        .brand-name { font-size: 2rem; font-weight: 800; letter-spacing: -0.05em; color: #1e1b4b; }
+        
+        .grant-card { background: white; border-radius: 24px; padding: 24px; border: 1px solid #e2e8f0; transition: 0.3s; height: 100%; display: flex; flex-direction: column; }
+        .grant-card:hover { transform: translateY(-8px); border-color: #6366f1; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1); }
     </style>
 </head>
 <body class="text-slate-900">
@@ -33,7 +31,7 @@
 
     <nav class="bg-white border-b py-6 sticky top-0 z-50">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="/" class="flex items-center gap-5">
+            <a href="/" class="flex items-center gap-6">
                 <img src="logo.png" class="brand-logo" alt="Logo">
                 <span class="brand-name">BusinessFundsForMe</span>
             </a>
@@ -59,7 +57,8 @@
         <aside class="w-full md:w-80 space-y-10">
             <div>
                 <h3 class="font-extrabold text-[11px] uppercase tracking-widest text-slate-400 mb-5">Funding Type</h3>
-                <div id="typeFilters" class="space-y-3"></div>
+                <div id="typeFilters" class="space-y-3">
+                    </div>
             </div>
 
             <div>
@@ -87,7 +86,7 @@
         </aside>
 
         <div class="flex-1">
-            <h2 id="count-label" class="text-2xl font-extrabold mb-10">Schemes Available</h2>
+            <h2 id="count-label" class="text-2xl font-extrabold mb-10 text-slate-900">Schemes Available</h2>
             <div id="grants-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-8"></div>
             <div id="no-results" class="hidden text-center py-24 bg-white rounded-[3rem] border-4 border-dashed border-slate-50">
                 <p class="text-slate-400 font-bold text-xl mb-6">No matching schemes found.</p>
@@ -115,22 +114,27 @@
             return s.includes(t) || t.includes(s);
         }
 
+        // IMPROVED MAPPING LOGIC
         function filterData() {
-            const search = document.getElementById('searchInput').value;
+            const search = document.getElementById('searchInput').value.toLowerCase();
             const ind = document.getElementById('industryFilter').value;
             const sec = document.getElementById('sectorFilter').value;
             const checkedTypes = Array.from(document.querySelectorAll('#typeFilters input:checked')).map(c => c.value);
 
             let filtered = rawData.filter(item => {
-                // Search Logic
+                // Search Logic (Phonetic)
                 const matchesSearch = !search || isPhoneticMatch(item.name, search) || isPhoneticMatch(item.provider, search);
+                
                 // Type Logic
                 const matchesType = checkedTypes.length === 0 || checkedTypes.includes(item.type);
-                // Industry Mapping (Checks if selected ind is in array or string)
-                const itemInds = Array.isArray(item.industry) ? item.industry : [item.industry || "General"];
-                const matchesInd = ind === "All" || itemInds.includes(ind);
-                // Sector Mapping (Fixed)
-                const matchesSec = sec === "All" || (item.sector || "Public") === sec;
+                
+                // Flexible Industry Mapping
+                const itemInds = Array.isArray(item.industry) ? item.industry.map(i => i.toLowerCase()) : [(item.industry || "General").toLowerCase()];
+                const matchesInd = ind === "All" || itemInds.includes(ind.toLowerCase());
+                
+                // Flexible Sector Mapping
+                const itemSec = (item.sector || "Public").toLowerCase();
+                const matchesSec = sec === "All" || itemSec === sec.toLowerCase();
 
                 return matchesSearch && matchesType && matchesInd && matchesSec;
             });
@@ -142,9 +146,9 @@
         function updateSidebar(checked, search, ind, sec) {
             document.getElementById('typeFilters').innerHTML = categories.map(cat => {
                 const count = rawData.filter(i => {
-                    const itemInds = Array.isArray(i.industry) ? i.industry : [i.industry || "General"];
-                    const mInd = ind === "All" || itemInds.includes(ind);
-                    const mSec = sec === "All" || (i.sector || "Public") === sec;
+                    const itemInds = Array.isArray(i.industry) ? i.industry.map(x => x.toLowerCase()) : [(i.industry || "General").toLowerCase()];
+                    const mInd = ind === "All" || itemInds.includes(ind.toLowerCase());
+                    const mSec = sec === "All" || (i.sector || "Public").toLowerCase() === sec.toLowerCase();
                     return i.type === cat && mInd && mSec && (!search || isPhoneticMatch(i.name, search));
                 }).length;
 
