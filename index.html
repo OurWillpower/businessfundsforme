@@ -6,14 +6,23 @@
     <title>Business Funds For Me | Portal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
+        
+        /* The "Custom Logo" Font Style */
+        .brand-font { 
+            font-family: 'Inter', sans-serif; 
+            letter-spacing: -0.05em; /* Tighter tracking for a premium feel */
+            background: linear-gradient(to bottom, #1e1b4b, #312e81);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
         .ticker-wrap { background: #1e1b4b; color: white; padding: 12px 0; overflow: hidden; }
         .ticker { display: inline-block; white-space: nowrap; animation: ticker 60s linear infinite; font-weight: 800; font-size: 11px; letter-spacing: 1.5px; }
         @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
         
-        /* Premium Card Styling */
         .grant-card { background: white; border-radius: 28px; padding: 28px; border: 1px solid #e2e8f0; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); height: 100%; display: flex; flex-direction: column; }
         .grant-card:hover { transform: translateY(-10px); border-color: #4f46e5; box-shadow: 0 30px 60px -12px rgba(79, 70, 229, 0.15); }
     </style>
@@ -26,11 +35,11 @@
         </div>
     </div>
 
-    <nav class="bg-white border-b py-4 sticky top-0 z-50 shadow-sm">
+    <nav class="bg-white border-b py-5 sticky top-0 z-50 shadow-sm">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="/" class="flex items-center gap-6 group">
-                <img src="logo.png" class="h-16 w-auto transition-transform group-hover:scale-105" alt="Willpower Logo">
-                <span class="text-3xl font-[900] tracking-tighter text-[#1e1b4b] leading-none">BusinessFundsForMe</span>
+            <a href="/" class="flex items-center gap-5 group">
+                <img src="logo.png" class="h-14 w-auto transition-transform group-hover:scale-105" alt="Willpower Logo">
+                <span class="text-4xl brand-font leading-none">BusinessFundsForMe</span>
             </a>
             <div class="flex items-center gap-8">
                 <a href="/" class="text-xs font-black uppercase tracking-widest text-slate-400 hover:text-indigo-600 transition">Home</a>
@@ -103,7 +112,6 @@
             try {
                 const res = await fetch('grants.json');
                 rawData = await res.json();
-                console.log("Data Loaded Successfully");
             } catch (e) { console.error("Could not load grants.json"); }
             filterData();
         }
@@ -122,21 +130,13 @@
             const checkedTypes = Array.from(document.querySelectorAll('#typeFilters input:checked')).map(c => c.value.toLowerCase());
 
             let filtered = rawData.filter(item => {
-                // Search Logic
                 const matchesSearch = !search || isPhoneticMatch(item.name, search) || isPhoneticMatch(item.provider, search);
-                
-                // Type Logic
                 const itemType = (item.type || "").toLowerCase();
                 const matchesType = checkedTypes.length === 0 || checkedTypes.some(t => itemType.includes(t));
-
-                // Fuzzy Industry Mapping (Crucial Fix)
                 const itemInds = Array.isArray(item.industry) ? item.industry.map(i => i.toLowerCase()) : [(item.industry || "all").toLowerCase()];
                 const matchesInd = indFilter === "all" || itemInds.some(i => i.includes(indFilter) || indFilter.includes(i));
-
-                // Fuzzy Sector Mapping
                 const itemSec = (item.sector || "public").toLowerCase();
                 const matchesSec = secFilter === "all" || itemSec.includes(secFilter.split(' ')[0]);
-
                 return matchesSearch && matchesType && matchesInd && matchesSec;
             });
 
