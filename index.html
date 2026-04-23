@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business Funds For Me | Portal</title>
+    <title>Business Funds For Me | Funding Portal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
         
+        /* 3D Brand Font Effect */
         .brand-font { 
             font-family: 'Inter', sans-serif; 
             letter-spacing: -0.04em;
@@ -17,25 +18,25 @@
             text-shadow: 1px 1px 0px #cbd5e1, 2px 2px 0px #94a3b8, 3px 3px 0px rgba(30, 27, 75, 0.1);
         }
 
+        /* Top News Ticker */
         .ticker-wrap { background: #1e1b4b; color: white; padding: 10px 0; overflow: hidden; }
         .ticker { display: inline-block; white-space: nowrap; animation: ticker 60s linear infinite; font-weight: 800; font-size: 10px; letter-spacing: 1.5px; }
         @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
         
+        /* Premium Card Design */
         .grant-card { background: white; border-radius: 32px; padding: 32px; border: 1px solid #e2e8f0; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); height: 100%; display: flex; flex-direction: column; }
         .grant-card:hover { transform: translateY(-10px); border-color: #4f46e5; box-shadow: 0 30px 60px -12px rgba(79, 70, 229, 0.15); }
         
+        /* Expert Button with Glow */
         .expert-btn {
             background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
             box-shadow: 0 10px 20px -5px rgba(79, 70, 229, 0.4);
         }
 
-        /* Compact & Sleek Search Bar */
-        .search-container {
-            max-width: 500px; /* Reduced width */
-            margin: 0 auto;
-        }
+        /* Sleek Search Container */
+        .search-container { max-width: 500px; margin: 0 auto; }
         .search-input {
-            padding: 1rem 1.25rem 1rem 3.25rem; /* Thinner padding */
+            padding: 1rem 1.25rem 1rem 3.25rem;
             border-radius: 1.25rem;
             font-size: 0.95rem;
             border: 2px solid transparent;
@@ -77,10 +78,12 @@
     </header>
 
     <main class="container mx-auto px-6 -mt-10 pb-24 flex flex-col md:flex-row gap-8 relative z-20">
+        
         <aside class="w-full md:w-64 space-y-6">
             <div class="bg-white p-6 rounded-[2rem] shadow-xl border border-slate-100">
                 <h3 class="font-black text-[10px] uppercase tracking-[0.2em] text-slate-400 mb-4">Funding Type</h3>
-                <div id="typeFilters" class="space-y-2.5"></div>
+                <div id="typeFilters" class="space-y-2.5">
+                    </div>
             </div>
 
             <div class="space-y-4">
@@ -100,8 +103,16 @@
         </aside>
 
         <div class="flex-1">
-            <h2 id="count-label" class="text-2xl font-[900] text-slate-900 tracking-tight mb-6">Available Schemes</h2>
-            <div id="grants-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-6"></div>
+            <div class="mb-8 flex items-center justify-between">
+                <h2 id="count-label" class="text-2xl font-[900] text-slate-900 tracking-tight">
+                    Loading Schemes...
+                </h2>
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Verified Data</span>
+            </div>
+
+            <div id="grants-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                </div>
+
             <div id="no-results" class="hidden text-center py-20 bg-white rounded-[3rem] border border-slate-100">
                 <p class="text-slate-400 font-bold text-lg mb-6">No matching schemes found.</p>
                 <button onclick="resetFilters()" class="bg-indigo-600 text-white px-8 py-4 rounded-xl font-black text-[10px] uppercase tracking-widest">Show All</button>
@@ -113,14 +124,19 @@
         let rawData = [];
         const typeCategories = ["Loan", "Subsidy", "Equity", "Grant"];
 
+        // 1. Fetch Data from grants.json
         async function loadData() {
             try {
                 const res = await fetch('grants.json');
                 rawData = await res.json();
-            } catch (e) { console.error("JSON Load Error"); }
-            filterData();
+                filterData(); // Initial render
+            } catch (e) { 
+                console.error("JSON Error: Ensure grants.json is in the same folder."); 
+                document.getElementById('count-label').innerText = "Error Loading Data";
+            }
         }
 
+        // 2. Main Filtering Logic
         function filterData() {
             const search = document.getElementById('searchInput').value.toLowerCase();
             const indFilter = document.getElementById('industryFilter').value.toLowerCase();
@@ -129,9 +145,12 @@
             let filtered = rawData.filter(item => {
                 const itemType = (item.type || "").toLowerCase();
                 const matchesType = checkedTypes.length === 0 || checkedTypes.some(t => itemType.includes(t));
+                
                 const itemInds = Array.isArray(item.industry) ? item.industry.map(i => i.toLowerCase()) : [(item.industry || "all").toLowerCase()];
                 const matchesInd = indFilter === "all" || itemInds.some(i => i.includes(indFilter));
-                const matchesSearch = !search || item.name.toLowerCase().includes(search);
+                
+                const matchesSearch = !search || item.name.toLowerCase().includes(search) || item.provider.toLowerCase().includes(search);
+                
                 return matchesType && matchesInd && matchesSearch;
             });
 
@@ -139,13 +158,15 @@
             renderGrid(filtered);
         }
 
+        // 3. Update Sidebar Counts
         function updateSidebar(checked) {
             document.getElementById('typeFilters').innerHTML = typeCategories.map(type => {
-                const count = rawData.filter(i => i.type.includes(type)).length;
+                const count = rawData.filter(i => i.type && i.type.includes(type)).length;
+                const isChecked = checked.includes(type.toLowerCase());
                 return `
                 <label class="flex items-center justify-between p-3.5 bg-slate-50 border border-transparent rounded-xl cursor-pointer hover:bg-white hover:border-indigo-100 transition mb-2">
                     <div class="flex items-center gap-3">
-                        <input type="checkbox" value="${type}" ${checked.includes(type.toLowerCase()) ? 'checked' : ''} onchange="filterData()" class="w-5 h-5 rounded text-indigo-600">
+                        <input type="checkbox" value="${type}" ${isChecked ? 'checked' : ''} onchange="filterData()" class="w-5 h-5 rounded text-indigo-600">
                         <span class="text-xs font-extrabold text-slate-700">${type}s</span>
                     </div>
                     <span class="text-[10px] font-black text-slate-300 bg-white px-2 py-0.5 rounded-md">${count}</span>
@@ -153,13 +174,15 @@
             }).join('');
         }
 
+        // 4. Render the Result Grid with Business Model Buttons
         function renderGrid(data) {
             const grid = document.getElementById('grants-grid');
             const noResults = document.getElementById('no-results');
             document.getElementById('count-label').innerText = `${data.length} Schemes Available`;
             
             if (data.length === 0) {
-                grid.innerHTML = ""; noResults.classList.remove('hidden');
+                grid.innerHTML = ""; 
+                noResults.classList.remove('hidden');
             } else {
                 noResults.classList.add('hidden');
                 grid.innerHTML = data.map(item => `
@@ -186,6 +209,7 @@
             }
         }
 
+        // 5. Reset All UI
         function resetFilters() {
             document.getElementById('searchInput').value = "";
             document.getElementById('industryFilter').value = "All";
@@ -193,6 +217,7 @@
             filterData();
         }
 
+        // Start the engine
         loadData();
     </script>
 </body>
