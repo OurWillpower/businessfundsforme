@@ -9,51 +9,57 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #1e293b; }
-        .antialiased { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        .antialiased { -webkit-font-smoothing: antialiased; }
 
-        /* The Interactive Roadmap */
-        .roadmap-container { position: relative; padding-left: 3rem; }
-        .roadmap-container::before {
+        /* Step-Up Pipeline: Pictorial Representation */
+        .pipeline-container { position: relative; padding-left: 2rem; }
+        .pipeline-container::before {
             content: '';
             position: absolute;
-            left: 1rem; top: 0; bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, #e2e8f0, #cbd5e1, transparent);
+            left: 0; top: 0; bottom: 0;
+            width: 8px;
+            background-color: #111827; /* Dark base */
+            border-radius: 4px;
             z-index: 1;
         }
 
-        .step-marker {
+        .step-node {
             position: absolute;
-            left: -1rem; top: 1rem;
-            width: 3rem; h: 3rem;
-            background: white;
-            border: 2px solid #e2e8f0;
+            left: -16px; /* Center on pipeline */
+            top: 2rem;
+            width: 40px; h: 40px;
+            background: #111827;
+            border: 3px solid #6366f1; /* Indigo node */
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            font-weight: 800; color: #64748b;
             z-index: 2;
-            transition: all 0.4s ease;
         }
 
-        .step-container:hover .step-marker {
-            border-color: #6366f1;
-            color: #6366f1;
-            box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
+        .step-line-active {
+            position: absolute;
+            left: 0; top: 0;
+            width: 8px;
+            height: 100%; /* Will animate/extend via JS later, for now full */
+            background: linear-gradient(180deg, #6366f1, #10b981);
+            border-radius: 4px;
+            z-index: 2;
         }
 
-        /* Corporate Sleekness */
-        .premium-card {
-            border: 1px solid #f1f5f9;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        /* KISS Format & Professional Polish */
+        .step-container { margin-bottom: 5rem; position: relative; }
+        .advisory-card {
+            background: #111827;
+            color: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            max-width: 600px;
         }
-        .premium-card:hover {
-            border-color: #cbd5e1;
-            background-color: #f8fafc;
-        }
+        .step-container:hover .advisory-card { transform: scale(1.02); }
 
-        .legal-caveat {
-            border-l-2 border-rose-600 pl-12 mb-32 max-w-3xl;
-        }
+        .formalities-tag { font-weight: 800; text-transform: uppercase; font-size: 10px; tracking: 0.1em; color: #cbd5e1; }
+        .id-label { font-weight: 700; text-transform: uppercase; font-size: 10px; padding: 4px 10px; border-radius: 4px; background: rgba(255,255,255,0.05); }
+
     </style>
 </head>
 <body class="antialiased">
@@ -81,57 +87,97 @@
         </header>
 
         <section class="mb-32">
-            <h2 class="text-sm font-black text-slate-400 uppercase tracking-[0.3em] mb-12">The Startup Fundability Roadmap</h2>
+            <h2 class="text-xs font-black text-slate-400 uppercase tracking-[0.3em] mb-12">Advisory Fundability Pipeline</h2>
             
-            <div class="roadmap-container space-y-20">
-                
-                <div class="step-container relative">
-                    <div class="step-marker">01</div>
-                    <div class="max-w-2xl pl-16">
-                        <h3 class="text-2xl font-black text-slate-900 tracking-tight mb-4">Phase A: Ideation & Protection</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed mb-6">Before you register, you must clarify your structure. This phase prevents future disputes.</p>
-                        <div class="grid grid-cols-2 gap-4 text-xs font-semibold text-slate-500">
-                            <span class="bg-slate-50 p-3 rounded-md">Founder’s Agreement</span>
-                            <span class="bg-slate-50 p-3 rounded-md">IP Assignment</span>
+            <div class="pipeline-container">
+                <div class="step-line-active"></div> <div class="step-container">
+                    <div class="step-node"><i class="fa fa-shield-alt text-white text-xs"></i></div>
+                    <div class="advisory-card">
+                        <span class="text-[9px] font-black uppercase text-indigo-400 tracking-[0.3em]">01 Pre-Incorporation Advisory</span>
+                        <h3 class="text-2xl font-black text-white tracking-tight mt-1 mb-6">Phase A: Structural Foundation</h3>
+                        
+                        <div class="space-y-4 text-slate-300">
+                            <div class="bg-white/5 p-4 rounded-lg flex items-center justify-between">
+                                <span class="text-xs font-semibold">Goal: Risk Mitigation</span>
+                                <p class="text-sm font-bold w-1/2">Establish roles & prevent disputes.</p>
+                            </div>
+                            <div class="bg-white/5 p-4 rounded-lg">
+                                <span class="formalities-tag block mb-3">Formalities</span>
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="id-label">Founder's Agreement</span>
+                                    <span class="id-label">IP Assignment</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="step-container relative">
-                    <div class="step-marker">02</div>
-                    <div class="max-w-2xl pl-16">
-                        <h3 class="text-2xl font-black text-slate-900 tracking-tight mb-4">Phase B: Statutory Incorporation</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed mb-6">The creation of the separate legal entity. This is the moment your personal liability is limited, but your responsibilities begin.</p>
-                        <div class="grid grid-cols-2 gap-4 text-xs font-semibold text-slate-500">
-                            <span class="bg-slate-50 p-3 rounded-md">Pvt Ltd / LLP Filing</span>
-                            <span class="bg-slate-50 p-3 rounded-md">PAN / TAN Allotment</span>
+                <div class="step-container">
+                    <div class="step-node"><i class="fa fa-balance-scale text-white text-xs"></i></div>
+                    <div class="advisory-card">
+                        <span class="text-[9px] font-black uppercase text-indigo-400 tracking-[0.3em]">02 Creation of Entity</span>
+                        <h3 class="text-2xl font-black text-white tracking-tight mt-1 mb-6">Phase B: Limited Liability Shield</h3>
+                        
+                        <div class="space-y-4 text-slate-300">
+                            <div class="bg-white/5 p-4 rounded-lg flex items-center justify-between">
+                                <span class="text-xs font-semibold">Goal: Fundability</span>
+                                <p class="text-sm font-bold w-1/2">Build a VC-compliant structure.</p>
+                            </div>
+                            <div class="bg-white/5 p-4 rounded-lg">
+                                <span class="formalities-tag block mb-3">Formalities</span>
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="id-label">Pvt Ltd / LLP Filing</span>
+                                    <span class="id-label">PAN / TAN Allotment</span>
+                                1</div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="step-container relative">
-                    <div class="step-marker">03</div>
-                    <div class="max-w-2xl pl-16">
-                        <h3 class="text-2xl font-black text-slate-900 tracking-tight mb-4">Phase C: Regulatory IDs</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed mb-6">The core IDs your company needs to operate legally and transact.</p>
-                        <div class="grid grid-cols-2 gap-4 text-xs font-semibold text-indigo-600 font-bold">
-                            <span class="bg-indigo-50/50 p-3 rounded-md border border-indigo-100">DSC / DIN (Authentication)</span>
-                            <span class="bg-indigo-50/50 p-3 rounded-md border border-indigo-100">MSME (Udyam) Label</span>
+                <div class="step-container">
+                    <div class="step-node"><i class="fa fa-id-card text-white text-xs"></i></div>
+                    <div class="advisory-card">
+                        <span class="text-[9px] font-black uppercase text-indigo-400 tracking-[0.3em]">03 Functional Identity</span>
+                        <h3 class="text-2xl font-black text-white tracking-tight mt-1 mb-6">Phase C: Regulatory Credentials</h3>
+                        
+                        <div class="space-y-4 text-slate-300">
+                            <div class="bg-white/5 p-4 rounded-lg flex items-center justify-between">
+                                <span class="text-xs font-semibold">Goal: Operation</span>
+                                <p class="text-sm font-bold w-1/2">Unlock business banking & priority lending.</p>
+                            </div>
+                            <div class="bg-white/5 p-4 rounded-lg">
+                                <span class="formalities-tag block mb-3">Formalities</span>
+                                <div class="flex flex-wrap gap-3 text-emerald-400 font-black">
+                                    <span class="id-label bg-emerald-950/40">DSC / DIN</span>
+                                    <span class="id-label bg-emerald-950/40">MSME (Udyam) Label</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="step-container relative">
-                    <div class="step-marker">04</div>
-                    <div class="max-w-2xl pl-16">
-                        <h3 class="text-2xl font-black text-slate-900 tracking-tight mb-4">Phase D: DPIIT Recognition</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed mb-6">The most critical step. This officially labels you a "Startup" in the eyes of the government, unlocking massive benefits.</p>
-                        <div class="grid grid-cols-2 gap-4 text-xs font-semibold text-emerald-600 font-bold">
-                            <span class="bg-emerald-50/50 p-3 rounded-md border border-emerald-100">Income Tax Exemption</span>
-                            <span class="bg-emerald-50/50 p-3 rounded-md border border-emerald-100">Rebate on Patent Filing</span>
+                <div class="step-container">
+                    <div class="step-node border-[#10b981]"><i class="fa fa-gem text-white text-xs"></i></div>
+                    <div class="advisory-card bg-emerald-950/20 border border-emerald-900 shadow-xl">
+                        <span class="text-[9px] font-black uppercase text-emerald-400 tracking-[0.3em]">04 Strategic Recognition</span>
+                        <h3 class="text-2xl font-black text-white tracking-tight mt-1 mb-6">Phase D: DPIIT Recognition</h3>
+                        
+                        <div class="space-y-4 text-slate-300">
+                            <div class="bg-white/5 p-4 rounded-lg flex items-center justify-between">
+                                <span class="text-xs font-semibold">Goal: Advantage</span>
+                                <p class="text-sm font-bold w-1/2">The "Golden Ticket" for tax benefits.</p>
+                            </div>
+                            <div class="bg-white/5 p-4 rounded-lg">
+                                <span class="formalities-tag block mb-3 text-emerald-300">Formalities</span>
+                                <div class="flex flex-wrap gap-3 text-emerald-300 font-black">
+                                    <span class="id-label bg-white/5">Section 56 Exemption</span>
+                                    <span class="id-label bg-white/5">Patent Cost Rebates</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
 
