@@ -11,34 +11,33 @@
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcfcfc; color: #1e293b; }
         
         nav { background: #111827; padding: 1rem 3rem; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
-        nav a.back-btn { font-size: 10px; font-weight: 800; text-transform: uppercase; color: #94a3b8; }
-        nav h1 { font-weight: 800; text-transform: uppercase; font-size: 11px; letter-spacing: 0.1em; color: #e2e8f0; }
+        nav a.back-btn { font-size: 11px; font-weight: 800; text-transform: uppercase; color: #94a3b8; }
+        nav h1 { font-weight: 800; text-transform: uppercase; font-size: 12px; letter-spacing: 0.1em; color: #e2e8f0; }
 
-        .step-label { font-size: 10px; font-weight: 800; text-transform: uppercase; color: #94a3b8; letter-spacing: 0.2em; display: block; margin-bottom: 0.5rem; }
-        .big-title { font-size: 2.5rem; font-weight: 800; tracking: -0.02em; margin-bottom: 2rem; }
+        .step-label { font-size: 11px; font-weight: 800; text-transform: uppercase; color: #94a3b8; letter-spacing: 0.2em; display: block; margin-bottom: 0.5rem; }
+        .big-title { font-size: 2.8rem; font-weight: 800; tracking: -0.02em; margin-bottom: 2.5rem; }
 
-        /* THE UNIFORM MINT BOX (Embossed + Gold Edge) */
         .mint-box {
             position: relative;
             background: #ffffff;
-            border-radius: 20px;
+            border-radius: 24px;
             padding: 2.5rem;
             border: 1px solid transparent; 
             border-image: linear-gradient(135deg, #FDE68A 0%, #F59E0B 50%, #FDE68A 100%) 1;
-            box-shadow: inset 1px 1px 0px rgba(255,255,255,0.7), 0 4px 6px rgba(0, 0, 0, 0.03); 
+            box-shadow: inset 1px 1px 0px rgba(255,255,255,0.7), 0 10px 15px -3px rgba(0, 0, 0, 0.04); 
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             height: 100%;
         }
         .mint-box:hover {
             transform: translateY(-8px);
             border-image: linear-gradient(135deg, #FBBF24 0%, #D97706 50%, #FBBF24 100%) 1;
-            box-shadow: 0 20px 40px rgba(217, 119, 6, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(217, 119, 6, 0.15);
         }
 
         .whatsapp-float {
             position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white;
-            width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center;
-            justify-content: center; font-size: 28px; z-index: 2000; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; font-size: 32px; z-index: 2000; box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
         }
     </style>
 </head>
@@ -47,9 +46,9 @@
     <a href="https://wa.me/917039196489" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
 
     <nav>
-        <a href="index.html" class="back-btn">← Search</a>
+        <a href="index.html" class="back-btn">← Home</a>
         <h1>Founder's Legal Blueprint</h1>
-        <div class="h-8 w-8 bg-indigo-600 rounded flex items-center justify-center font-black text-xs text-white">W</div>
+        <div class="h-9 w-9 bg-indigo-600 rounded flex items-center justify-center font-black text-sm text-white">W</div>
     </nav>
 
     <main class="container mx-auto max-w-7xl px-8 py-20">
@@ -57,29 +56,29 @@
         <section class="mb-32">
             <span class="step-label">Stage One: Selection</span>
             <h2 class="big-title">Business <span class="text-indigo-600">Taxonomy.</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="mint-box">
-                    <h3 class="text-xl font-bold mb-3">Pvt. Ltd.</h3>
-                    <p class="text-xs text-slate-500 mb-6 leading-relaxed">The VC-compliant vehicle for raising equity and scale.</p>
-                    <div class="space-y-2 text-[9px] font-bold uppercase tracking-wide">
-                        <div class="flex gap-2 items-center text-emerald-600"><i class="fa fa-gem"></i>Pros: High Funding potential</div>
-                        <div class="flex gap-2 items-center text-rose-500"><i class="fa fa-exclamation-triangle"></i>Cons: Strict Compliance</div>
+                    <h3 class="text-2xl font-bold mb-4">Pvt. Ltd.</h3>
+                    <p class="text-base text-slate-600 mb-8 leading-relaxed">The VC-compliant vehicle for raising equity and scaling rapidly across borders.</p>
+                    <div class="space-y-3 text-[11px] font-bold uppercase tracking-wider">
+                        <div class="flex gap-3 items-center text-emerald-600"><i class="fa fa-gem text-sm"></i>Highly Fundable</div>
+                        <div class="flex gap-3 items-center text-rose-500"><i class="fa fa-exclamation-triangle text-sm"></i>Strict Compliance</div>
                     </div>
                 </div>
                 <div class="mint-box">
-                    <h3 class="text-xl font-bold mb-3">LLP</h3>
-                    <p class="text-xs text-slate-500 mb-6 leading-relaxed">Best for professional services. No corporate tax burden.</p>
-                    <div class="space-y-2 text-[9px] font-bold uppercase tracking-wide">
-                        <div class="flex gap-2 items-center text-indigo-600"><i class="fa fa-shield-alt"></i>Pros: Low Maintenance</div>
-                        <div class="flex gap-2 items-center text-rose-500"><i class="fa fa-minus"></i>Cons: No Venture Equity</div>
+                    <h3 class="text-2xl font-bold mb-4">LLP</h3>
+                    <p class="text-base text-slate-600 mb-8 leading-relaxed">Best for professional services. Limited liability without the double-taxation burden.</p>
+                    <div class="space-y-3 text-[11px] font-bold uppercase tracking-wider">
+                        <div class="flex gap-3 items-center text-indigo-600"><i class="fa fa-shield-alt text-sm"></i>Low Maintenance</div>
+                        <div class="flex gap-3 items-center text-rose-500"><i class="fa fa-minus text-sm"></i>No Venture Equity</div>
                     </div>
                 </div>
                 <div class="mint-box">
-                    <h3 class="text-xl font-bold mb-3">Partnership</h3>
-                    <p class="text-xs text-slate-500 mb-6 leading-relaxed">Simple setup for small trade, with unlimited liability.</p>
-                    <div class="space-y-2 text-[9px] font-bold uppercase tracking-wide">
-                        <div class="flex gap-2 items-center text-emerald-600"><i class="fa fa-rocket"></i>Pros: Quickest Setup</div>
-                        <div class="flex gap-2 items-center text-rose-500"><i class="fa fa-exclamation-triangle"></i>Cons: Unlimited Risk</div>
+                    <h3 class="text-2xl font-bold mb-4">Partnership</h3>
+                    <p class="text-base text-slate-600 mb-8 leading-relaxed">Simple setup for small trade, though founders face unlimited personal risk.</p>
+                    <div class="space-y-3 text-[11px] font-bold uppercase tracking-wider">
+                        <div class="flex gap-3 items-center text-emerald-600"><i class="fa fa-rocket text-sm"></i>Quickest Setup</div>
+                        <div class="flex gap-3 items-center text-rose-500"><i class="fa fa-exclamation-triangle text-sm"></i>Unlimited Risk</div>
                     </div>
                 </div>
             </div>
@@ -88,30 +87,30 @@
         <section class="mb-32">
             <span class="step-label">Stage Two: Credentials</span>
             <h2 class="big-title">Statutory <span class="text-indigo-600">Onboarding.</span></h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                <div class="mint-box text-center p-8">
-                    <i class="fa fa-file-pdf text-2xl text-slate-400 mb-4 block"></i>
-                    <h4 class="font-bold text-xs uppercase">COI</h4>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <div class="mint-box text-center py-10 px-4">
+                    <i class="fa fa-file-pdf text-3xl text-slate-400 mb-4 block"></i>
+                    <h4 class="font-bold text-sm uppercase text-slate-700">COI</h4>
                 </div>
-                <div class="mint-box text-center p-8">
-                    <i class="fa fa-receipt text-2xl text-slate-400 mb-4 block"></i>
-                    <h4 class="font-bold text-xs uppercase">GSTIN</h4>
+                <div class="mint-box text-center py-10 px-4">
+                    <i class="fa fa-receipt text-3xl text-slate-400 mb-4 block"></i>
+                    <h4 class="font-bold text-sm uppercase text-slate-700">GSTIN</h4>
                 </div>
-                <div class="mint-box text-center p-8">
-                    <i class="fa fa-industry text-2xl text-slate-400 mb-4 block"></i>
-                    <h4 class="font-bold text-xs uppercase">UDYAM</h4>
+                <div class="mint-box text-center py-10 px-4">
+                    <i class="fa fa-industry text-3xl text-slate-400 mb-4 block"></i>
+                    <h4 class="font-bold text-sm uppercase text-slate-700">UDYAM</h4>
                 </div>
-                <div class="mint-box text-center p-8">
-                    <i class="fa fa-briefcase text-2xl text-slate-400 mb-4 block"></i>
-                    <h4 class="font-bold text-xs uppercase">PTEC</h4>
+                <div class="mint-box text-center py-10 px-4">
+                    <i class="fa fa-briefcase text-3xl text-slate-400 mb-4 block"></i>
+                    <h4 class="font-bold text-sm uppercase text-slate-700">PTEC</h4>
                 </div>
-                <div class="mint-box text-center p-8 bg-indigo-50/20">
-                    <i class="fa fa-gem text-2xl text-indigo-500 mb-4 block"></i>
-                    <h4 class="font-bold text-xs uppercase text-indigo-900">DPIIT</h4>
+                <div class="mint-box text-center py-10 px-4 bg-indigo-50/30">
+                    <i class="fa fa-gem text-3xl text-indigo-500 mb-4 block"></i>
+                    <h4 class="font-bold text-sm uppercase text-indigo-900">DPIIT</h4>
                 </div>
-                <div class="mint-box text-center p-8 bg-indigo-50/20">
-                    <i class="fa fa-shield text-2xl text-indigo-500 mb-4 block"></i>
-                    <h4 class="font-bold text-xs uppercase text-indigo-900">80-IAC</h4>
+                <div class="mint-box text-center py-10 px-4 bg-indigo-50/30">
+                    <i class="fa fa-shield-heart text-3xl text-indigo-500 mb-4 block"></i>
+                    <h4 class="font-bold text-sm uppercase text-indigo-900">80-IAC</h4>
                 </div>
             </div>
         </section>
@@ -120,41 +119,52 @@
             <span class="step-label">Stage Three: Execution</span>
             <h2 class="big-title">The Funding <span class="text-indigo-600">Engine.</span></h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
                 <div class="mint-box">
-                    <div class="flex justify-between items-center mb-6">
-                        <span class="bg-amber-50 text-amber-600 text-[9px] font-black px-2 py-1 rounded">IDENTIFY</span>
-                        <span class="text-slate-400 text-[9px] font-bold"><i class="fa fa-clock mr-1"></i> 7 DAYS</span>
+                    <div class="flex justify-between items-center mb-8">
+                        <span class="bg-amber-50 text-amber-600 text-[10px] font-black px-3 py-1.5 rounded-full border border-amber-100">IDENTIFY</span>
+                        <span class="text-slate-400 text-xs font-bold"><i class="fa fa-clock mr-1"></i> 7 DAYS</span>
                     </div>
-                    <h3 class="font-bold text-xl mb-4">01. Identification</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed mb-6">Matching your entity type with Sector-Specific Grants like SISFS.</p>
+                    <h3 class="font-bold text-2xl mb-4">01. Identification</h3>
+                    <p class="text-base text-slate-600 leading-relaxed mb-6">Matching your sector with Central Schemes like SISFS or State-Specific Seed Grants.</p>
                 </div>
 
                 <div class="mint-box">
-                    <div class="flex justify-between items-center mb-6">
-                        <span class="bg-indigo-50 text-indigo-600 text-[9px] font-black px-2 py-1 rounded">DOSSIER</span>
-                        <span class="text-slate-400 text-[9px] font-bold"><i class="fa fa-clock mr-1"></i> 21 DAYS</span>
+                    <div class="flex justify-between items-center mb-8">
+                        <span class="bg-indigo-50 text-indigo-600 text-[10px] font-black px-3 py-1.5 rounded-full border border-indigo-100">DOSSIER</span>
+                        <span class="text-slate-400 text-xs font-bold"><i class="fa fa-clock mr-1"></i> 21 DAYS</span>
                     </div>
-                    <h3 class="font-bold text-xl mb-4">02. Application Dossier</h3>
-                    <div class="bg-slate-50 p-4 rounded-xl space-y-3">
-                        <div class="flex items-center gap-3"><i class="fa fa-file-invoice text-indigo-600"></i><span class="text-[9px] font-black uppercase">Detailed Project Report</span></div>
-                        <div class="flex items-center gap-3"><i class="fa fa-chart-line text-indigo-600"></i><span class="text-[9px] font-black uppercase">Financial Projections</span></div>
+                    <h3 class="font-bold text-2xl mb-4">02. Application</h3>
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-center gap-4 text-slate-700">
+                            <i class="fa fa-file-invoice text-indigo-600 text-lg"></i>
+                            <span class="text-sm font-bold">Detailed Project Report</span>
+                        </div>
+                        <div class="flex items-center gap-4 text-slate-700">
+                            <i class="fa fa-chart-line text-indigo-600 text-lg"></i>
+                            <span class="text-sm font-bold">Financial Projections</span>
+                        </div>
                     </div>
                 </div>
 
                 <div class="mint-box">
-                    <div class="flex justify-between items-center mb-6">
-                        <span class="bg-emerald-50 text-emerald-600 text-[9px] font-black px-2 py-1 rounded">FINALIZE</span>
-                        <span class="text-slate-400 text-[9px] font-bold"><i class="fa fa-clock mr-1"></i> 60 DAYS</span>
+                    <div class="flex justify-between items-center mb-8">
+                        <span class="bg-emerald-50 text-emerald-600 text-[10px] font-black px-3 py-1.5 rounded-full border border-emerald-100">FINALIZE</span>
+                        <span class="text-slate-400 text-xs font-bold"><i class="fa fa-clock mr-1"></i> 60+ DAYS</span>
                     </div>
-                    <h3 class="font-bold text-xl mb-4">03. Post-Submission</h3>
-                    <p class="text-[10px] font-bold text-emerald-700 uppercase"><i class="fa fa-check mr-1"></i> Expert Committee Presentation</p>
+                    <h3 class="font-bold text-2xl mb-4">03. Disbursement</h3>
+                    <p class="text-sm font-bold text-emerald-700 uppercase mb-4"><i class="fa fa-award mr-2"></i> Technical Review Presentation</p>
+                    <p class="text-sm text-slate-500">Navigating the government committee loop for final fund release.</p>
                 </div>
+
             </div>
         </section>
 
-        <footer class="mt-32 text-center py-20 border-t border-slate-100">
-            <h3 class="text-3xl font-black mb-8">Ready to <span class="text-indigo-600">execute?</span></h3>
-            <a href="https://wa.me/917039196489" class="inline-block bg-black text-white px-12 py-5 rounded-full font-black text-[10px] uppercase tracking-[0.2em] hover:bg-indigo-600 transition-all">Consult with Counsel</a>
+        <footer class="mt-32 text-center py-24 border-t border-slate-100">
+            <h3 class="text-4xl font-black mb-10">Scale your vision <span class="text-indigo-600">securely.</span></h3>
+            <a href="https://wa.me/917039196489" class="inline-block bg-black text-white px-16 py-6 rounded-full font-black text-xs uppercase tracking-[0.2em] hover:bg-indigo-600 transition-all shadow-2xl transform hover:-translate-y-1">
+                Consult with Counsel
+            </a>
         </footer>
     </main>
 </body>
