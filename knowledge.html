@@ -3,173 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advisory Hub | BusinessFundsForMe</title>
+    <title>Founder's Blueprint | BusinessFundsForMe</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #ffffff; color: #0f172a; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcfcfc; color: #1e293b; }
         
-        /* Persistent WhatsApp Button */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.15);
-            z-index: 1000;
-            transition: 0.3s;
-        }
-        .whatsapp-float:hover { transform: scale(1.1); background-color: #128c7e; }
+        /* 1. Global Navigation (Sleek and Compact) */
+        nav { background: #111827; padding: 1rem 3rem; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
+        nav a.back-btn { font-size: 10px; font-weight: 800; text-transform: uppercase; color: #94a3b8; }
+        nav h1 { font-weight: 800; text-transform: uppercase; font-size: 11px; letter-spacing: 0.1em; color: #e2e8f0; }
 
-        /* THE UNIFORM SMART BOX: Commit to one style */
-        .smart-box {
+        /* 2. Page Typography */
+        .step-label { font-size: 10px; font-weight: 800; text-transform: uppercase; color: #94a3b8; letter-spacing: 0.2em; display: block; margin-bottom: 0.5rem; }
+        .big-title { font-size: 2.5rem; font-weight: 800; tracking: -0.02em; margin-bottom: 2rem; }
+
+        /* 3. The Gold Embossed 'Mint' Box */
+        .mint-box {
+            position: relative;
             background: #ffffff;
-            border: 1.5px solid #f1f5f9; /* Subtle but defined */
-            border-radius: 16px;
-            padding: 2.5rem;
+            border-radius: 20px;
+            padding: 2rem;
+            
+            /* Physical Bevel (Golden Edge) */
+            border: 1px solid transparent; 
+            border-image: linear-gradient(135deg, #FDE68A 0%, #F59E0B 50%, #FDE68A 100%) 1;
+
+            /* 3D Embossing (Inner Shadows) */
+            box-shadow: inset 1px 1px 0px rgba(255,255,255,0.7), 
+                        inset -1px -1px 0px rgba(0,0,0,0.02),
+                        0 4px 6px rgba(0, 0, 0, 0.03); 
+            
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             height: 100%;
-            transition: all 0.3s ease;
-        }
-        .smart-box:hover {
-            border-color: #6366f1; /* Indigo focus on hover */
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.05);
+            overflow: hidden;
         }
 
-        .step-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.25em; color: #6366f1; display: block; margin-bottom: 1rem; }
-        .section-title { font-size: 2.5rem; font-weight: 800; tracking: -0.02em; margin-bottom: 3rem; }
+        /* 4. Hovering 'The Lift' Effect */
+        .mint-box:hover {
+            transform: translateY(-8px) scale(1.01);
+            
+            /* Enhanced Gold Glow */
+            border-image: linear-gradient(135deg, #FBBF24 0%, #D97706 50%, #FBBF24 100%) 1;
+            box-shadow: inset 1px 1px 0px rgba(255,255,255,0.8), 
+                        inset -1px -1px 0px rgba(0,0,0,0.03),
+                        0 20px 40px rgba(217, 119, 6, 0.1); /* Subtle Golden Glow */
+        }
     </style>
 </head>
 <body class="antialiased">
 
-    <a href="https://wa.me/917039196489" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <nav class="border-b border-slate-50 sticky top-0 bg-white/90 backdrop-blur-md z-50">
-        <div class="container mx-auto px-8 py-6 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="w-8 h-8 bg-indigo-600 rounded flex items-center justify-center text-white font-black text-xs">W</div>
-                <span class="font-extrabold text-xl tracking-tighter">BusinessFundsForMe</span>
-            </div>
-            <span class="text-[10px] font-black uppercase tracking-widest text-slate-400">Legal Advisory Hub</span>
-        </div>
+    <nav>
+        <a href="index.html" class="back-btn">← Search</a>
+        <h1>Founder's Legal Blueprint</h1>
+        <div class="h-8 w-8 bg-indigo-600 rounded flex items-center justify-center font-black text-xs text-white">W</div>
     </nav>
 
     <main class="container mx-auto max-w-7xl px-8 py-20">
-
-        <section class="mb-32">
-            <span class="step-label">Step 01</span>
-            <h2 class="section-title">Entity <span class="text-indigo-600">Selection.</span></h2>
+        
+        <section class="mb-24">
+            <span class="step-label">Stage One: Selection</span>
+            <h2 class="big-title">India's Business <span class="text-indigo-600">Taxonomy.</span></h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="smart-box">
-                    <h3 class="font-bold text-xl mb-4">Pvt. Ltd.</h3>
-                    <p class="text-sm text-slate-500 mb-6 leading-relaxed">The primary vehicle for global patenting and funding.</p>
-                    <div class="space-y-2">
-                        <div class="flex items-center gap-2 text-[10px] font-bold text-emerald-600 uppercase"><i class="fa fa-plus"></i> VC Fundable</div>
-                        <div class="flex items-center gap-2 text-[10px] font-bold text-rose-500 uppercase"><i class="fa fa-minus"></i> Higher Compliance</div>
+                
+                <div class="mint-box">
+                    <h3 class="text-xl font-bold mb-3">Pvt. Ltd.</h3>
+                    <p class="text-xs text-slate-500 mb-6 leading-relaxed">The VC-compliant vehicle for raising equity and achieving rapid scale.</p>
+                    <div class="space-y-2 text-[10px] font-bold uppercase tracking-wide">
+                        <div class="flex gap-2 items-center text-emerald-600"><i class="fa fa-gem"></i>Highly Fundable</div>
+                        <div class="flex gap-2 items-center text-rose-500"><i class="fa fa-exclamation-triangle"></i>Strict Compliance</div>
                     </div>
                 </div>
-                <div class="smart-box">
-                    <h3 class="font-bold text-xl mb-4">LLP</h3>
-                    <p class="text-sm text-slate-500 mb-6 leading-relaxed">Ideal for professional service-based operations with lower overheads.</p>
-                    <div class="space-y-2">
-                        <div class="flex items-center gap-2 text-[10px] font-bold text-emerald-600 uppercase"><i class="fa fa-plus"></i> Low Cost</div>
-                        <div class="flex items-center gap-2 text-[10px] font-bold text-rose-500 uppercase"><i class="fa fa-minus"></i> No Equity Raise</div>
+
+                <div class="mint-box">
+                    <h3 class="text-xl font-bold mb-3">LLP</h3>
+                    <p class="text-xs text-slate-500 mb-6 leading-relaxed">Best for professional service firms. Limited liability without the corporate tax burden.</p>
+                    <div class="space-y-2 text-[10px] font-bold uppercase tracking-wide">
+                        <div class="flex gap-2 items-center text-indigo-600"><i class="fa fa-shield-alt"></i>Limited Liability</div>
+                        <div class="flex gap-2 items-center text-rose-500"><i class="fa fa-minus"></i>No Venture Equity</div>
                     </div>
                 </div>
-                <div class="smart-box">
-                    <h3 class="font-bold text-xl mb-4">Partnership</h3>
-                    <p class="text-sm text-slate-500 mb-6 leading-relaxed">Simplest setup for small local firms with zero statutory audit.</p>
-                    <div class="space-y-2">
-                        <div class="flex items-center gap-2 text-[10px] font-bold text-emerald-600 uppercase"><i class="fa fa-plus"></i> Fast Setup</div>
-                        <div class="flex items-center gap-2 text-[10px] font-bold text-rose-500 uppercase"><i class="fa fa-minus"></i> Full Liability</div>
+
+                <div class="mint-box">
+                    <h3 class="text-xl font-bold mb-3">Partnership</h3>
+                    <p class="text-xs text-slate-500 mb-6 leading-relaxed">Simple setup for small trade, with unlimited personal liability for the founders.</p>
+                    <div class="space-y-2 text-[10px] font-bold uppercase tracking-wide">
+                        <div class="flex gap-2 items-center text-emerald-600"><i class="fa fa-rocket"></i>Quickest Setup</div>
+                        <div class="flex gap-2 items-center text-rose-500"><i class="fa fa-exclamation-triangle"></i>Unlimited Risk</div>
                     </div>
                 </div>
+
             </div>
         </section>
 
-        <section class="mb-32">
-            <span class="step-label">Step 02</span>
-            <h2 class="section-title">Formation <span class="text-indigo-600">Pipeline.</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="smart-box">
-                    <div class="w-10 h-10 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-black mb-6">1</div>
-                    <h3 class="font-bold text-lg mb-2">DSC & DIN</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed">Securing digital signatures and Director IDs for legal authentication.</p>
-                </div>
-                <div class="smart-box">
-                    <div class="w-10 h-10 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-black mb-6">2</div>
-                    <h3 class="font-bold text-lg mb-2">MOA & AOA</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed">Drafting the corporate charter and defining the business bylaws.</p>
-                </div>
-                <div class="smart-box">
-                    <div class="w-10 h-10 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-black mb-6">3</div>
-                    <h3 class="font-bold text-lg mb-2">Incorporation</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed">Official ROC approval and allotment of the Corporate Identity Number (CIN).</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="mb-32">
-            <span class="step-label">Step 03</span>
-            <h2 class="section-title">Mandatory <span class="text-indigo-600">Onboarding.</span></h2>
+        <section class="mb-24">
+            <span class="step-label">Stage Two: Credentials</span>
+            <h2 class="big-title">Statutory <span class="text-indigo-600">Onboarding.</span></h2>
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                <div class="smart-box p-6 text-center hover:border-indigo-600">
+                <div class="mint-box text-center p-8">
+                    <i class="fa fa-file-pdf text-2xl text-slate-400 mb-4 block"></i>
+                    <h4 class="font-bold text-sm">COI</h4>
+                    <p class="text-[9px] uppercase font-black text-slate-300 mt-1">Incorporation</p>
+                </div>
+                <div class="mint-box text-center p-8">
+                    <i class="fa fa-receipt text-2xl text-slate-400 mb-4 block"></i>
+                    <h4 class="font-bold text-sm">GSTIN</h4>
+                    <p class="text-[9px] uppercase font-black text-slate-300 mt-1">Indirect Tax</p>
+                </div>
+                <div class="mint-box text-center p-8">
+                    <i class="fa fa-industry text-2xl text-slate-400 mb-4 block"></i>
                     <h4 class="font-bold text-sm">UDYAM</h4>
+                    <p class="text-[9px] uppercase font-black text-slate-300 mt-1">MSME Tag</p>
                 </div>
-                <div class="smart-box p-6 text-center hover:border-indigo-600">
-                    <h4 class="font-bold text-sm">GST</h4>
-                </div>
-                <div class="smart-box p-6 text-center hover:border-indigo-600">
+                <div class="mint-box text-center p-8">
+                    <i class="fa fa-briefcase text-2xl text-slate-400 mb-4 block"></i>
                     <h4 class="font-bold text-sm">PTEC</h4>
+                    <p class="text-[9px] uppercase font-black text-slate-300 mt-1">Prof. Tax</p>
                 </div>
-                <div class="smart-box p-6 text-center hover:border-indigo-600">
-                    <h4 class="font-bold text-sm">FSSAI</h4>
+                <div class="mint-box text-center p-8 border-indigo-200 bg-indigo-50/20">
+                    <i class="fa fa-gem text-2xl text-indigo-500 mb-4 block"></i>
+                    <h4 class="font-bold text-sm text-indigo-900">DPIIT</h4>
+                    <p class="text-[9px] uppercase font-black text-indigo-500 mt-1">Startup Gold</p>
                 </div>
-                <div class="smart-box p-6 text-center border-indigo-200 bg-indigo-50/30">
-                    <h4 class="font-bold text-sm text-indigo-600">DPIIT</h4>
-                </div>
-                <div class="smart-box p-6 text-center border-indigo-200 bg-indigo-50/30">
-                    <h4 class="font-bold text-sm text-indigo-600">80-IAC</h4>
+                <div class="mint-box text-center p-8 border-indigo-200 bg-indigo-50/20">
+                    <i class="fa fa-gem text-2xl text-indigo-500 mb-4 block"></i>
+                    <h4 class="font-bold text-sm text-indigo-900">80-IAC</h4>
+                    <p class="text-[9px] uppercase font-black text-indigo-500 mt-1">Tax Holiday</p>
                 </div>
             </div>
         </section>
 
-        <section>
-            <span class="step-label">Step 04</span>
-            <h2 class="section-title">Post-Recognition <span class="text-indigo-600">Scale.</span></h2>
-            <div class="smart-box p-12">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-6">Scheme Application</h3>
-                        <p class="text-slate-500 leading-relaxed">Once recognized by DPIIT, you unlock access to central grants. This requires a high-quality application dossier.</p>
-                    </div>
-                    <div class="bg-slate-50 p-8 rounded-2xl">
-                        <h4 class="font-black text-[10px] uppercase tracking-widest text-slate-400 mb-6">Minimum Document Set</h4>
-                        <ul class="space-y-4 text-sm font-bold">
-                            <li><i class="fa fa-file-pdf text-indigo-600 mr-2"></i> Detailed Project Report (DPR)</li>
-                            <li><i class="fa fa-file-pdf text-indigo-600 mr-2"></i> 3-Year Financial Projections</li>
-                            <li><i class="fa fa-file-pdf text-indigo-600 mr-2"></i> Technical Pitch Deck</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <footer class="mt-32 text-center">
+            <h3 class="text-3xl font-black mb-8">Ready to <span class="text-indigo-600">execute?</span></h3>
+            <a href="https://wa.me/917039196489?text=I%20need%20advisory%20to%20apply%20for%20a%20grant" 
+               class="inline-block bg-black text-white px-12 py-5 rounded-full font-black text-[10px] uppercase tracking-[0.2em] hover:bg-black transition-all transform hover:scale-105 shadow-2xl">
+                Consult with Counsel
+            </a>
+        </footer>
 
     </main>
-
-    <footer class="py-24 border-t border-slate-100 text-center">
-        <a href="https://wa.me/917039196489" class="bg-indigo-600 text-white px-12 py-5 rounded-full font-black text-xs uppercase tracking-widest hover:bg-black transition-all">Consult with Counsel</a>
-    </footer>
 
 </body>
 </html>
