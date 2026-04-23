@@ -10,13 +10,16 @@
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
         
-        /* The "Custom Logo" Font Style */
+        /* Premium 3D Effect for the Brand Name */
         .brand-font { 
             font-family: 'Inter', sans-serif; 
-            letter-spacing: -0.05em; /* Tighter tracking for a premium feel */
-            background: linear-gradient(to bottom, #1e1b4b, #312e81);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.04em;
+            color: #1e1b4b;
+            /* 3D shadow layers: subtle depth with a slight tilt */
+            text-shadow: 
+                1px 1px 0px #cbd5e1, 
+                2px 2px 0px #94a3b8,
+                3px 3px 0px rgba(30, 27, 75, 0.1);
         }
 
         .ticker-wrap { background: #1e1b4b; color: white; padding: 12px 0; overflow: hidden; }
@@ -112,7 +115,7 @@
             try {
                 const res = await fetch('grants.json');
                 rawData = await res.json();
-            } catch (e) { console.error("Could not load grants.json"); }
+            } catch (e) { console.error("JSON Error"); }
             filterData();
         }
 
