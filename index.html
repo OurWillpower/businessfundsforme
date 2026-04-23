@@ -3,65 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business Funds For Me | 200+ Startup Schemes</title>
+    <title>Business Funds For Me | Portal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
-        .ticker-wrap { background: #1e1b4b; color: white; padding: 10px 0; overflow: hidden; }
-        .ticker { display: inline-block; white-space: nowrap; animation: ticker 40s linear infinite; font-weight: 800; font-size: 11px; letter-spacing: 1px; }
+        /* Ticker Styling */
+        .ticker-wrap { background: #1e1b4b; color: white; padding: 12px 0; overflow: hidden; }
+        .ticker { display: inline-block; white-space: nowrap; animation: ticker 50s linear infinite; font-weight: 800; font-size: 12px; letter-spacing: 1px; }
         @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
-        .grant-card { background: white; border-radius: 24px; padding: 24px; border: 1px solid #e2e8f0; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .grant-card:hover { transform: translateY(-8px); border-color: #6366f1; box-shadow: 0 20px 40px -12px rgba(0,0,0,0.1); }
-        select, input { border-radius: 16px !important; }
+        
+        /* Premium Card */
+        .grant-card { background: white; border-radius: 24px; padding: 24px; border: 1px solid #e2e8f0; transition: 0.3s ease; height: 100%; display: flex; flex-direction: column; }
+        .grant-card:hover { transform: translateY(-8px); border-color: #6366f1; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.08); }
+        
+        /* Logo & Brand Refinement */
+        .brand-logo { height: 60px; width: auto; object-fit: contain; } /* Increased Logo Size */
+        .brand-name { font-size: 1.75rem; font-weight: 800; letter-spacing: -0.04em; color: #1e1b4b; }
     </style>
 </head>
 <body class="text-slate-900">
 
     <div class="ticker-wrap">
         <div class="ticker uppercase">
-            🚀 200+ Schemes Verified for 2026 • ⚡ SIDBI Venture Capital Fund Open • 📢 Mudra Loans Available • 🏦 World of Willpower Initiative • ⚡ MSME Grants Updated
+            🚀 200+ SCHEMES VERIFIED • ⚡ SIDBI VENTURE CAPITAL OPEN • 🏦 MUDRA LOANS UPDATED • 📢 WORLD OF WILLPOWER INITIATIVE
         </div>
     </div>
 
-    <nav class="bg-white border-b py-5 sticky top-0 z-50">
+    <nav class="bg-white border-b py-6 sticky top-0 z-50">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="/" class="flex items-center gap-3">
-                <img src="logo.png" class="h-10" alt="Logo">
-                <span class="font-extrabold text-2xl tracking-tighter text-indigo-950">BusinessFundsForMe</span>
+            <a href="/" class="flex items-center gap-5">
+                <img src="logo.png" class="brand-logo" alt="Logo">
+                <span class="brand-name">BusinessFundsForMe</span>
             </a>
             <div class="flex items-center gap-6">
-                <a href="/" class="text-xs font-bold text-slate-400 hover:text-indigo-600 uppercase tracking-widest">Home</a>
-                <a href="https://wa.me/917039196489" class="bg-indigo-600 text-white px-6 py-2.5 rounded-2xl font-bold text-xs uppercase tracking-widest shadow-lg shadow-indigo-200">WhatsApp Support</a>
+                <a href="/" class="text-xs font-extrabold uppercase text-slate-400 hover:text-indigo-600">Home</a>
+                <a href="https://wa.me/917039196489" class="bg-indigo-600 text-white px-7 py-3 rounded-2xl font-bold text-xs uppercase tracking-widest shadow-lg shadow-indigo-100 hover:bg-indigo-700 transition">Support</a>
             </div>
         </div>
     </nav>
 
-    <header class="bg-indigo-950 pt-20 pb-32 px-6 text-center text-white relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-        <div class="container mx-auto max-w-3xl relative z-10">
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">Find Your <span class="text-indigo-400">Startup Capital.</span></h1>
-            <p class="text-indigo-200 mb-12 text-lg font-medium opacity-80">The most comprehensive, phonetic-search enabled database for Indian Founders.</p>
+    <header class="bg-indigo-950 pt-20 pb-32 px-6 text-center text-white">
+        <div class="container mx-auto max-w-3xl">
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight">Access <span class="text-indigo-400">Startup Capital.</span></h1>
             <div class="relative max-w-2xl mx-auto">
                 <i class="fa fa-search absolute left-6 top-6 text-slate-400"></i>
-                <input type="text" id="searchInput" onkeyup="filterData()" placeholder="Try 'Mudra', 'Grant', or 'Tech'..." 
+                <input type="text" id="searchInput" onkeyup="filterData()" placeholder="Phonetic Search: Try 'Mudhra' or 'Grant'..." 
                        class="w-full p-6 pl-16 rounded-[2rem] text-slate-900 outline-none shadow-2xl text-lg font-semibold border-4 border-white focus:border-indigo-400 transition-all">
             </div>
         </div>
     </header>
 
     <main class="container mx-auto px-6 py-16 flex flex-col md:flex-row gap-12">
-        <aside class="w-full md:w-80 flex-shrink-0 space-y-10">
+        <aside class="w-full md:w-80 space-y-10">
             <div>
-                <h3 class="font-extrabold text-[11px] uppercase tracking-[0.2em] text-slate-400 mb-5">Funding Type</h3>
-                <div id="typeFilters" class="space-y-3">
-                    </div>
+                <h3 class="font-extrabold text-[11px] uppercase tracking-widest text-slate-400 mb-5">Funding Type</h3>
+                <div id="typeFilters" class="space-y-3"></div>
             </div>
 
             <div>
-                <h3 class="font-extrabold text-[11px] uppercase tracking-[0.2em] text-slate-400 mb-5">Industry Sector</h3>
-                <select id="industryFilter" onchange="filterData()" class="w-full p-4 bg-white border-2 border-slate-100 rounded-2xl font-bold text-sm text-slate-700 outline-none focus:border-indigo-500">
+                <h3 class="font-extrabold text-[11px] uppercase tracking-widest text-slate-400 mb-3">Industry</h3>
+                <select id="industryFilter" onchange="filterData()" class="w-full p-4 bg-white border-2 border-slate-100 rounded-2xl font-bold text-sm outline-none focus:border-indigo-500">
                     <option value="All">All Industries</option>
                     <option value="IT & Tech">IT & Software</option>
                     <option value="Manufacturing">Manufacturing</option>
@@ -70,24 +73,25 @@
                 </select>
             </div>
 
-            <div class="bg-indigo-50 p-8 rounded-[2.5rem] border border-indigo-100">
-                <h4 class="font-extrabold text-indigo-900 mb-3">Expert Filing Help</h4>
-                <p class="text-indigo-700 text-xs font-medium mb-6 leading-relaxed">Don't let paperwork stop you. Our experts help with documentation and end-to-end applications.</p>
-                <a href="https://wa.me/917039196489" class="block text-center bg-indigo-600 text-white py-4 rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-indigo-700 transition">Contact Expert</a>
+            <div>
+                <h3 class="font-extrabold text-[11px] uppercase tracking-widest text-slate-400 mb-3">Funding Sector</h3>
+                <select id="sectorFilter" onchange="filterData()" class="w-full p-4 bg-white border-2 border-slate-100 rounded-2xl font-bold text-sm outline-none focus:border-indigo-500">
+                    <option value="All">All Sectors</option>
+                    <option value="Public">Government / Public</option>
+                    <option value="Private">Private / VC</option>
+                    <option value="Bank">Bank / Institutional</option>
+                </select>
             </div>
+
+            <button onclick="resetFilters()" class="w-full py-4 border-2 border-dashed border-slate-200 rounded-2xl text-xs font-bold text-slate-400 hover:bg-slate-50 transition">RESET ALL FILTERS</button>
         </aside>
 
         <div class="flex-1">
-            <div class="flex justify-between items-center mb-10">
-                <h2 id="count-label" class="text-2xl font-extrabold text-slate-900">Loading Schemes...</h2>
-            </div>
-
+            <h2 id="count-label" class="text-2xl font-extrabold mb-10">Schemes Available</h2>
             <div id="grants-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-8"></div>
-            
             <div id="no-results" class="hidden text-center py-24 bg-white rounded-[3rem] border-4 border-dashed border-slate-50">
-                <div class="text-6xl mb-6">🔍</div>
-                <p class="text-slate-400 font-bold text-xl mb-8">No exact matches found.</p>
-                <button onclick="resetFilters()" class="bg-indigo-600 text-white px-10 py-4 rounded-2xl font-extrabold text-xs uppercase tracking-widest shadow-xl shadow-indigo-100">Show All Schemes</button>
+                <p class="text-slate-400 font-bold text-xl mb-6">No matching schemes found.</p>
+                <button onclick="resetFilters()" class="bg-indigo-600 text-white px-10 py-4 rounded-2xl font-extrabold text-xs">Show All</button>
             </div>
         </div>
     </main>
@@ -100,13 +104,10 @@
             try {
                 const res = await fetch('grants.json');
                 rawData = await res.json();
-            } catch (e) {
-                console.error("JSON Load Failed");
-            }
+            } catch (e) { console.error("JSON missing"); }
             filterData();
         }
 
-        // PHONETIC SEARCH: Handles Mudra/Mudhra
         function isPhoneticMatch(str, target) {
             if (!str) return false;
             const s = str.toLowerCase().replace(/h/g, '');
@@ -117,25 +118,34 @@
         function filterData() {
             const search = document.getElementById('searchInput').value;
             const ind = document.getElementById('industryFilter').value;
+            const sec = document.getElementById('sectorFilter').value;
             const checkedTypes = Array.from(document.querySelectorAll('#typeFilters input:checked')).map(c => c.value);
 
             let filtered = rawData.filter(item => {
+                // Search Logic
                 const matchesSearch = !search || isPhoneticMatch(item.name, search) || isPhoneticMatch(item.provider, search);
+                // Type Logic
                 const matchesType = checkedTypes.length === 0 || checkedTypes.includes(item.type);
-                const itemInd = Array.isArray(item.industry) ? item.industry : [item.industry || "All"];
-                const matchesInd = ind === "All" || itemInd.includes(ind);
-                return matchesSearch && matchesType && matchesInd;
+                // Industry Mapping (Checks if selected ind is in array or string)
+                const itemInds = Array.isArray(item.industry) ? item.industry : [item.industry || "General"];
+                const matchesInd = ind === "All" || itemInds.includes(ind);
+                // Sector Mapping (Fixed)
+                const matchesSec = sec === "All" || (item.sector || "Public") === sec;
+
+                return matchesSearch && matchesType && matchesInd && matchesSec;
             });
 
-            updateSidebar(checkedTypes, search, ind);
+            updateSidebar(checkedTypes, search, ind, sec);
             renderGrid(filtered);
         }
 
-        function updateSidebar(checked, search, ind) {
+        function updateSidebar(checked, search, ind, sec) {
             document.getElementById('typeFilters').innerHTML = categories.map(cat => {
                 const count = rawData.filter(i => {
-                    const mInd = ind === "All" || (Array.isArray(i.industry) ? i.industry.includes(ind) : i.industry === ind);
-                    return i.type === cat && mInd && (!search || isPhoneticMatch(i.name, search));
+                    const itemInds = Array.isArray(i.industry) ? i.industry : [i.industry || "General"];
+                    const mInd = ind === "All" || itemInds.includes(ind);
+                    const mSec = sec === "All" || (i.sector || "Public") === sec;
+                    return i.type === cat && mInd && mSec && (!search || isPhoneticMatch(i.name, search));
                 }).length;
 
                 return `
@@ -152,24 +162,23 @@
         function renderGrid(data) {
             const grid = document.getElementById('grants-grid');
             const noResults = document.getElementById('no-results');
-            document.getElementById('count-label').innerText = `${data.length} Available Schemes`;
+            document.getElementById('count-label').innerText = `${data.length} Schemes Available`;
             
             if (data.length === 0) {
-                grid.innerHTML = "";
-                noResults.classList.remove('hidden');
+                grid.innerHTML = ""; noResults.classList.remove('hidden');
             } else {
                 noResults.classList.add('hidden');
                 grid.innerHTML = data.map(item => `
-                    <div class="grant-card flex flex-col">
+                    <div class="grant-card">
                         <div class="flex justify-between items-start mb-6">
-                            <span class="bg-indigo-50 text-indigo-600 text-[10px] font-extrabold px-3 py-1.5 rounded-xl uppercase tracking-widest">${item.type}</span>
-                            <p class="text-green-600 font-extrabold text-xl tracking-tight">${item.amount}</p>
+                            <span class="bg-indigo-50 text-indigo-600 text-[10px] font-extrabold px-3 py-1.5 rounded-xl uppercase tracking-widest">${item.sector || 'Public'}</span>
+                            <p class="text-green-600 font-extrabold text-xl">${item.amount}</p>
                         </div>
                         <h3 class="text-xl font-extrabold text-slate-900 leading-tight mb-2">${item.name}</h3>
                         <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-8">${item.provider}</p>
                         <div class="mt-auto pt-6 border-t border-slate-50 flex items-center justify-between">
-                            <span class="text-[10px] text-slate-400 font-black uppercase tracking-tighter"><i class="fa fa-map-marker-alt mr-1"></i> ${item.state || 'All India'}</span>
-                            <a href="${item.link}" target="_blank" class="bg-slate-900 text-white px-7 py-3 rounded-2xl font-extrabold text-[10px] uppercase tracking-widest hover:bg-indigo-600 shadow-lg transition">Apply Now</a>
+                            <span class="text-[10px] text-slate-400 font-black uppercase tracking-widest">${item.type}</span>
+                            <a href="${item.link}" target="_blank" class="bg-slate-900 text-white px-7 py-3 rounded-2xl font-extrabold text-[10px] uppercase hover:bg-indigo-600 transition">Apply Now</a>
                         </div>
                     </div>
                 `).join('');
@@ -179,6 +188,7 @@
         function resetFilters() {
             document.getElementById('searchInput').value = "";
             document.getElementById('industryFilter').value = "All";
+            document.getElementById('sectorFilter').value = "All";
             document.querySelectorAll('#typeFilters input').forEach(c => c.checked = false);
             filterData();
         }
