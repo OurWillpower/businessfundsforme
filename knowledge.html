@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Founder's Blueprint | BusinessFundsForMe</title>
+    <title>Compliance Roadmap | BusinessFundsForMe</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -34,11 +34,22 @@
             box-shadow: 0 25px 50px -12px rgba(217, 119, 6, 0.15);
         }
 
+        .compliance-tag { font-size: 10px; font-weight: 900; padding: 4px 10px; border-radius: 6px; text-transform: uppercase; display: inline-block; margin-bottom: 12px; }
+        .tag-urgent { background: #FEF2F2; color: #EF4444; border: 1px solid #FEE2E2; }
+        .tag-growth { background: #F0F9FF; color: #0EA5E9; border: 1px solid #E0F2FE; }
+        .tag-legal { background: #F5F3FF; color: #8B5CF6; border: 1px solid #EDE9FE; }
+
         .whatsapp-float {
             position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white;
             width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center;
             justify-content: center; font-size: 32px; z-index: 2000; box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
         }
+        
+        table { width: 100%; border-collapse: separate; border-spacing: 0 8px; }
+        th { text-align: left; font-size: 11px; text-transform: uppercase; color: #94a3b8; padding: 12px 20px; }
+        td { background: white; padding: 20px; font-size: 14px; border-top: 1px solid #f1f5f9; border-bottom: 1px solid #f1f5f9; }
+        td:first-child { border-left: 1px solid #f1f5f9; border-radius: 12px 0 0 12px; font-weight: 800; color: #1e293b; }
+        td:last-child { border-right: 1px solid #f1f5f9; border-radius: 0 12px 12px 0; color: #64748b; font-weight: 600; }
     </style>
 </head>
 <body class="antialiased">
@@ -47,198 +58,140 @@
 
     <nav>
         <a href="index.html" class="back-btn">← Home</a>
-        <h1>Founder's Legal Blueprint</h1>
+        <h1>Statutory Compliance Blueprint</h1>
         <div class="h-9 w-9 bg-indigo-600 rounded flex items-center justify-center font-black text-sm text-white">W</div>
     </nav>
 
     <main class="container mx-auto max-w-7xl px-8 py-20">
 
         <section class="mb-32">
-            <span class="step-label">Stage One: Selection</span>
-            <h2 class="big-title">Business <span class="text-indigo-600">Taxonomy.</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <span class="step-label">Phase One: 30-180 Days</span>
+            <h2 class="big-title">Mandatory <span class="text-indigo-600">Core.</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="mint-box">
-                    <h3 class="text-2xl font-bold mb-4">Pvt. Ltd.</h3>
-                    <p class="text-base text-slate-600 mb-8 leading-relaxed">The VC-compliant vehicle for raising equity and scaling rapidly across borders.</p>
-                    <div class="space-y-3 text-[11px] font-bold uppercase tracking-wider">
-                        <div class="flex gap-3 items-center text-emerald-600"><i class="fa fa-gem text-sm"></i>Highly Fundable</div>
-                        <div class="flex gap-3 items-center text-rose-500"><i class="fa fa-exclamation-triangle text-sm"></i>Strict Compliance</div>
-                    </div>
+                    <span class="compliance-tag tag-urgent">Immediate</span>
+                    <h3 class="text-xl font-bold mb-3">PAN & TAN</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Issued via SPICe+ during COI generation. Required for all financial identities.</p>
                 </div>
                 <div class="mint-box">
-                    <h3 class="text-2xl font-bold mb-4">LLP</h3>
-                    <p class="text-base text-slate-600 mb-8 leading-relaxed">Best for professional services. Limited liability without the double-taxation burden.</p>
-                    <div class="space-y-3 text-[11px] font-bold uppercase tracking-wider">
-                        <div class="flex gap-3 items-center text-indigo-600"><i class="fa fa-shield-alt text-sm"></i>Low Maintenance</div>
-                        <div class="flex gap-3 items-center text-rose-500"><i class="fa fa-minus text-sm"></i>No Venture Equity</div>
-                    </div>
+                    <span class="compliance-tag tag-urgent">Immediate</span>
+                    <h3 class="text-xl font-bold mb-3">Bank Opening</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Current Account setup is the first hurdle for paid-up capital receipt.</p>
                 </div>
                 <div class="mint-box">
-                    <h3 class="text-2xl font-bold mb-4">Partnership</h3>
-                    <p class="text-base text-slate-600 mb-8 leading-relaxed">Simple setup for small trade, though founders face unlimited personal risk.</p>
-                    <div class="space-y-3 text-[11px] font-bold uppercase tracking-wider">
-                        <div class="flex gap-3 items-center text-emerald-600"><i class="fa fa-rocket text-sm"></i>Quickest Setup</div>
-                        <div class="flex gap-3 items-center text-rose-500"><i class="fa fa-exclamation-triangle text-sm"></i>Unlimited Risk</div>
-                    </div>
+                    <span class="compliance-tag tag-urgent">30 Days</span>
+                    <h3 class="text-xl font-bold mb-3">ADT-1 Auditor</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Mandatory appointment of your first auditor within a month of incorporation.</p>
+                </div>
+                <div class="mint-box">
+                    <span class="compliance-tag tag-urgent">180 Days</span>
+                    <h3 class="text-xl font-bold mb-3">INC-20A</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Commencement of Business filing. Failure to file halts all business operations.</p>
                 </div>
             </div>
         </section>
 
         <section class="mb-32">
-            <span class="step-label">Stage Two: Credentials</span>
-            <h2 class="big-title">Statutory <span class="text-indigo-600">Onboarding.</span></h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-                <div class="mint-box text-center py-10 px-4">
-                    <i class="fa fa-file-pdf text-3xl text-slate-400 mb-4 block"></i>
-                    <h4 class="font-bold text-sm uppercase text-slate-700">COI</h4>
-                </div>
-                <div class="mint-box text-center py-10 px-4">
-                    <i class="fa fa-receipt text-3xl text-slate-400 mb-4 block"></i>
-                    <h4 class="font-bold text-sm uppercase text-slate-700">GSTIN</h4>
-                </div>
-                <div class="mint-box text-center py-10 px-4">
-                    <i class="fa fa-industry text-3xl text-slate-400 mb-4 block"></i>
-                    <h4 class="font-bold text-sm uppercase text-slate-700">UDYAM</h4>
-                </div>
-                <div class="mint-box text-center py-10 px-4">
-                    <i class="fa fa-briefcase text-3xl text-slate-400 mb-4 block"></i>
-                    <h4 class="font-bold text-sm uppercase text-slate-700">PTEC</h4>
-                </div>
-                <div class="mint-box text-center py-10 px-4 bg-indigo-50/30">
-                    <i class="fa fa-gem text-3xl text-indigo-500 mb-4 block"></i>
-                    <h4 class="font-bold text-sm uppercase text-indigo-900">DPIIT</h4>
-                </div>
-                <div class="mint-box text-center py-10 px-4 bg-indigo-50/30">
-                    <i class="fa fa-shield-heart text-3xl text-indigo-500 mb-4 block"></i>
-                    <h4 class="font-bold text-sm uppercase text-indigo-900">80-IAC</h4>
-                </div>
-            </div>
-        </section>
-
-        <section class="mb-32">
-            <span class="step-label">Stage 2.5: Readiness</span>
-            <h2 class="big-title">The Document <span class="text-indigo-600">Vault.</span></h2>
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <span class="step-label">Phase Two: Strategic Growth</span>
+            <h2 class="big-title">DPIIT & <span class="text-indigo-600">Tax Benefits.</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="mint-box">
                     <div class="flex items-center gap-4 mb-6">
-                        <div class="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center text-slate-600">
-                            <i class="fa fa-id-card"></i>
-                        </div>
-                        <h3 class="font-bold text-xl">Identity & Entity</h3>
+                        <i class="fa fa-award text-3xl text-amber-500"></i>
+                        <h3 class="text-2xl font-bold">Startup India Recognition</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fa fa-check-circle text-amber-500 mt-1"></i>
+                            <span class="text-base text-slate-700"><strong>Recognition Certificate:</strong> Unlocks all specialized DPIIT benefits.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa fa-check-circle text-amber-500 mt-1"></i>
+                            <span class="text-base text-slate-700"><strong>Annual Update:</strong> Mandatory operational update to retain status.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mint-box">
+                    <div class="flex items-center gap-4 mb-6">
+                        <i class="fa fa-piggy-bank text-3xl text-emerald-500"></i>
+                        <h3 class="text-2xl font-bold">Tax Exemptions</h3>
                     </div>
                     <ul class="space-y-4">
                         <li class="flex items-start gap-3">
                             <i class="fa fa-check-circle text-emerald-500 mt-1"></i>
-                            <span class="text-base text-slate-600"><strong>KYC:</strong> Aadhaar, PAN, Voter ID, Passport, or Utility Bills.</span>
+                            <span class="text-base text-slate-700"><strong>80-IAC:</strong> Application for the 3-year tax holiday via IMB approval.</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <i class="fa fa-check-circle text-emerald-500 mt-1"></i>
-                            <span class="text-base text-slate-600"><strong>Business:</strong> COI, GSTIN, Udyam Registration (MSME).</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa fa-check-circle text-emerald-500 mt-1"></i>
-                            <span class="text-base text-slate-600"><strong>Leadership:</strong> Board Resolution & Photographs.</span>
+                            <span class="text-base text-slate-700"><strong>Form 2 (Angel Tax):</strong> Section 56(2)(viib) exemption declaration.</span>
                         </li>
                     </ul>
                 </div>
+            </div>
+        </section>
 
+        <section class="mb-32">
+            <span class="step-label">Phase Three: Operational Scale</span>
+            <h2 class="big-title">Labour & <span class="text-indigo-600">Mandatory Ops.</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="mint-box">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-10 h-10 bg-indigo-50 rounded-lg flex items-center justify-center text-indigo-600">
-                            <i class="fa fa-chart-pie"></i>
-                        </div>
-                        <h3 class="font-bold text-xl">Audit & Assets</h3>
+                    <span class="compliance-tag tag-legal">Self-Certification</span>
+                    <h3 class="text-xl font-bold mb-4">Labour Laws</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-6">DPIIT startups can self-certify compliance for 6 Labour and 3 Environmental laws for 5 years.</p>
+                    <div class="text-[11px] font-bold text-slate-400 space-y-2 uppercase">
+                        <div><i class="fa fa-users mr-2"></i>EPF (20+ Employees)</div>
+                        <div><i class="fa fa-hospital mr-2"></i>ESIC (10+ Employees)</div>
                     </div>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3">
-                            <i class="fa fa-check-circle text-indigo-500 mt-1"></i>
-                            <span class="text-base text-slate-600"><strong>Audit Trail:</strong> 3-Year Audited Financials & ITRs.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa fa-check-circle text-indigo-500 mt-1"></i>
-                            <span class="text-base text-slate-600"><strong>Project:</strong> Detailed Project Report (DPR) & Quotations.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa fa-check-circle text-indigo-500 mt-1"></i>
-                            <span class="text-base text-slate-600"><strong>Statements:</strong> 6-Month Bank Account Statements.</span>
-                        </li>
+                </div>
+                <div class="mint-box">
+                    <span class="compliance-tag tag-growth">Operational</span>
+                    <h3 class="text-xl font-bold mb-4">Tax & MSME</h3>
+                    <ul class="space-y-3">
+                        <li class="text-sm font-bold text-slate-700"><i class="fa fa-check text-indigo-500 mr-2"></i>GST (Above threshold)</li>
+                        <li class="text-sm font-bold text-slate-700"><i class="fa fa-check text-indigo-500 mr-2"></i>Professional Tax (PTEC/PTRC)</li>
+                        <li class="text-sm font-bold text-slate-700"><i class="fa fa-check text-indigo-500 mr-2"></i>Udyam (MSME) Registration</li>
                     </ul>
                 </div>
-
                 <div class="mint-box">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-10 h-10 bg-amber-50 rounded-lg flex items-center justify-center text-amber-600">
-                            <i class="fa fa-folder-tree"></i>
-                        </div>
-                        <h3 class="font-bold text-xl">Scheme Specifics</h3>
-                    </div>
-                    <div class="space-y-5">
-                        <div class="border-l-2 border-amber-400 pl-4">
-                            <span class="text-[10px] font-black text-amber-600 uppercase block mb-1">Startups</span>
-                            <p class="text-sm text-slate-600 font-bold">DPIIT recognition, Pitch Deck, Business Model.</p>
-                        </div>
-                        <div class="border-l-2 border-indigo-400 pl-4">
-                            <span class="text-[10px] font-black text-indigo-600 uppercase block mb-1">NGOs</span>
-                            <p class="text-sm text-slate-600 font-bold">NGO Darpan ID, 12A & 80G, Annual Report.</p>
-                        </div>
-                        <div class="border-l-2 border-emerald-400 pl-4">
-                            <span class="text-[10px] font-black text-emerald-600 uppercase block mb-1">Research</span>
-                            <p class="text-sm text-slate-600 font-bold">Investigator Bio, Endorsement Letter, Plagiarism Undertaking.</p>
-                        </div>
+                    <span class="compliance-tag tag-urgent">Safety</span>
+                    <h3 class="text-xl font-bold mb-4">POSH & Trade</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-4">Mandatory Internal Committee (IC) if hiring 10+ employees.</p>
+                    <div class="bg-rose-50 p-4 rounded-xl">
+                        <p class="text-xs font-black text-rose-600 uppercase">Trade Note:</p>
+                        <p class="text-[11px] text-rose-800 font-bold uppercase mt-1">IEC Code needed for Import/Export.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section class="mb-32">
-            <span class="step-label">Stage Three: Execution</span>
-            <h2 class="big-title">The Funding <span class="text-indigo-600">Engine.</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="mint-box">
-                    <div class="flex justify-between items-center mb-8">
-                        <span class="bg-amber-50 text-amber-600 text-[10px] font-black px-3 py-1.5 rounded-full border border-amber-100 uppercase">01. Identify</span>
-                        <span class="text-slate-400 text-xs font-bold"><i class="fa fa-clock mr-1"></i> 7 DAYS</span>
-                    </div>
-                    <h3 class="font-bold text-2xl mb-4">Identification</h3>
-                    <p class="text-base text-slate-600 leading-relaxed mb-6">Matching your entity with Sector-Specific Grants, State Seed Funds, or Central Schemes like SISFS.</p>
-                    <ul class="text-[11px] font-bold text-slate-400 space-y-2 uppercase">
-                        <li><i class="fa fa-circle-check text-indigo-500 mr-2"></i> Eligibility Audit</li>
-                        <li><i class="fa fa-circle-check text-indigo-500 mr-2"></i> Grant-to-Equity Ratio</li>
-                    </ul>
-                </div>
-
-                <div class="mint-box">
-                    <div class="flex justify-between items-center mb-8">
-                        <span class="bg-indigo-50 text-indigo-600 text-[10px] font-black px-3 py-1.5 rounded-full border border-indigo-100 uppercase">02. Draft</span>
-                        <span class="text-slate-400 text-xs font-bold"><i class="fa fa-clock mr-1"></i> 21 DAYS</span>
-                    </div>
-                    <h3 class="font-bold text-2xl mb-4">Application Dossier</h3>
-                    <p class="text-base text-slate-600 mb-6">The technical core. These documents decide your success rate.</p>
-                    <div class="bg-slate-50 p-4 rounded-xl space-y-4">
-                        <div class="flex items-center gap-3"><i class="fa fa-file-invoice text-indigo-600 text-lg"></i><span class="text-sm font-bold uppercase">Project Report (DPR)</span></div>
-                        <div class="flex items-center gap-3"><i class="fa fa-chart-line text-indigo-600 text-lg"></i><span class="text-sm font-bold uppercase">3-Yr Projections</span></div>
-                    </div>
-                </div>
-
-                <div class="mint-box">
-                    <div class="flex justify-between items-center mb-8">
-                        <span class="bg-emerald-50 text-emerald-600 text-[10px] font-black px-3 py-1.5 rounded-full border border-emerald-100 uppercase">03. Review</span>
-                        <span class="text-slate-400 text-xs font-bold"><i class="fa fa-clock mr-1"></i> 60+ DAYS</span>
-                    </div>
-                    <h3 class="font-bold text-2xl mb-4">Post-Submission</h3>
-                    <div class="space-y-4">
-                        <div class="flex gap-4"><span class="text-[11px] font-black text-indigo-600 mt-1">STEP A</span><p class="text-sm font-bold text-slate-600 uppercase">Technical Review</p></div>
-                        <div class="flex gap-4"><span class="text-[11px] font-black text-indigo-600 mt-1">STEP B</span><p class="text-sm font-bold text-slate-600 uppercase">Expert Committee Presentation</p></div>
-                        <div class="flex gap-4 border-t pt-4"><span class="text-[11px] font-black text-emerald-600 mt-1">FINAL</span><p class="text-sm font-bold text-emerald-700 uppercase">Sanction & Disbursement</p></div>
-                    </div>
-                </div>
+            <span class="step-label">Quick Reference</span>
+            <h2 class="big-title">The First <span class="text-indigo-600">90 Days.</span></h2>
+            <div class="overflow-x-auto">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Registration</th>
+                            <th>Timeline / Threshold</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Commencement of Business (INC-20A)</td><td>Within 180 days of Incorporation</td></tr>
+                        <tr><td>Auditor Appointment (ADT-1)</td><td>Within 30 days of Incorporation</td></tr>
+                        <tr><td>DPIIT Recognition</td><td>Anytime post Incorporation (via NSWS)</td></tr>
+                        <tr><td>GST Registration</td><td>Immediately upon crossing threshold</td></tr>
+                        <tr><td>Professional Tax</td><td>Immediately upon hiring first employee</td></tr>
+                        <tr><td>EPF / ESI Registration</td><td>Upon meeting employee count threshold</td></tr>
+                        <tr><td>POSH Committee</td><td>Upon hiring 10+ employees</td></tr>
+                    </tbody>
+                </table>
             </div>
         </section>
 
         <footer class="mt-32 text-center py-24 border-t border-slate-100">
-            <h3 class="text-4xl font-black mb-10">Ready to <span class="text-indigo-600">execute?</span></h3>
+            <h3 class="text-4xl font-black mb-10">Don't let compliance <span class="text-indigo-600">slow you down.</span></h3>
             <a href="https://wa.me/917039196489" class="inline-block bg-black text-white px-16 py-6 rounded-full font-black text-xs uppercase tracking-[0.2em] hover:bg-indigo-600 transition-all shadow-2xl transform hover:-translate-y-1">
-                Consult with Counsel
+                Speak to Compliance Expert
             </a>
         </footer>
     </main>
