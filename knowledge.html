@@ -24,31 +24,28 @@
             align-items: center;
             justify-content: center;
             font-size: 28px;
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.15);
             z-index: 1000;
             transition: 0.3s;
         }
         .whatsapp-float:hover { transform: scale(1.1); background-color: #128c7e; }
 
-        /* Unified Smart Box System */
+        /* THE UNIFORM SMART BOX: Commit to one style */
         .smart-box {
-            background: white;
-            border: 1px solid #f1f5f9;
-            border-radius: 20px;
+            background: #ffffff;
+            border: 1.5px solid #f1f5f9; /* Subtle but defined */
+            border-radius: 16px;
             padding: 2.5rem;
             height: 100%;
-            transition: 0.3s;
+            transition: all 0.3s ease;
         }
-        .smart-box:hover { border-color: #e2e8f0; box-shadow: 0 15px 30px rgba(0,0,0,0.04); }
-
-        /* Dark Mode Contrast Box */
-        .smart-box-dark {
-            background: #0f172a;
-            color: white;
-            border: none;
+        .smart-box:hover {
+            border-color: #6366f1; /* Indigo focus on hover */
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.05);
         }
 
-        .step-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: #6366f1; }
+        .step-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.25em; color: #6366f1; display: block; margin-bottom: 1rem; }
+        .section-title { font-size: 2.5rem; font-weight: 800; tracking: -0.02em; margin-bottom: 3rem; }
     </style>
 </head>
 <body class="antialiased">
@@ -57,103 +54,111 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <nav class="border-b border-slate-50 bg-white sticky top-0 z-50">
+    <nav class="border-b border-slate-50 sticky top-0 bg-white/90 backdrop-blur-md z-50">
         <div class="container mx-auto px-8 py-6 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-4">
-                <img src="logo.png" alt="Willpower" class="h-10">
-                <span class="font-bold text-lg tracking-tighter">BusinessFundsForMe</span>
-            </a>
-            <span class="step-label">Step-By-Step Advisory</span>
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-indigo-600 rounded flex items-center justify-center text-white font-black text-xs">W</div>
+                <span class="font-extrabold text-xl tracking-tighter">BusinessFundsForMe</span>
+            </div>
+            <span class="text-[10px] font-black uppercase tracking-widest text-slate-400">Legal Advisory Hub</span>
         </div>
     </nav>
 
     <main class="container mx-auto max-w-7xl px-8 py-20">
 
         <section class="mb-32">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-                <div class="lg:col-span-4">
-                    <span class="step-label">Phase 01 — Selection</span>
-                    <h2 class="text-5xl font-extrabold tracking-tighter mt-4 leading-[1.1]">India's Business <br><span class="text-indigo-600">Taxonomy.</span></h2>
-                    <p class="text-slate-500 mt-6 leading-relaxed">Choosing a legal vehicle is a strategic decision affecting liability, tax, and capital potential.</p>
-                </div>
-                <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="smart-box-dark smart-box">
-                        <h3 class="text-xl font-bold mb-4">Private Limited</h3>
-                        <div class="grid grid-cols-2 gap-4 mt-6">
-                            <div class="bg-white/5 p-4 rounded-lg">
-                                <span class="text-[9px] font-black text-emerald-400 uppercase">Pro</span>
-                                <p class="text-[11px] mt-1">Unlimited VC Funding Potential</p>
-                            </div>
-                            <div class="bg-white/5 p-4 rounded-lg">
-                                <span class="text-[9px] font-black text-rose-400 uppercase">Con</span>
-                                <p class="text-[11px] mt-1">High Statutory Compliance</p>
-                            </div>
-                        </div>
+            <span class="step-label">Step 01</span>
+            <h2 class="section-title">Entity <span class="text-indigo-600">Selection.</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="smart-box">
+                    <h3 class="font-bold text-xl mb-4">Pvt. Ltd.</h3>
+                    <p class="text-sm text-slate-500 mb-6 leading-relaxed">The primary vehicle for global patenting and funding.</p>
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2 text-[10px] font-bold text-emerald-600 uppercase"><i class="fa fa-plus"></i> VC Fundable</div>
+                        <div class="flex items-center gap-2 text-[10px] font-bold text-rose-500 uppercase"><i class="fa fa-minus"></i> Higher Compliance</div>
                     </div>
-                    <div class="grid grid-cols-1 gap-6">
-                        <div class="smart-box py-6">
-                            <h4 class="font-bold">LLP</h4>
-                            <p class="text-xs text-slate-400 mt-1">Best for professional services; low annual maintenance.</p>
-                        </div>
-                        <div class="smart-box py-6">
-                            <h4 class="font-bold">Partnership</h4>
-                            <p class="text-xs text-slate-400 mt-1">Lowest setup time; unlimited personal liability.</p>
-                        </div>
+                </div>
+                <div class="smart-box">
+                    <h3 class="font-bold text-xl mb-4">LLP</h3>
+                    <p class="text-sm text-slate-500 mb-6 leading-relaxed">Ideal for professional service-based operations with lower overheads.</p>
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2 text-[10px] font-bold text-emerald-600 uppercase"><i class="fa fa-plus"></i> Low Cost</div>
+                        <div class="flex items-center gap-2 text-[10px] font-bold text-rose-500 uppercase"><i class="fa fa-minus"></i> No Equity Raise</div>
+                    </div>
+                </div>
+                <div class="smart-box">
+                    <h3 class="font-bold text-xl mb-4">Partnership</h3>
+                    <p class="text-sm text-slate-500 mb-6 leading-relaxed">Simplest setup for small local firms with zero statutory audit.</p>
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2 text-[10px] font-bold text-emerald-600 uppercase"><i class="fa fa-plus"></i> Fast Setup</div>
+                        <div class="flex items-center gap-2 text-[10px] font-bold text-rose-500 uppercase"><i class="fa fa-minus"></i> Full Liability</div>
                     </div>
                 </div>
             </div>
         </section>
 
         <section class="mb-32">
-            <span class="step-label">Phase 02 — Formation</span>
-            <h2 class="text-4xl font-extrabold tracking-tight mt-4 mb-12">Formation <span class="text-indigo-600">Pipeline.</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <span class="step-label">Step 02</span>
+            <h2 class="section-title">Formation <span class="text-indigo-600">Pipeline.</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="smart-box">
-                    <span class="text-3xl font-black text-slate-100 block mb-4">01</span>
+                    <div class="w-10 h-10 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-black mb-6">1</div>
                     <h3 class="font-bold text-lg mb-2">DSC & DIN</h3>
-                    <p class="text-sm text-slate-500">Digital signature and director ID acquisition—the core digital foundation.</p>
+                    <p class="text-xs text-slate-500 leading-relaxed">Securing digital signatures and Director IDs for legal authentication.</p>
                 </div>
                 <div class="smart-box">
-                    <span class="text-3xl font-black text-slate-100 block mb-4">02</span>
+                    <div class="w-10 h-10 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-black mb-6">2</div>
                     <h3 class="font-bold text-lg mb-2">MOA & AOA</h3>
-                    <p class="text-sm text-slate-500">Drafting the corporate charter and defining the business scope and bylaws.</p>
+                    <p class="text-xs text-slate-500 leading-relaxed">Drafting the corporate charter and defining the business bylaws.</p>
                 </div>
                 <div class="smart-box">
-                    <span class="text-3xl font-black text-slate-100 block mb-4">03</span>
+                    <div class="w-10 h-10 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-black mb-6">3</div>
                     <h3 class="font-bold text-lg mb-2">Incorporation</h3>
-                    <p class="text-sm text-slate-500">Official certification from the ROC and allotment of your unique CIN.</p>
+                    <p class="text-xs text-slate-500 leading-relaxed">Official ROC approval and allotment of the Corporate Identity Number (CIN).</p>
                 </div>
             </div>
         </section>
 
         <section class="mb-32">
-            <span class="step-label">Phase 03 — Post-Incorporation</span>
-            <h2 class="text-4xl font-extrabold tracking-tight mt-4 mb-12">Mandatory <span class="text-indigo-600">Credentials.</span></h2>
+            <span class="step-label">Step 03</span>
+            <h2 class="section-title">Mandatory <span class="text-indigo-600">Onboarding.</span></h2>
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                <div class="smart-box p-6 text-center"><h4 class="font-bold text-sm">UDYAM</h4><p class="text-[9px] text-slate-400 mt-1">MSME</p></div>
-                <div class="smart-box p-6 text-center"><h4 class="font-bold text-sm">GST</h4><p class="text-[9px] text-slate-400 mt-1">TAX ID</p></div>
-                <div class="smart-box p-6 text-center"><h4 class="font-bold text-sm">PTEC</h4><p class="text-[9px] text-slate-400 mt-1">PROF. TAX</p></div>
-                <div class="smart-box p-6 text-center"><h4 class="font-bold text-sm">FSSAI</h4><p class="text-[9px] text-slate-400 mt-1">FOOD</p></div>
-                <div class="smart-box p-6 text-center bg-indigo-50 border-indigo-100"><h4 class="font-bold text-sm text-indigo-900">DPIIT</h4><p class="text-[9px] text-indigo-500 mt-1">STARTUP</p></div>
-                <div class="smart-box p-6 text-center bg-indigo-50 border-indigo-100"><h4 class="font-bold text-sm text-indigo-900">80-IAC</h4><p class="text-[9px] text-indigo-500 mt-1">TAX HOLIDAY</p></div>
+                <div class="smart-box p-6 text-center hover:border-indigo-600">
+                    <h4 class="font-bold text-sm">UDYAM</h4>
+                </div>
+                <div class="smart-box p-6 text-center hover:border-indigo-600">
+                    <h4 class="font-bold text-sm">GST</h4>
+                </div>
+                <div class="smart-box p-6 text-center hover:border-indigo-600">
+                    <h4 class="font-bold text-sm">PTEC</h4>
+                </div>
+                <div class="smart-box p-6 text-center hover:border-indigo-600">
+                    <h4 class="font-bold text-sm">FSSAI</h4>
+                </div>
+                <div class="smart-box p-6 text-center border-indigo-200 bg-indigo-50/30">
+                    <h4 class="font-bold text-sm text-indigo-600">DPIIT</h4>
+                </div>
+                <div class="smart-box p-6 text-center border-indigo-200 bg-indigo-50/30">
+                    <h4 class="font-bold text-sm text-indigo-600">80-IAC</h4>
+                </div>
             </div>
         </section>
 
         <section>
-            <div class="smart-box-dark smart-box p-16">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <span class="step-label">Step 04</span>
+            <h2 class="section-title">Post-Recognition <span class="text-indigo-600">Scale.</span></h2>
+            <div class="smart-box p-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                     <div>
-                        <span class="step-label text-indigo-400">Phase 04 — Scale</span>
-                        <h2 class="text-4xl font-extrabold tracking-tight mt-4 mb-6">Scheme <span class="text-indigo-400">Onboarding.</span></h2>
-                        <p class="text-slate-400">Unlock central grants and seed funds by preparing a compliant application dossier.</p>
+                        <h3 class="text-2xl font-bold mb-6">Scheme Application</h3>
+                        <p class="text-slate-500 leading-relaxed">Once recognized by DPIIT, you unlock access to central grants. This requires a high-quality application dossier.</p>
                     </div>
-                    <div class="space-y-6">
-                        <h4 class="font-black text-xs uppercase tracking-widest text-indigo-300">Minimum Application Dossier</h4>
-                        <ul class="space-y-4 text-sm font-semibold">
-                            <li class="flex gap-4 items-center"><i class="fa fa-check text-emerald-500"></i> Detailed Project Report (DPR)</li>
-                            <li class="flex gap-4 items-center"><i class="fa fa-check text-emerald-500"></i> 3-Year Financial Projections</li>
-                            <li class="flex gap-4 items-center"><i class="fa fa-check text-emerald-500"></i> DPIIT Recognition Certificate</li>
-                            <li class="flex gap-4 items-center"><i class="fa fa-check text-emerald-500"></i> Technical Pitch Deck (PDF)</li>
+                    <div class="bg-slate-50 p-8 rounded-2xl">
+                        <h4 class="font-black text-[10px] uppercase tracking-widest text-slate-400 mb-6">Minimum Document Set</h4>
+                        <ul class="space-y-4 text-sm font-bold">
+                            <li><i class="fa fa-file-pdf text-indigo-600 mr-2"></i> Detailed Project Report (DPR)</li>
+                            <li><i class="fa fa-file-pdf text-indigo-600 mr-2"></i> 3-Year Financial Projections</li>
+                            <li><i class="fa fa-file-pdf text-indigo-600 mr-2"></i> Technical Pitch Deck</li>
                         </ul>
                     </div>
                 </div>
@@ -162,11 +167,8 @@
 
     </main>
 
-    <footer class="py-20 border-t border-slate-50 text-center">
-        <p class="text-[10px] font-bold text-slate-300 uppercase tracking-[0.4em]">Ready to architect your business?</p>
-        <div class="mt-8">
-            <a href="https://wa.me/917039196489" class="bg-indigo-600 text-white px-10 py-4 rounded-full font-black text-xs uppercase tracking-widest hover:scale-105 transition-all">Initiate Advisory</a>
-        </div>
+    <footer class="py-24 border-t border-slate-100 text-center">
+        <a href="https://wa.me/917039196489" class="bg-indigo-600 text-white px-12 py-5 rounded-full font-black text-xs uppercase tracking-widest hover:bg-black transition-all">Consult with Counsel</a>
     </footer>
 
 </body>
