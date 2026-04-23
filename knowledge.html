@@ -3,145 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advisory | BusinessFundsForMe</title>
+    <title>Advisory Hub | BusinessFundsForMe</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #ffffff; color: #1e293b; scroll-behavior: smooth; }
-        .segment { padding: 4rem 0; border-bottom: 1px solid #f1f5f9; }
-        .segment:nth-child(even) { background-color: #f8fafc; }
-        .big-title { font-size: 2.25rem; font-weight: 800; letter-spacing: -0.02em; color: #0f172a; margin-bottom: 2rem; }
-        .pill-tag { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; padding: 4px 12px; border-radius: 6px; }
-        .pro-label { background: #ecfdf5; color: #059669; }
-        .con-label { background: #fef2f2; color: #dc2626; }
-        .flow-line { position: relative; padding-left: 2.5rem; }
-        .flow-line::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: #e2e8f0; }
-        .flow-dot { position: absolute; left: -4px; top: 0.5rem; width: 10px; height: 10px; background: #6366f1; border-radius: 50%; }
+        body { font-family: 'Inter', sans-serif; background-color: #fcfcfc; color: #1a1a1a; }
+        .segment-container { border-bottom: 1px solid #eee; padding: 6rem 0; }
+        .segment-container:nth-child(even) { background-color: #f8fafc; }
+        
+        /* Step-Up Pictorial Elements */
+        .step-tag { font-size: 11px; font-weight: 900; color: #6366f1; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1rem; display: block; }
+        .pro-con-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #eee; border: 1px solid #eee; border-radius: 12px; overflow: hidden; }
+        .pro-con-box { background: white; padding: 1.5rem; }
+        
+        .number-bg { 
+            position: absolute; font-size: 12rem; font-weight: 900; color: rgba(0,0,0,0.03); 
+            top: -2rem; left: -2rem; z-index: -1; pointer-events: none;
+        }
     </style>
 </head>
 <body class="antialiased">
 
-    <nav class="p-6 border-b sticky top-0 bg-white/80 backdrop-blur-md z-50 flex justify-between items-center">
-        <a href="index.html" class="font-bold text-xs uppercase tracking-widest text-slate-400">← Back to Portal</a>
-        <h1 class="font-black text-sm uppercase tracking-tighter text-indigo-950">Founder's Legal Blueprint</h1>
+    <nav class="sticky top-0 bg-white/90 backdrop-blur-md border-b z-50 py-4 px-8 flex justify-between items-center">
+        <a href="index.html" class="text-[10px] font-black uppercase tracking-widest text-slate-400">← Back to Search</a>
+        <div class="flex gap-6">
+            <span class="text-[10px] font-bold text-indigo-600 uppercase">Step-By-Step Advisory</span>
+        </div>
     </nav>
 
-    <section class="segment">
-        <div class="container mx-auto max-w-5xl px-6">
-            <h2 class="big-title">01. Entity Selection <span class="text-indigo-600">Architecture.</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
-                    <h3 class="font-bold text-lg mb-2">LLP</h3>
-                    <p class="text-xs text-slate-500 mb-4 italic">Limited Liability Partnership</p>
-                    <ul class="space-y-2 mb-6">
-                        <li class="text-xs flex gap-2"><span class="pill-tag pro-label">Pro</span> Low compliance cost.</li>
-                        <li class="text-xs flex gap-2"><span class="pill-tag con-label">Con</span> Not ideal for VC funding.</li>
-                    </ul>
-                </div>
-                <div class="bg-indigo-950 p-6 rounded-2xl text-white shadow-xl">
-                    <h3 class="font-bold text-lg mb-2">Private Limited</h3>
-                    <p class="text-xs text-indigo-300 mb-4 italic">Recommended for Startups</p>
-                    <ul class="space-y-2 mb-6">
-                        <li class="text-xs flex gap-2"><span class="pill-tag bg-emerald-500 text-white">Pro</span> Highly fundable by VCs.</li>
-                        <li class="text-xs flex gap-2"><span class="pill-tag bg-rose-500 text-white">Con</span> High compliance rigor.</li>
-                    </ul>
-                </div>
-                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
-                    <h3 class="font-bold text-lg mb-2">Registered Partnership</h3>
-                    <p class="text-xs text-slate-500 mb-4 italic">Standard Business</p>
-                    <ul class="space-y-2 mb-6">
-                        <li class="text-xs flex gap-2"><span class="pill-tag pro-label">Pro</span> Easiest to setup.</li>
-                        <li class="text-xs flex gap-2"><span class="pill-tag con-label">Con</span> Unlimited personal liability.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="segment">
-        <div class="container mx-auto max-w-5xl px-6">
-            <h2 class="big-title">02. Formation <span class="text-indigo-600">Pipeline.</span></h2>
-            <div class="space-y-12">
-                <div class="flow-line">
-                    <div class="flow-dot"></div>
-                    <h4 class="font-black text-xs uppercase tracking-widest text-slate-400 mb-2">Step 01</h4>
-                    <h3 class="font-bold text-xl mb-2">Digital Identity (DSC & DIN)</h3>
-                    <p class="text-sm text-slate-500 max-w-2xl">Founders must secure a Digital Signature Certificate (DSC) and Director Identification Number (DIN) as the primary legal authentication.</p>
-                </div>
-                <div class="flow-line">
-                    <div class="flow-dot"></div>
-                    <h4 class="font-black text-xs uppercase tracking-widest text-slate-400 mb-2">Step 02</h4>
-                    <h3 class="font-bold text-xl mb-2">Name Approval & MOA/AOA</h3>
-                    <p class="text-sm text-slate-500 max-w-2xl">Drafting the Charter of the company (Memorandum and Articles of Association) to define business scope and bylaws.</p>
-                </div>
-                <div class="flow-line">
-                    <div class="flow-dot"></div>
-                    <h4 class="font-black text-xs uppercase tracking-widest text-slate-400 mb-2">Step 03</h4>
-                    <h3 class="font-bold text-xl mb-2">Certificate of Incorporation</h3>
-                    <p class="text-sm text-slate-500 max-w-2xl">Final approval from ROC (Registrar of Companies) awarding your COI and Corporate Identity Number (CIN).</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="segment">
-        <div class="container mx-auto max-w-5xl px-6">
-            <h2 class="big-title">03. Mandatory <span class="text-indigo-600">Registrations.</span></h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="p-4 border rounded-xl bg-white">
-                    <span class="block font-black text-indigo-600">UDYAM</span>
-                    <span class="text-[10px] text-slate-400 uppercase font-bold">MSME Benefits</span>
-                </div>
-                <div class="p-4 border rounded-xl bg-white">
-                    <span class="block font-black text-indigo-600">GST</span>
-                    <span class="text-[10px] text-slate-400 uppercase font-bold">Tax Compliance</span>
-                </div>
-                <div class="p-4 border rounded-xl bg-white">
-                    <span class="block font-black text-indigo-600">FSSAI / BIS</span>
-                    <span class="text-[10px] text-slate-400 uppercase font-bold">Quality & Safety</span>
-                </div>
-                <div class="p-4 border rounded-xl bg-white">
-                    <span class="block font-black text-indigo-600">IEC</span>
-                    <span class="text-[10px] text-slate-400 uppercase font-bold">Import / Export</span>
-                </div>
-                <div class="p-4 border border-indigo-200 bg-indigo-50 rounded-xl col-span-2">
-                    <span class="block font-black text-indigo-900">DPIIT RECOGNITION</span>
-                    <span class="text-[10px] text-indigo-500 uppercase font-bold">The Startup Golden Ticket</span>
-                </div>
-                <div class="p-4 border border-indigo-200 bg-indigo-50 rounded-xl col-span-2">
-                    <span class="block font-black text-indigo-900">SECTION 80IAC</span>
-                    <span class="text-[10px] text-indigo-500 uppercase font-bold">3-Year Tax Holiday</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="segment">
-        <div class="container mx-auto max-w-5xl px-6">
-            <h2 class="big-title">04. Post-Recognition <span class="text-indigo-600">Scale.</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+    <section class="segment-container relative overflow-hidden">
+        <div class="container mx-auto max-w-6xl px-8">
+            <div class="number-bg">01</div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
                 <div>
-                    <h3 class="font-bold text-lg mb-4">Applying for Schemes</h3>
-                    <p class="text-sm text-slate-500 mb-6 leading-relaxed">Once you have your DPIIT Certificate, the portal unlocks Seed Funds and Central Grants. This is the 10% of the journey that funds the other 90%.</p>
+                    <span class="step-tag">Phase One: Selection</span>
+                    <h2 class="text-5xl font-black tracking-tighter mb-6 leading-none">India's Business <br><span class="text-indigo-600">Taxonomy.</span></h2>
+                    <p class="text-slate-500 text-lg mb-8">Choosing the right legal vehicle is a strategic decision that affects your liability, tax, and ability to raise capital.</p>
                 </div>
-                <div class="bg-slate-900 text-white p-8 rounded-3xl">
-                    <h3 class="font-bold text-xs uppercase tracking-widest text-indigo-400 mb-6">Minimum Documents Required</h3>
-                    <ul class="space-y-3 text-sm">
-                        <li class="flex items-center gap-3"><i class="fa fa-file-pdf text-indigo-400"></i> Detailed Project Report (DPR)</li>
-                        <li class="flex items-center gap-3"><i class="fa fa-file-pdf text-indigo-400"></i> 3-Year Financial Projections</li>
-                        <li class="flex items-center gap-3"><i class="fa fa-file-pdf text-indigo-400"></i> DPIIT Recognition Certificate</li>
-                        <li class="flex items-center gap-3"><i class="fa fa-file-pdf text-indigo-400"></i> Pitch Deck (PDF)</li>
+                <div class="space-y-4">
+                    <div class="bg-indigo-950 p-8 rounded-[2rem] text-white shadow-2xl">
+                        <h3 class="text-2xl font-bold mb-4">Private Limited (Pvt Ltd)</h3>
+                        <div class="pro-con-grid text-slate-900">
+                            <div class="pro-con-box">
+                                <span class="text-[10px] font-black text-emerald-600 uppercase">Pros</span>
+                                <p class="text-xs font-bold mt-2">Unlimited VC Funding, Separate Legal Entity, High Credibility.</p>
+                            </div>
+                            <div class="pro-con-box">
+                                <span class="text-[10px] font-black text-rose-600 uppercase">Cons</span>
+                                <p class="text-xs font-bold mt-2">Annual ROC Filings, Audit Mandatory, Higher Setup Cost.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-6 bg-white border rounded-2xl">
+                            <h4 class="font-bold mb-2">LLP</h4>
+                            <p class="text-[11px] text-slate-500">Best for professional services. No Dividend Distribution Tax.</p>
+                        </div>
+                        <div class="p-6 bg-white border rounded-2xl">
+                            <h4 class="font-bold mb-2">Partnership</h4>
+                            <p class="text-[11px] text-slate-500">Lowest compliance. Best for small local trading firms.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="segment-container">
+        <div class="container mx-auto max-w-6xl px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
+                <div class="order-2 md:order-1 space-y-6">
+                    <div class="flex gap-6 items-start p-6 bg-white border rounded-2xl">
+                        <span class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center font-black">1</span>
+                        <div>
+                            <h4 class="font-bold">DSC & DIN Acquisition</h4>
+                            <p class="text-xs text-slate-500 mt-1">Digital authentication for all directors. The first step in digital governance.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6 items-start p-6 bg-white border rounded-2xl">
+                        <span class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center font-black">2</span>
+                        <div>
+                            <h4 class="font-bold">NAME & MOA/AOA Approval</h4>
+                            <p class="text-xs text-slate-500 mt-1">Reserve your unique name and define the company's constitution through SPICe+ forms.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6 items-start p-6 bg-indigo-50 border border-indigo-100 rounded-2xl">
+                        <span class="w-12 h-12 rounded-full bg-indigo-600 text-white flex items-center justify-center font-black">3</span>
+                        <div>
+                            <h4 class="font-bold text-indigo-900">Certificate of Incorporation</h4>
+                            <p class="text-xs text-indigo-700 mt-1">Official birth of your company with a unique Corporate Identity Number (CIN).</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2">
+                    <span class="step-tag">Phase Two: Pipeline</span>
+                    <h2 class="text-5xl font-black tracking-tighter mb-6">Formation <br><span class="text-indigo-600">Sequence.</span></h2>
+                    <p class="text-slate-500 text-lg">A systematic 14-to-21 day cycle to bring your corporate entity into legal existence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="segment-container relative">
+        <div class="container mx-auto max-w-6xl px-8">
+            <div class="text-center mb-16">
+                <span class="step-tag">Phase Three: Compliance</span>
+                <h2 class="text-5xl font-black tracking-tighter">Mandatory <span class="text-indigo-600">Onboarding.</span></h2>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="p-8 border rounded-[2rem] bg-white text-center hover:shadow-xl transition-all">
+                    <div class="text-3xl mb-4">🏭</div>
+                    <h4 class="font-black text-lg">UDYAM</h4>
+                    <p class="text-[10px] text-slate-400 uppercase font-bold mt-2">MSME Entitlements</p>
+                </div>
+                <div class="p-8 border rounded-[2rem] bg-white text-center hover:shadow-xl transition-all">
+                    <div class="text-3xl mb-4">🧾</div>
+                    <h4 class="font-black text-lg">GST</h4>
+                    <p class="text-[10px] text-slate-400 uppercase font-bold mt-2">Indirect Tax ID</p>
+                </div>
+                <div class="p-8 border rounded-[2rem] bg-white text-center hover:shadow-xl transition-all">
+                    <div class="text-3xl mb-4">🌍</div>
+                    <h4 class="font-black text-lg">IEC</h4>
+                    <p class="text-[10px] text-slate-400 uppercase font-bold mt-2">Global Trade Code</p>
+                </div>
+                <div class="p-8 border rounded-[2rem] bg-indigo-950 text-white text-center shadow-2xl">
+                    <div class="text-3xl mb-4">💎</div>
+                    <h4 class="font-black text-lg">DPIIT</h4>
+                    <p class="text-[10px] text-indigo-400 uppercase font-bold mt-2">Startup Recognition</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="segment-container bg-slate-900 text-white">
+        <div class="container mx-auto max-w-6xl px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
+                <div>
+                    <span class="step-tag text-indigo-400">Phase Four: Funding</span>
+                    <h2 class="text-5xl font-black tracking-tighter mb-8">Post-Recognition <br>Scale.</h2>
+                    <p class="text-slate-400 text-lg">The final hurdle is applying for state and central schemes. Success depends on the quality of your documentation.</p>
+                </div>
+                <div class="bg-white/5 border border-white/10 p-10 rounded-[3rem]">
+                    <h4 class="font-black text-xs uppercase tracking-widest text-indigo-400 mb-8 underline decoration-2 underline-offset-8">Required Application Dossier</h4>
+                    <ul class="space-y-6">
+                        <li class="flex justify-between items-center border-b border-white/5 pb-4">
+                            <span class="font-bold text-sm">Detailed Project Report (DPR)</span>
+                            <i class="fa fa-check-circle text-emerald-500"></i>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-white/5 pb-4">
+                            <span class="font-bold text-sm">3-Year Financial Projections</span>
+                            <i class="fa fa-check-circle text-emerald-500"></i>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-white/5 pb-4">
+                            <span class="font-bold text-sm">Pitch Deck (Technical)</span>
+                            <i class="fa fa-check-circle text-emerald-500"></i>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <span class="font-bold text-sm">Equity Dilution Roadmap</span>
+                            <i class="fa fa-check-circle text-emerald-500"></i>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-20 text-center">
-        <p class="text-slate-400 text-xs font-bold uppercase tracking-[0.3em] mb-8">Ready to architect your business?</p>
-        <a href="https://wa.me/917039196489" class="bg-black text-white px-12 py-5 rounded-full font-black text-xs uppercase tracking-widest hover:scale-105 transition-all">Consult with Counsel</a>
-    </footer>
+    <div class="py-32 text-center">
+        <h3 class="text-3xl font-black mb-8">Ready to initiate your <span class="text-indigo-600">Dossier?</span></h3>
+        <a href="https://wa.me/917039196489" class="bg-indigo-600 text-white px-16 py-6 rounded-full font-black text-xs uppercase tracking-widest hover:bg-black transition-all shadow-2xl">Initiate Consultation</a>
+    </div>
 
 </body>
 </html>
